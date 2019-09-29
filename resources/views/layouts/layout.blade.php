@@ -16,7 +16,6 @@
                                 <li class="nav-item "><a class="nav-link {{ setActive('maintenance.index') }} " href="{{ route('maintenance.index') }}">Mantencion</a></li>
                             @endif
 
-
                             <li class="nav-item "><a class="nav-link {{ setActive('inventory') }} " href="{{ route('inventory') }}">Inventario</a></li>
                             <li class="nav-item "><a class="nav-link {{ setActive('lendings') }} " href="{{ route('lendings') }}">Prestamos</a></li>
                             @if (auth()->user()->hasRoles(['Chief']))

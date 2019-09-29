@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('roles')->insert([
             'id'=>null,
-            'key'=>'Usuario',
+            'key'=>'User',
             'name'=>'Usuario'
         ]);
 
