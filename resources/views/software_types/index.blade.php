@@ -1,4 +1,4 @@
-@extends('layouts.second')
+@extends('layouts.inventario')
 
 @section('indice')
 <div class="container">

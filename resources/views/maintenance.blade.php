@@ -1,7 +1,7 @@
-@extends('layouts.layout')
+@extends('layouts.mantencion')
 @section('title')
-    Mantencion
+Mantencion
 @endsection
-@section('content')
+@section('indice')
     <h1>Mantencion</h1>
 @endsection

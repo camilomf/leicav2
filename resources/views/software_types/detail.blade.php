@@ -1,5 +1,6 @@
-@extends('layouts.layout')
-@section('content')
+@extends('layouts.inventario')
+
+@section('indice')
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -21,12 +22,12 @@
       <div class="col-md-12">
             <div class="form-group">
               <strong>Softwares Asignados : </strong>
-              {{-- <table class="table table-hover table-sm">
-                    @foreach ($software_type->softwares as $software)
+              <table class="table table-hover table-sm">
+                    @foreach ($software_type->software as $softwares)
                     <tr>
-                          <td>{{$software->name}}</td>
+                          <td>{{$softwares->name}}</td>
                     @endforeach
-              </table> --}}
+              </table>
 
             </div>
           </div>

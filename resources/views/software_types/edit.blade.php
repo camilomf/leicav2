@@ -1,5 +1,6 @@
-@extends('layouts.layout')
-@section('content')
+@extends('layouts.inventario')
+
+@section('indice')
   <div class="container">
     <div class="row">
       <div class="col-lg-12">

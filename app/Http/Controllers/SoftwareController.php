@@ -62,9 +62,10 @@ class SoftwareController extends Controller
      * @param  \App\Software  $software
      * @return \Illuminate\Http\Response
      */
-    public function show(Software $software)
+    public function show($id)
     {
-        //
+        $software = Software::find($id);
+        return view('software.detail', compact('software'));
     }
 
     /**
@@ -73,9 +74,12 @@ class SoftwareController extends Controller
      * @param  \App\Software  $software
      * @return \Illuminate\Http\Response
      */
-    public function edit(Software $software)
+    public function edit($id)
     {
-        //
+        $software = Software::find($id);
+        $software_types = DB::table('software_types')->get();
+
+        return view('software.edit',compact('software','software_types'));
     }
 
     /**
@@ -85,9 +89,21 @@ class SoftwareController extends Controller
      * @param  \App\Software  $software
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Software $software)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'version' => 'required',
+          ]);
+          $software = Software::find($id);
+          $software->name = $request->get('name');
+          $software->version = $request->get('version');
+          $software->description = $request->get('description');
+          $software->observation = $request->get('observation');
+          $software->software_type_id = $request->get('software_type_id');
+          $software->save();
+          return redirect()->route('software.index')
+                          ->with('success', 'software actualizado exitosamente');
     }
 
     /**
@@ -96,8 +112,11 @@ class SoftwareController extends Controller
      * @param  \App\Software  $software
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Software $software)
+    public function destroy($id)
     {
-        //
+        $software = Software::find($id);
+        $software->delete();
+        return redirect()->route('software.index')
+                        ->with('success', 'software eliminado exitosamente');
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.second')
+@extends('layouts.inventario')
 
 @section('indice')
 <div class="container">
@@ -29,13 +29,13 @@
               <td><b>{{ $software->id }}.</b></td>
               <td>{{ $software->name}} {{ $software->version }}</td>
               <td>
-                {{-- <form action="{{ route('plan.destroy', $software->id) }}" method="post">
-                  <a class="btn btn-sm btn-success" href="{{route('plan.show',$software->id)}}">Detalle</a>
-                  <a class="btn btn-sm btn-warning" href="{{route('plan.edit',$software->id)}}">Editar</a>
+                <form action="{{ route('software.destroy', $software->id) }}" method="post">
+                  <a class="btn btn-sm btn-success" href="{{route('software.show',$software->id)}}">Detalle</a>
+                  <a class="btn btn-sm btn-warning" href="{{route('software.edit',$software->id)}}">Editar</a>
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
-                </form> --}}
+                </form>
               </td>
             </tr>
           @endforeach

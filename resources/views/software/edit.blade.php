@@ -1,9 +1,10 @@
-@extends('layouts.layout')
-@section('content')
+@extends('layouts.inventario')
+
+@section('indice')
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Editar Plan de estudio</h3>
+        <h3>Editar Software</h3>
       </div>
     </div>
 
@@ -18,44 +19,47 @@
       </div>
     @endif
 
-    <form action="{{route('plan.update',$study_plan->id)}}" method="post">
+    <form action="{{route('software.update',$software->id)}}" method="post">
       @csrf
       @method('PUT')
       <div class="row">
         <div class="col-md-12">
           <strong>Nombre :</strong>
-          <input type="text" name="name" class="form-control" value="{{$study_plan->name}}">
-        </div>
-         <div class="col-md-12">
-                <strong>Fecha de inicio :</strong>
-                <input type="date" name="date_start" class="form-control" value="{{$study_plan->date_start}}">
-
+          <input type="text" name="name" class="form-control" value="{{$software->name}}">
         </div>
         <div class="col-md-12">
-            <strong>Fecha de termino :</strong>
-            <input type="date" name="date_end" class="form-control" value="{{$study_plan->date_end}}">
+          <strong>Version :</strong>
+          <input type="text" name="version" class="form-control" placeholder="" required='required' value="{{$software->name}}">
         </div>
+      <div class="col-md-12">
+          <strong>Observation :</strong>
+          <textarea class="form-control" placeholder="Descripcion" name="observation" rows="8" cols="80" value="{{$software->observation}}"></textarea>
+      </div>
+      <div class="col-md-12">
+          <strong>Descripcion :</strong>
+          <textarea class="form-control" placeholder="Descripcion" name="description" rows="8" cols="80" value="{{$software->description}}"></textarea>
+      </div>
 
-        @if ($study_plan->career!=null)
+        @if ($software->career!=null)
             <div class="col-md-12">
-                    <strong>Carrera: </strong>
-                    <select class="form-control" name="id_career">
+                    <strong>Tipo de software: </strong>
+                    <select class="form-control" name="software_type_id">
                         <option selected
-                                value="{{$study_plan->career->id}}">{{$study_plan->career->name}}</option>
-                        @foreach ($careers as $career)
-                            <option value="{{$career->id}}">{{$career->name}}</option>
+                                value="{{$software->sofwareType->id}}">{{$software->sofwareType->name}}</option>
+                        @foreach ($software_types as $software_type)
+                            <option value="{{$software_type->id}}">{{$software_type->name}}</option>
                         @endforeach
-                        <option value=''>No asignar carrera</option>
+                        <option value=''>No asignar tipo de software</option>
                     </select>
              </div>
 
         @else
             <div class="col-md-12">
-                    <strong>Carrera: </strong>
-                    <select class="form-control" name="career_id">
-                        <option value=''>No asignar carrera</option>
-                        @foreach ($careers as $career)
-                            <option value="{{$career->id}}">{{$career->name}}</option>
+                    <strong>Tipo de software: </strong>
+                    <select class="form-control" name="software_type_id">
+                        <option value=''>No asignar tipo de software</option>
+                        @foreach ($software_types as $software_type)
+                            <option value="{{$software_type->id}}">{{$software_type->name}}</option>
                         @endforeach
                     </select>
             </div>
@@ -66,7 +70,7 @@
 
 
         <div class="col-md-12">
-          <a href="{{route('plan.index')}}" class="btn btn-sm btn-success">Atras</a>
+          <a href="{{route('software.index')}}" class="btn btn-sm btn-success">Atras</a>
           <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
         </div>
       </div>

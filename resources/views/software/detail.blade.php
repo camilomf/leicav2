@@ -1,40 +1,48 @@
-@extends('layouts.layout')
-@section('content')
+@extends('layouts.inventario')
+
+@section('indice')
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Detalle Plan de Carrera</h3>
+        <h3>Detalle Software</h3>
         <hr>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Nombre : </strong> {{$study_plan->name}}
+          <strong>Nombre : </strong> {{$software->name}}
         </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Fecha de Inicio : </strong> {{$study_plan->date_start}}
+          <strong>Version : </strong> {{$software->version}}
         </div>
       </div>
       <div class="col-md-12">
             <div class="form-group">
-              <strong>Fecha de Termino : </strong> {{$study_plan->date_start}}
+              <strong>Descripcion : </strong> {{$software->description}}
             </div>
-          </div>
-        <div class="col-md-12">
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <strong>Observacion : </strong> {{$software->observation}}
+        </div>
+      </div>
+        
+      
+      <div class="col-md-12">
                 <div class="form-group">
-                    @if ($study_plan->career!=null)
-                        <strong>Carrera : </strong>{{ $study_plan->career->name }}
+                    @if ($software->softwareType!=null)
+                        <strong>Tipo de Software : </strong>{{ $software->softwareType->name }}
                     @else
-                        <strong>Carrera : </strong>No hay carrera asignada
+                        <strong>Tipo de Software : </strong>No hay tipo de software asignado
                     @endif
 
                 </div>
          </div>
       <div class="col-md-12">
-        <a href="{{route('plan.index')}}" class="btn btn-sm btn-success">Atras</a>
+        <a href="{{route('software.index')}}" class="btn btn-sm btn-success">Atras</a>
       </div>
     </div>
   </div>

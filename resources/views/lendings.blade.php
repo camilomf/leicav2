@@ -1,8 +1,8 @@
-@extends('layouts.layout')
+@extends('layouts.prestamo')
 @section('title')
-    Prestamos
+Prestamos
 @endsection
-@section('content')
+@section('indice')
     <h1>Prestamos</h1>
 @endsection
 
