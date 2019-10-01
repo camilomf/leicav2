@@ -14,7 +14,8 @@ class SoftwareTypeController extends Controller
      */
     public function index()
     {
-        //
+        $software_types=SoftwareType::all();
+        return view('software_types.index',compact('software_types'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SoftwareTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('software_types.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class SoftwareTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required'
+          ]);
+
+          SoftwareType::create($request->all());
+          return redirect()->route('software_type.index')
+                          ->with('success', 'Tipo de software agregado correctamente');
     }
 
     /**
@@ -44,9 +52,10 @@ class SoftwareTypeController extends Controller
      * @param  \App\SoftwareType  $softwareType
      * @return \Illuminate\Http\Response
      */
-    public function show(SoftwareType $softwareType)
+    public function show($id)
     {
-        //
+        $software_type = SoftwareType::find($id);
+        return view('software_types.detail', compact('software_type'));
     }
 
     /**
@@ -55,9 +64,10 @@ class SoftwareTypeController extends Controller
      * @param  \App\SoftwareType  $softwareType
      * @return \Illuminate\Http\Response
      */
-    public function edit(SoftwareType $softwareType)
+    public function edit($id)
     {
-        //
+        $software_type = SoftwareType::find($id);
+        return view('software_types.edit', compact('software_type'));
     }
 
     /**
@@ -67,9 +77,18 @@ class SoftwareTypeController extends Controller
      * @param  \App\SoftwareType  $softwareType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SoftwareType $softwareType)
+    public function update(Request $request,$id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required'
+          ]);
+          $software_type = SoftwareType::find($id);
+          $software_type->name = $request->get('name');
+          $software_type->description = $request->get('description');
+          $software_type->save();
+          return redirect()->route('software_type.index')
+                          ->with('success', 'Tipo de software actualizado exitosamente');
     }
 
     /**
@@ -78,8 +97,11 @@ class SoftwareTypeController extends Controller
      * @param  \App\SoftwareType  $softwareType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SoftwareType $softwareType)
+    public function destroy($id)
     {
-        //
+        $software_type = SoftwareType::find($id);
+        $software_type->delete();
+        return redirect()->route('software_type.index')
+                        ->with('success', 'Tipo de software eliminado exitosamente');
     }
 }

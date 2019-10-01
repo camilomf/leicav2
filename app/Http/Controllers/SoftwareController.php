@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Software;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class SoftwareController extends Controller
      */
     public function index()
     {
-        //
+        $softwares=Software::all();
+        return view('software.index',compact('softwares'));
     }
 
     /**
@@ -24,7 +26,8 @@ class SoftwareController extends Controller
      */
     public function create()
     {
-        //
+        $software_types = DB::table('software_types')->get();
+        return view('software.create',compact('software_types'));
     }
 
     /**
@@ -35,7 +38,22 @@ class SoftwareController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'version' => 'required',
+          ]);
+
+          $software = new Software();
+          $software->name = $request->get('name');
+          $software->version = $request->get('version');
+          $software->description = $request->get('description');
+          $software->observation = $request->get('observation');
+          $software->software_type_id = $request->get('software_type_id');
+          $software->save();
+
+        //   SoftwareType::create($request->all());
+          return redirect()->route('software.index')
+                          ->with('success', 'Software agregado correctamente');
     }
 
     /**

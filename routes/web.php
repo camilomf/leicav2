@@ -23,6 +23,8 @@ Auth::routes(['register'=>false]);
 
 Route::resource('/home/study_plan/career', 'CareerController',['names'=>['career']])->middleware('auth');
 Route::resource('/home/study_plan/plan', 'StudyPlanController',['names'=>['plan']])->middleware('auth');
+Route::resource('/home/software_type', 'SoftwareTypeController',['names'=>['software_type']])->middleware('auth');
+Route::resource('/home/software', 'SoftwareController',['names'=>['software']])->middleware('auth');
 
 Route::resource('/home/users', 'UsersController',['names'=>['users']])->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');

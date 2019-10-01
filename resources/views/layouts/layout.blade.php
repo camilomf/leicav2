@@ -59,9 +59,9 @@
         </div>
 
         <footer class="footer-f">
-            <div class="container-f">
+            {{-- <div class="container-f">
                  <span class="text-muted">{{ config('app.name') }} | Copyright @ {{ date('Y') }}</span>
-            </div>
+            </div> --}}
         </footer>
 
 
