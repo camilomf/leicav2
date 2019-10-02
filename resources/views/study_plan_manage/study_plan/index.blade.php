@@ -7,10 +7,10 @@
             <h3>Lista de Planes de estudio</h3>
           </div>
           <div class="col-sm-2">
-            <a class="btn btn-sm btn-success" href="{{ route('plan.create') }}">Agregar plan de estudio</a>
+            <a class="btn btn-primary" href="{{ route('plan.create') }}">Agregar plan de estudio</a>
           </div>
         </div>
-
+        <br>
         @if ($message = Session::get('success'))
           <div class="alert alert-success">
             <p>{{$message}}</p>
@@ -20,8 +20,8 @@
         <table class="table table-hover table-sm">
           <tr>
             <th width = "50px"><b>ID.</b></th>
-            <th width = "300px">Nombre</th>
-            <th width = "180px">Accion</th>
+            <th>Nombre</th>
+            <th width = "340px">Accion</th>
           </tr>
 
           @foreach ($study_plans as $study_plan)
@@ -30,11 +30,12 @@
               <td>{{$study_plan->name}}</td>
               <td>
                 <form action="{{ route('plan.destroy', $study_plan->id) }}" method="post">
-                  <a class="btn btn-sm btn-success" href="{{route('plan.show',$study_plan->id)}}">Detalle</a>
-                  <a class="btn btn-sm btn-warning" href="{{route('plan.edit',$study_plan->id)}}">Editar</a>
+                  <a class="btn btn-info" href="{{route('plan.show',$study_plan->id)}}">Detalle</a>
+                  <a class="btn btn-warning" href="{{route('plan.edit',$study_plan->id)}}">Editar</a>
+                  <a class="btn btn-success" href="{{route('planbysoftware.edit',$study_plan->id)}}">Software</a>
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                  <button type="submit" class="btn btn-outline-danger">Eliminar</button>
                 </form>
               </td>
             </tr>

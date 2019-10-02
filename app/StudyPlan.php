@@ -11,4 +11,8 @@ class StudyPlan extends Model
     public function career(){
         return $this->belongsTo(Career::class);
     }
+
+    public function software(){
+        return $this->belongsToMany(Software::class,'software_plan_study','software_id','plan_study_id');
+    }
 }

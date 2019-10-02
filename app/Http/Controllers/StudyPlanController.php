@@ -129,4 +129,6 @@ class StudyPlanController extends Controller
         return redirect()->route('plan.index')
                         ->with('success', 'Plan de estudio eliminado exitosamente');
     }
+
+    
 }
