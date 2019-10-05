@@ -2,31 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use App\Career;
+use App\Place;
 use Illuminate\Http\Request;
 
-class CareerController extends Controller
+class PlaceController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    function __construct()
-    {
-        $this->middleware(['auth',
-        'roles:Chief'
-        ]);
-
-    }
-
     public function index()
     {
-        $careers=DB::table('careers')->get();
-        return view('study_plan_manage.career.index',compact('careers'));
+        $places=Place::all();
+        return view('places.index',compact('places'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -35,7 +25,7 @@ class CareerController extends Controller
      */
     public function create()
     {
-        return view('study_plan_manage.career.create');
+        return view('places.create');
     }
 
     /**
@@ -51,40 +41,39 @@ class CareerController extends Controller
             'description' => 'required'
           ]);
 
-          career::create($request->all());
-          return redirect()->route('career.index')
-                          ->with('success', 'Carrera agregada correctamente');
+          Place::create($request->all());
+          return redirect()->route('places.index')
+                          ->with('success', 'Lugar agregado correctamente');
     }
-
     /**
      * Display the specified resource.
      *
-     * @param  \App\Career  $career
+     * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $career = Career::find($id);
-        return view('study_plan_manage.career.detail', compact('career'));
+        $place = Place::find($id);
+        return view('places.detail', compact('place'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Career  $career
+     * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $career = Career::find($id);
-        return view('study_plan_manage.career.edit', compact('career'));
+        $place = Place::find($id);
+        return view('place.edit', compact('place'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Career  $career
+     * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
@@ -93,25 +82,25 @@ class CareerController extends Controller
             'name' => 'required',
             'description' => 'required'
           ]);
-          $career = career::find($id);
-          $career->name = $request->get('name');
-          $career->description = $request->get('description');
-          $career->save();
-          return redirect()->route('career.index')
-                          ->with('success', 'Carrera actualizada exitosamente');
+          $place = Place::find($id);
+          $place->name = $request->get('name');
+          $place->description = $request->get('description');
+          $place->save();
+          return redirect()->route('place.index')
+                          ->with('success', 'Lugar actualizado exitosamente');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Career  $career
+     * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $career = career::find($id);
-        $career->delete();
-        return redirect()->route('career.index')
-                        ->with('success', 'Carrera eliminada exitosamente');
+        $place = Place::find($id);
+        $place->delete();
+        return redirect()->route('place.index')
+                        ->with('success', 'Lugar eliminado exitosamente');
     }
 }

@@ -25,6 +25,7 @@ Route::resource('/home/study_plan/career', 'CareerController',['names'=>['career
 Route::resource('/home/study_plan/plan', 'StudyPlanController',['names'=>['plan']])->middleware('auth');
 Route::resource('/home/software_type', 'SoftwareTypeController',['names'=>['software_type']])->middleware('auth');
 Route::resource('/home/software', 'SoftwareController',['names'=>['software']])->middleware('auth');
+Route::resource('/home/places', 'PlaceController',['names'=>['place']])->middleware('auth');
 
 //Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController',['names'=>['planbysoftware']])->middleware('auth');
 Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController', [
