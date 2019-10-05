@@ -1,9 +1,10 @@
-@extends('layouts.layout')
-@section('content')
+@extends('layouts.inventario')
+
+@section('indice')
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Editar Lugar</h3>
+        <h3>Agregar marca</h3>
       </div>
     </div>
 
@@ -18,24 +19,20 @@
       </div>
     @endif
 
-    <form action="{{route('category.update',$category->id)}}" method="post">
+    <form action="{{route('trademark.store')}}" method="post">
       @csrf
-      @method('PUT')
       <div class="row">
         <div class="col-md-12">
           <strong>Nombre :</strong>
-          <input type="text" name="name" class="form-control" value="{{$category->name}}">
-        </div>
-        <div class="col-md-12">
-          <strong>Descripcion :</strong>
-          <textarea class="form-control" name="description" rows="8" cols="80">{{$career->description}}</textarea>
+          <input type="text" name="name" class="form-control" placeholder="Nombre">
         </div>
 
         <div class="col-md-12">
-          <a href="{{route('category.index')}}" class="btn btn-sm btn-success">Atras</a>
+          <a href="{{route('trademark.index')}}" class="btn btn-sm btn-success">Volvar al indice</a>
           <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
         </div>
       </div>
     </form>
+
   </div>
 @endsection

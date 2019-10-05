@@ -18,4 +18,6 @@ class MaintenanceViewController extends Controller
     {
         return view('maintenance');
     }
+
+
 }

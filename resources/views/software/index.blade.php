@@ -10,6 +10,7 @@
             <a class="btn btn-sm btn-success" href="{{ route('software.create') }}">Agregar software</a>
           </div>
         </div>
+        <br>
 
         @if ($message = Session::get('success'))
           <div class="alert alert-success">
@@ -20,8 +21,8 @@
         <table class="table table-hover table-sm">
           <tr>
             <th width = "50px"><b>ID.</b></th>
-            <th width = "300px">Nombre</th>
-            <th width = "180px">Accion</th>
+            <th>Nombre</th>
+            <th width = "220px">Accion</th>
           </tr>
 
           @foreach ($softwares as $software)

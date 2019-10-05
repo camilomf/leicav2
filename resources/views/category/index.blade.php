@@ -4,10 +4,10 @@
 <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h3>Lista de Lugares</h3>
+            <h3>Lista de Categorias</h3>
           </div>
           <div class="col-sm-2">
-            <a class="btn btn-sm btn-success" href="{{ route('places.create') }}">Agregar nuevo lugar</a>
+            <a class="btn btn-sm btn-success" href="{{ route('category.create') }}">Agregar nueva categoria</a>
           </div>
         </div>
         <br>
@@ -22,17 +22,17 @@
           <tr>
             <th width = "50px"><b>ID.</b></th>
             <th>Nombre  </th>
-            <th width = "200px">Accion</th>
+            <th width = "220px">Accion</th>
           </tr>
 
-          @foreach ($places as $place)
+          @foreach ($categories as $category)
             <tr>
-              <td><b>{{$place->id }}.</b></td>
-              <td>{{$place->name}}</td>
+              <td><b>{{$category->id }}.</b></td>
+              <td>{{$category->name}}</td>
               <td>
-                <form action="{{ route('places.destroy', $place->id) }}" method="post">
-                  <a class="btn btn-sm btn-success" href="{{route('places.show',$place->id)}}">Detalle</a>
-                  <a class="btn btn-sm btn-warning" href="{{route('places.edit',$place->id)}}">Editar</a>
+                <form action="{{ route('category.destroy', $category->id) }}" method="post">
+                  <a class="btn btn-sm btn-success" href="{{route('category.show',$category->id)}}">Detalle</a>
+                  <a class="btn btn-sm btn-warning" href="{{route('category.edit',$category->id)}}">Editar</a>
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>

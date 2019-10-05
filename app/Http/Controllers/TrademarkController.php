@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Place;
+use App\Trademark;
 use Illuminate\Http\Request;
 
-class PlaceController extends Controller
+class TrademarkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        $places=Place::all();
-        return view('places.index',compact('places'));
+        $trademarks=Trademark::all();
+        return view('trademark.index',compact('trademarks'));
     }
 
     /**
@@ -25,7 +25,7 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        return view('places.create');
+        return view('trademark.create');
     }
 
     /**
@@ -38,69 +38,67 @@ class PlaceController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required'
           ]);
 
-          Place::create($request->all());
-          return redirect()->route('places.index')
-                          ->with('success', 'Lugar agregado correctamente');
+          Trademark::create($request->all());
+          return redirect()->route('trademark.index')
+                          ->with('success', 'Marca agregada correctamente');
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Place  $place
+     * @param  \App\Trademark  $trademark
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $place = Place::find($id);
-        return view('places.detail', compact('place'));
+        $trademark = Trademark::find($id);
+        return view('trademark.detail', compact('trademark'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Place  $place
+     * @param  \App\Trademark  $trademark
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $place = Place::find($id);
-        return view('places.edit', compact('place'));
+        $trademark = Trademark::find($id);
+        return view('trademark.edit', compact('trademark'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Place  $place
+     * @param  \App\Trademark  $trademark
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required'
           ]);
-          $place = Place::find($id);
-          $place->name = $request->get('name');
-          $place->description = $request->get('description');
-          $place->save();
-          return redirect()->route('places.index')
-                          ->with('success', 'Lugar actualizado exitosamente');
+          $trademark = Trademark::find($id);
+          $trademark->name = $request->get('name');
+          $trademark->save();
+          return redirect()->route('trademark.index')
+                          ->with('success', 'Marca actualizada exitosamente');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Place  $place
+     * @param  \App\Trademark  $trademark
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $place = Place::find($id);
-        $place->delete();
-        return redirect()->route('places.index')
-                        ->with('success', 'Lugar eliminado exitosamente');
+        $trademark = Trademark::find($id);
+        $trademark->delete();
+        return redirect()->route('trademark.index')
+                        ->with('success', 'Marca eliminada exitosamente');
     }
 }

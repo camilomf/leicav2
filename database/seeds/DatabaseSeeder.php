@@ -53,6 +53,42 @@ class DatabaseSeeder extends Seeder
             'role_id'=>2
         ]);
 
+        DB::table('states')->insert([
+            'id'=>null,
+            'name'=>'Operacional',
+            'description'=>null
+        ]);
+
+        DB::table('states')->insert([
+            'id'=>null,
+            'name'=>'En Prestamo',
+            'description'=>null
+        ]);
+
+        DB::table('states')->insert([
+            'id'=>null,
+            'name'=>'Falla tecnica',
+            'description'=>null
+        ]);
+
+        DB::table('states')->insert([
+            'id'=>null,
+            'name'=>'Agotado',
+            'description'=>null
+        ]);
+
+        DB::table('assets')->insert([
+            'id'=>null,
+            'name'=>'Fungible',
+            'description'=>null
+        ]);
+
+        DB::table('assets')->insert([
+            'id'=>null,
+            'name'=>'No fungible',
+            'description'=>null
+        ]);
+
         // $this->call(UsersTableSeeder::class);
     }
 }

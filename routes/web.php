@@ -25,7 +25,10 @@ Route::resource('/home/study_plan/career', 'CareerController',['names'=>['career
 Route::resource('/home/study_plan/plan', 'StudyPlanController',['names'=>['plan']])->middleware('auth');
 Route::resource('/home/software_type', 'SoftwareTypeController',['names'=>['software_type']])->middleware('auth');
 Route::resource('/home/software', 'SoftwareController',['names'=>['software']])->middleware('auth');
-Route::resource('/home/places', 'PlaceController',['names'=>['place']])->middleware('auth');
+Route::resource('/home/places', 'PlaceController',['names'=>['places']])->middleware('auth');
+Route::resource('/home/category', 'CategoryController',['names'=>['category']])->middleware('auth');
+Route::resource('/home/trademark', 'TrademarkController',['names'=>['trademark']])->middleware('auth');
+Route::resource('/home/model', 'ModeloController',['names'=>['model']])->middleware('auth');
 
 //Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController',['names'=>['planbysoftware']])->middleware('auth');
 Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController', [
@@ -35,13 +38,21 @@ Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController
     ]
 ]);
 
+// Route::resource('/home/maintenance', 'MaintenanceViewController', [
+//     'names' => [
+//         'index' => 'maintenance.index',
+//         'show' => 'maintenance.show',
+//     ]
+// ])->middleware('auth','roles');
 
 Route::resource('/home/users', 'UsersController',['names'=>['users']])->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/home/lendings', 'lendings')->name('lendings')->middleware('auth');
 
+// Route::view('/home/maintenance', 'maintenance')->name('maintenance')->middleware('roles');
 Route::resource('/home/maintenance', 'MaintenanceViewController',['name'=>['maintenance']])->middleware('auth','roles');
 
+// Route::view('/home/maintenance/plan', 'plan.index')->name('plan_maintenance')->middleware('auth','roles');
 //Route::view('/home/maintenance', 'maintenance')->name('maintenance')->middleware('auth','roles');
 
 Route::view('/home/inventory', 'inventory')->name('inventory')->middleware('auth');

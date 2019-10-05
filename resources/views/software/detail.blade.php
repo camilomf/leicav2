@@ -29,8 +29,8 @@
           <strong>Observacion : </strong> {{$software->observation}}
         </div>
       </div>
-        
-      
+
+
       <div class="col-md-12">
                 <div class="form-group">
                     @if ($software->softwareType!=null)
