@@ -32,9 +32,9 @@
         <div class="form-check">
           @foreach ($softwares as $software)
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="software[]" value="{{ $software->id }}">
+            <input class="form-check-input" type="checkbox" name="software[]" value="{{ $software->id}}" {{ $study_plan->software->pluck('id')->contains($software->id) ? 'checked' : '' }}>
             <label class="form-check-label">
-              {{ $software->name }} {{ $software->version }}
+              {{ $software->name }} Version: {{ $software->version }}
             </label>
           </div>
           @endforeach

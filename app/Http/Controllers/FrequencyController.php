@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use App\Career;
+use App\Frequency;
 use Illuminate\Http\Request;
 
-class CareerController extends Controller
+class FrequencyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,17 +15,16 @@ class CareerController extends Controller
     function __construct()
     {
         $this->middleware(['auth',
-        'roles:Chief,Admin'
+        'roles:Admin,User'
         ]);
 
     }
 
     public function index()
     {
-        $careers=DB::table('careers')->get();
-        return view('study_plan_manage.career.index',compact('careers'));
+        $frequencies=Frequency::all();
+        return view('maintenance_plan.frequency.index',compact('frequencies'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -35,7 +33,7 @@ class CareerController extends Controller
      */
     public function create()
     {
-        return view('study_plan_manage.career.create');
+        return view('maintenance_plan.frequency.create');
     }
 
     /**
@@ -48,70 +46,68 @@ class CareerController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required'
           ]);
 
-          career::create($request->all());
-          return redirect()->route('career.index')
-                          ->with('success', 'Carrera agregada correctamente');
+          Frequency::create($request->all());
+          return redirect()->route('frequency.index')
+                          ->with('success', 'frecuencia agregada correctamente');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Career  $career
+     * @param  \App\Frequency  $frequency
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $career = Career::find($id);
-        return view('study_plan_manage.career.detail', compact('career'));
+        $frequency = Frequency::find($id);
+        return view('maintenance_plan.frequency.detail', compact('frequency'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Career  $career
+     * @param  \App\Frequency  $frequency
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $career = Career::find($id);
-        return view('study_plan_manage.career.edit', compact('career'));
+        $frequency = Frequency::find($id);
+        return view('maintenance_plan.frequency.edit', compact('frequency'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Career  $career
+     * @param  \App\Frequency  $frequency
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required'
           ]);
-          $career = career::find($id);
-          $career->name = $request->get('name');
-          $career->description = $request->get('description');
-          $career->save();
-          return redirect()->route('career.index')
-                          ->with('success', 'Carrera actualizada exitosamente');
+          $frequency = Frequency::find($id);
+          $frequency->name = $request->get('name');
+          $frequency->description = $request->get('description');
+          $frequency->save();
+          return redirect()->route('frequency.index')
+                          ->with('success', 'Frecuencia actualizada exitosamente');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Career  $career
+     * @param  \App\Frequency  $frequency
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $career = career::find($id);
-        $career->delete();
-        return redirect()->route('career.index')
-                        ->with('success', 'Carrera eliminada exitosamente');
+        $frequency = Frequency::find($id);
+        $frequency->delete();
+        return redirect()->route('frequency.index')
+                        ->with('success', 'Frecuencia eliminada exitosamente');
     }
 }

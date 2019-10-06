@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use App\Career;
+use App\Priority;
 use Illuminate\Http\Request;
 
-class CareerController extends Controller
+class PriorityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,17 +15,17 @@ class CareerController extends Controller
     function __construct()
     {
         $this->middleware(['auth',
-        'roles:Chief,Admin'
+        'roles:Admin,User'
         ]);
 
     }
 
+
     public function index()
     {
-        $careers=DB::table('careers')->get();
-        return view('study_plan_manage.career.index',compact('careers'));
+        $priorities=Priority::all();
+        return view('maintenance_plan.priority.index',compact('priorities'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -35,7 +34,7 @@ class CareerController extends Controller
      */
     public function create()
     {
-        return view('study_plan_manage.career.create');
+        return view('maintenance_plan.priority.create');
     }
 
     /**
@@ -48,70 +47,68 @@ class CareerController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required'
           ]);
 
-          career::create($request->all());
-          return redirect()->route('career.index')
-                          ->with('success', 'Carrera agregada correctamente');
+          Priority::create($request->all());
+          return redirect()->route('priority.index')
+                          ->with('success', 'Prioridad agregada correctamente');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Career  $career
+     * @param  \App\Priority  $priority
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $career = Career::find($id);
-        return view('study_plan_manage.career.detail', compact('career'));
+        $priority = Priority::find($id);
+        return view('maintenance_plan.priority.detail', compact('priority'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Career  $career
+     * @param  \App\Priority  $priority
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $career = Career::find($id);
-        return view('study_plan_manage.career.edit', compact('career'));
+        $priority = Priority::find($id);
+        return view('maintenance_plan.priority.edit', compact('priority'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Career  $career
+     * @param  \App\Priority  $priority
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required'
           ]);
-          $career = career::find($id);
-          $career->name = $request->get('name');
-          $career->description = $request->get('description');
-          $career->save();
-          return redirect()->route('career.index')
-                          ->with('success', 'Carrera actualizada exitosamente');
+          $priority = Priority::find($id);
+          $priority->name = $request->get('name');
+          $priority->description = $request->get('description');
+          $priority->save();
+          return redirect()->route('priority.index')
+                          ->with('success', 'Prioridad actualizada exitosamente');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Career  $career
+     * @param  \App\Priority  $priority
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $career = career::find($id);
-        $career->delete();
-        return redirect()->route('career.index')
-                        ->with('success', 'Carrera eliminada exitosamente');
+        $priority = Priority::find($id);
+        $priority->delete();
+        return redirect()->route('priority.index')
+                        ->with('success', 'Prioridad eliminada exitosamente');
     }
 }

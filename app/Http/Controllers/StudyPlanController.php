@@ -16,7 +16,7 @@ class StudyPlanController extends Controller
     function __construct()
     {
         $this->middleware(['auth',
-        'roles:Chief'
+        'roles:Chief,Admin'
         ]);
 
     }
@@ -130,5 +130,5 @@ class StudyPlanController extends Controller
                         ->with('success', 'Plan de estudio eliminado exitosamente');
     }
 
-    
+
 }

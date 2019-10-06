@@ -13,10 +13,23 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('maintenance_plan.index') }}">
+                      <span data-feather="shopping-cart"></span>
+                      Plan de Mantencion
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                        <span class="nav-label">Editar opciones plan de mantencion</span>
+                    </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('frequency.index') }}">Frecuencia</a></li>
+                            <li><a href="{{ route('priority.index') }}">Prioridad</a></li>
+                        </ul>
+                  {{-- <a class="nav-link" href="#">
                     <span data-feather="file"></span>
                     Plan de Mantencion
-                  </a>
+                  </a> --}}
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">

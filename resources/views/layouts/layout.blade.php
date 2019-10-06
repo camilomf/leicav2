@@ -13,12 +13,12 @@
                         <ul class="nav nav-pills">
                             <li class="nav-item "><a class="nav-link {{ setActive('home') }}  " href="{{ route('home') }}">Home</a></li>
                             @if (auth()->user()->hasRoles(['User','Admin']))
-                                <li class="nav-item "><a class="nav-link {{ setActive('maintenance.index') }} " href="{{ route('maintenance.index') }}">Mantencion</a></li>
+                                <li class="nav-item "><a class="nav-link {{ setActive('maintenance') }} " href="{{ route('maintenance') }}">Mantencion</a></li>
                             @endif
 
                             <li class="nav-item "><a class="nav-link {{ setActive('inventory') }} " href="{{ route('inventory') }}">Inventario</a></li>
                             <li class="nav-item "><a class="nav-link {{ setActive('lendings') }} " href="{{ route('lendings') }}">Prestamos</a></li>
-                            @if (auth()->user()->hasRoles(['Chief']))
+                            @if (auth()->user()->hasRoles(['Chief','Admin']))
                              <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="dropdown06" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plan de Estudio</a>
                                     <div class="dropdown-menu" aria-labelledby="dropdown06">

@@ -14,7 +14,7 @@ class MaintenanceViewController extends Controller
 
     }
 
-    public function index()
+    public function mostrar()
     {
         return view('maintenance');
     }

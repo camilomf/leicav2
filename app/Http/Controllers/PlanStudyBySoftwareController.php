@@ -12,7 +12,7 @@ class PlanStudyBySoftwareController extends Controller
     function __construct()
     {
         $this->middleware(['auth',
-        'roles:Chief'
+        'roles:Chief,Admin'
         ]);
 
     }
@@ -33,9 +33,9 @@ class PlanStudyBySoftwareController extends Controller
         $study_plan=StudyPlan::find($id);
         $study_plan->software()->sync($software);
 
-        return $study_plan;
+        //return dd($study_plan);
 
-        return view('study_plan_manage.study_plan.edit_software',compact('study_plan','softwares'));
-
+        return redirect()->route('plan.index')
+                        ->with('success', 'Software agregado al plan de estudio correctamente');
     }
 }
