@@ -6,12 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inventory extends Model
 {
-    protected $fillable = ['name',
+    protected $fillable = [
                             'serialnumber',
                             'sku',
                             'price',
-                            'technical_specifications',
-                            'description',
                             'observation'
                         ];
 
@@ -27,7 +25,7 @@ class Inventory extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function model(){
+    public function modelo(){
         return $this->belongsTo(Modelo::class);
     }
 
@@ -38,6 +36,14 @@ class Inventory extends Model
     public function software(){
         return $this->belongsToMany(Software::class,'inventory_software','inventory_id','software_id');
     }
+
+    // public function prestamo_inventario(){
+    //     return $this->belongsToMany(StudyPlan::class,'software_plan_study','plan_study_id','software_id');
+    // }
+
+    // public function technicalEspecifications(){
+    //     return $this->belongsToMany(StudyPlan::class,'software_plan_study','plan_study_id','software_id');
+    // }
 
     // public function prestamo_inventario(){
     //     return $this->belongsToMany(StudyPlan::class,'software_plan_study','plan_study_id','software_id');

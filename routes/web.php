@@ -29,6 +29,7 @@ Route::resource('/home/places', 'PlaceController',['names'=>['places']])->middle
 Route::resource('/home/category', 'CategoryController',['names'=>['category']])->middleware('auth');
 Route::resource('/home/trademark', 'TrademarkController',['names'=>['trademark']])->middleware('auth');
 Route::resource('/home/model', 'ModeloController',['names'=>['model']])->middleware('auth');
+Route::resource('/home/inventory', 'InventoryController',['names'=>['inventory']])->middleware('auth');
 
 Route::resource('/home/maintenance/maintenance_plan', 'MaintenancePlanController',['names'=>['maintenance_plan']])->middleware('auth','roles');
 Route::resource('/home/maintenance/plan/frequency', 'FrequencyController',['names'=>['frequency']])->middleware('auth','roles');
@@ -51,7 +52,7 @@ Route::get('home/maintenance', function () {
     return view('maintenance');
 })->name('maintenance')->middleware('auth','roles:User,Admin');
 
-Route::view('/home/inventory', 'inventory')->name('inventory')->middleware('auth');
+// Route::view('/home/inventory', 'inventory')->name('inventory')->middleware('auth');
 //Route::view('/home/study_plan', 'study_plan')->name('study_plan_manage')->middleware('auth');
 //Route::view('/home/users_manage', 'users_manage')->name('users_manage')->middleware('auth');
 

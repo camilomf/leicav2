@@ -5,23 +5,28 @@
 @section('indice')
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
+        <h1 class="h2">Inventario</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                <a class="btn btn-sm btn-success" href="{{ route('inventory.create') }}">Agregar inventario</a>
+            {{-- <button type="button" class="btn btn-sm btn-outline-secondary">Export</button> --}}
           </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+          {{-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
             This week
-          </button>
+          </button> --}}
         </div>
       </div>
 
       {{-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> --}}
       <br>
       <div>
-          <h3>busqueda</h3>
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+              <p>{{$message}}</p>
+            </div>
+          @endif
+          {{-- <h3>busqueda</h3>
           <table class="table table-borderless">
               <tr>
                  <th>SKU</th>
@@ -56,7 +61,7 @@
                   <td><button type="button" class="btn btn-primary btn-block">Buscar</button></td>
                   <td><button type="button" class="btn btn-primary btn-block">Buscar</button></td>
               </tr>
-          </table>
+          </table> --}}
       </div>
       <br>
 
@@ -65,128 +70,37 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr>
+              <th width = "130px">Tipo</th>
               <th>SKU</th>
               <th>Marca</th>
               <th>Modelo</th>
               <th>N° Serie</th>
               <th>Lugar</th>
               <th>Estado</th>
+              <th width = "220px">Accion</th>
             </tr>
-          </thead>
-          <tbody>
+          </thead><tbody>
+          @foreach ($inventories as $inventory)
             <tr>
-              <td>1,001</td>
-              <td>Lorem</td>
-              <td>ipsum</td>
-              <td>dolor</td>
-              <td>sit</td>
+              <td>{{ $inventory->category->name }}</td>
+              <td>{{ $inventory->sku }}</td>
+              <td>{{ $inventory->modelo->trademark->name}}</td>
+              <td>{{ $inventory->modelo->name}}</td>
+              <td>{{ $inventory->serialnumber }}</td>
+              <td>{{ $inventory->place->name }}</td>
+              <td>{{ $inventory->state->name }}</td>
+              <td>
+                    <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
+                      <a class="btn btn-sm btn-info" href="{{route('inventory.show',$inventory->id)}}">Detalle</a>
+                      <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                    </form>
+                  </td>
             </tr>
-            <tr>
-              <td>1,002</td>
-              <td>amet</td>
-              <td>consectetur</td>
-              <td>adipiscing</td>
-              <td>elit</td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>Integer</td>
-              <td>nec</td>
-              <td>odio</td>
-              <td>Praesent</td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>libero</td>
-              <td>Sed</td>
-              <td>cursus</td>
-              <td>ante</td>
-            </tr>
-            <tr>
-              <td>1,004</td>
-              <td>dapibus</td>
-              <td>diam</td>
-              <td>Sed</td>
-              <td>nisi</td>
-            </tr>
-            <tr>
-              <td>1,005</td>
-              <td>Nulla</td>
-              <td>quis</td>
-              <td>sem</td>
-              <td>at</td>
-            </tr>
-            <tr>
-              <td>1,006</td>
-              <td>nibh</td>
-              <td>elementum</td>
-              <td>imperdiet</td>
-              <td>Duis</td>
-            </tr>
-            <tr>
-              <td>1,007</td>
-              <td>sagittis</td>
-              <td>ipsum</td>
-              <td>Praesent</td>
-              <td>mauris</td>
-            </tr>
-            <tr>
-              <td>1,008</td>
-              <td>Fusce</td>
-              <td>nec</td>
-              <td>tellus</td>
-              <td>sed</td>
-            </tr>
-            <tr>
-              <td>1,009</td>
-              <td>augue</td>
-              <td>semper</td>
-              <td>porta</td>
-              <td>Mauris</td>
-            </tr>
-            <tr>
-              <td>1,010</td>
-              <td>massa</td>
-              <td>Vestibulum</td>
-              <td>lacinia</td>
-              <td>arcu</td>
-            </tr>
-            <tr>
-              <td>1,011</td>
-              <td>eget</td>
-              <td>nulla</td>
-              <td>Class</td>
-              <td>aptent</td>
-            </tr>
-            <tr>
-              <td>1,012</td>
-              <td>taciti</td>
-              <td>sociosqu</td>
-              <td>ad</td>
-              <td>litora</td>
-            </tr>
-            <tr>
-              <td>1,013</td>
-              <td>torquent</td>
-              <td>per</td>
-              <td>conubia</td>
-              <td>nostra</td>
-            </tr>
-            <tr>
-              <td>1,014</td>
-              <td>per</td>
-              <td>inceptos</td>
-              <td>himenaeos</td>
-              <td>Curabitur</td>
-            </tr>
-            <tr>
-              <td>1,015</td>
-              <td>sodales</td>
-              <td>ligula</td>
-              <td>in</td>
-              <td>libero</td>
-            </tr>
-          </tbody>
+          @endforeach
+        </tbody>
         </table>
       </div>
 

@@ -30,12 +30,12 @@
               <td>{{$study_plan->name}}</td>
               <td>
                 <form action="{{ route('plan.destroy', $study_plan->id) }}" method="post">
-                  <a class="btn btn-info" href="{{route('plan.show',$study_plan->id)}}">Detalle</a>
-                  <a class="btn btn-warning" href="{{route('plan.edit',$study_plan->id)}}">Editar</a>
-                  <a class="btn btn-success" href="{{route('planbysoftware.edit',$study_plan->id)}}">Software</a>
+                  <a class="btn btn-sm btn-info" href="{{route('plan.show',$study_plan->id)}}">Detalle</a>
+                  <a class="btn btn-sm btn-warning" href="{{route('plan.edit',$study_plan->id)}}">Editar</a>
+                  <a class="btn btn-sm btn-success" href="{{route('planbysoftware.edit',$study_plan->id)}}">Software</a>
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
                 </form>
               </td>
             </tr>

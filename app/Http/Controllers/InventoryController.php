@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Inventory;
+use DB;
 use Illuminate\Http\Request;
 
 class InventoryController extends Controller
@@ -14,7 +15,8 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        //
+        $inventories=Inventory::all();
+        return view('inventory',compact('inventories'));
     }
 
     /**
@@ -24,7 +26,11 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+        $places = DB::table('places')->get();
+        $models = DB::table('modelos')->get();
+        $categories = DB::table('categories')->get();
+        $maintenance_plans = DB::table('maintenance_plans')->get();
+        return view('inventory.create',compact('places','models','categories','maintenance_plans'));
     }
 
     /**
@@ -35,18 +41,37 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'serialnumber' => 'required',
+            'sku' => 'required',
+          ]);
 
+          $inventory = new Inventory();
+          $inventory->serialnumber = $request->get('serialnumber');
+          $inventory->sku = $request->get('sku');
+          $inventory->price = $request->get('price');
+          $inventory->observation = $request->get('observation');
+          $inventory->place_id = $request->get('place_id');
+          $inventory->category_id = $request->get('category_id');
+          $inventory->modelo_id = $request->get('model_id');
+          $inventory->maintenance_plan_id = $request->get('maintenance_plan_id');
+          $inventory->state_id = 1;
+          $inventory->save();
+
+        //   inventoryType::create($request->all());
+          return redirect()->route('inventory.index')
+                          ->with('success', 'Inventario agregado correctamente');
+    }
     /**
      * Display the specified resource.
      *
      * @param  \App\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function show(Inventory $inventory)
+    public function show($id)
     {
-        //
+        $inventory = Inventory::find($id);
+        return view('inventory.detail', compact('inventory'));
     }
 
     /**
@@ -55,9 +80,16 @@ class InventoryController extends Controller
      * @param  \App\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inventory $inventory)
+    public function edit($id)
     {
-        //
+        $inventory = Inventory::find($id);
+        $states = DB::table('states')->get();
+        $places = DB::table('places')->get();
+        $categories = DB::table('categories')->get();
+        $maintenance_plans = DB::table('maintenance_plans')->get();
+        $modelos = DB::table('modelos')->get();
+
+        return view('inventory.edit',compact('inventory','states','places','categories','maintenance_plans','modelos'));
     }
 
     /**
@@ -67,19 +99,38 @@ class InventoryController extends Controller
      * @param  \App\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inventory $inventory)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $request->validate([
+            'serialnumber' => 'required',
+            'sku' => 'required',
+          ]);
 
+          $inventory = Inventory::find($id);
+          $inventory->serialnumber = $request->get('serialnumber');
+          $inventory->sku = $request->get('sku');
+          $inventory->price = $request->get('price');
+          $inventory->observation = $request->get('observation');
+          $inventory->place_id = $request->get('place_id');
+          $inventory->category_id = $request->get('category_id');
+          $inventory->modelo_id = $request->get('model_id');
+          $inventory->maintenance_plan_id = $request->get('maintenance_plan_id');
+          $inventory->state_id = $request->get('state_id');
+          $inventory->save();
+          return redirect()->route('inventory.index')
+                          ->with('success', 'Inventario actualizado exitosamente');
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inventory $inventory)
+    public function destroy($id)
     {
-        //
+        $inventory = Inventory::find($id);
+        $inventory->delete();
+        return redirect()->route('inventory.index')
+                        ->with('success', 'Inventario eliminado exitosamente');
     }
 }

@@ -15,14 +15,12 @@ class CreateInventoriesTable extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
             $table->string('serialnumber')->unique();
             $table->string('sku')->unique();
             $table->integer('price')->nullable();
-            $table->text('technical_specifications')->nullable();
             $table->text('description')->nullable();
             $table->text('observation')->nullable();
-            //state
+            //states
             $table->unsignedBigInteger('state_id')->nullable();
             $table->foreign('state_id')
                     ->references('id')
@@ -41,8 +39,8 @@ class CreateInventoriesTable extends Migration
                     ->on('categories')
                     ->onDelete('set null');
             //model
-            $table->unsignedBigInteger('model_id')->nullable();
-            $table->foreign('model_id')
+            $table->unsignedBigInteger('modelo_id')->nullable();
+            $table->foreign('modelo_id')
                     ->references('id')
                     ->on('modelos')
                     ->onDelete('set null');

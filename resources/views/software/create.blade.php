@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Agregar Plan de estudio</h3>
+        <h3>Agregar software</h3>
       </div>
     </div>
 
