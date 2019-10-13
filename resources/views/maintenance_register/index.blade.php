@@ -39,16 +39,19 @@ Maintenance Register
             </tr>
           </thead>
           <tbody>
-          {{-- @foreach ($inventories as $inventory)
+          @foreach ($inventories as $inventory)
+            @foreach ($inventory->maintenanceType as $type)
             <tr>
-              <td>{{ $inventory->category->name }}</td>
-              <td>{{ $inventory->sku }}</td>
-              <td>{{ $inventory->modelo->trademark->name}}</td>
-              <td>{{ $inventory->modelo->name}}</td>
-              <td>{{ $inventory->serialnumber }}</td>
-              <td>{{ $inventory->place->name }}</td>
-              <td>{{ $inventory->state->name }}</td>
-              <td>
+                    <td>{{ $inventory->category->name}}</td>
+                    <td>{{ $inventory->sku }}</td>
+                    <td>{{ $inventory->modelo->trademark->name }}</td>
+                    <td>{{ $inventory->modelo->name}}</td>
+                    <td>{{ $inventory->serialnumber}}</td>
+                    <td>{{ $type->pivot->date}}</td>
+                    <td>{{ $type->name }}</td>
+                </tr>
+            @endforeach
+              {{-- <td>
                     <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
                       <a class="btn btn-sm btn-info" href="{{route('inventory.show',$inventory->id)}}">Detalle</a>
                       <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
@@ -56,9 +59,9 @@ Maintenance Register
                       @method('DELETE')
                       <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </form>
-                  </td>
-            </tr>
-          @endforeach --}}
+                  </td> --}}
+
+          @endforeach
         </tbody>
         </table>
       </div>

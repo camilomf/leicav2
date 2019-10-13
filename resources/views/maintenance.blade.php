@@ -50,7 +50,7 @@ Mantencion
               <td>{{ $inventory->state->name }}</td>
               <td>
                     <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
-                      <a class="btn btn-sm btn-info" href="{{route('inventory.show',$inventory->id)}}">Detalle</a>
+                      <a class="btn btn-sm btn-info" href="{{route('maintenance_register.edit',$inventory->id)}}">Registrar</a>
                       <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
                       @csrf
                       @method('DELETE')

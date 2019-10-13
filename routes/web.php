@@ -43,6 +43,9 @@ Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController
     ]
 ]);
 
+Route::resource('/home/maintenance/maintenance_register', 'MaintenanceRegisterController',['names'=>['maintenance_register']])->middleware('auth','roles:User,Admin');
+
+
 
 Route::resource('/home/users', 'UsersController',['names'=>['users']])->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');
@@ -51,12 +54,12 @@ Route::view('/home/lendings', 'lendings')->name('lendings')->middleware('auth');
 
 Route::get('/home/maintenance_register', function () {
     // $inventories = App\Inventory::where('state_id',5)->orWhere('state_id','3')->get();
-    return view('maintenance_register');
+
 })->name('maintenance_register')->middleware('auth','roles:User,Admin');
 
 
 Route::get('home/maintenance', function () {
-    $inventories = App\Inventory::where('state_id',5)->orWhere('state_id','3')->get();
+    $inventories = App\Inventory::all();
     return view('maintenance',compact('inventories'));
 })->name('maintenance')->middleware('auth','roles:User,Admin');
 

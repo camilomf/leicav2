@@ -38,7 +38,7 @@ class Inventory extends Model
     }
 
     public function maintenanceType(){
-        return $this->belongsToMany(MaintenanceType::class,'maintenance_register','maintenance_type_id','inventory_id');
+        return $this->belongsToMany(MaintenanceType::class,'maintenance_register','maintenance_type_id','inventory_id')->withPivot('date');
     }
 
     // public function technicalEspecifications(){
