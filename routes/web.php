@@ -30,6 +30,7 @@ Route::resource('/home/category', 'CategoryController',['names'=>['category']])-
 Route::resource('/home/trademark', 'TrademarkController',['names'=>['trademark']])->middleware('auth');
 Route::resource('/home/model', 'ModeloController',['names'=>['model']])->middleware('auth');
 Route::resource('/home/inventory', 'InventoryController',['names'=>['inventory']])->middleware('auth');
+Route::resource('/home/maintenance_type', 'MaintenanceTypeController',['names'=>['maintenance_type']])->middleware('auth');
 
 Route::resource('/home/maintenance/maintenance_plan', 'MaintenancePlanController',['names'=>['maintenance_plan']])->middleware('auth','roles');
 Route::resource('/home/maintenance/plan/frequency', 'FrequencyController',['names'=>['frequency']])->middleware('auth','roles');
@@ -46,10 +47,17 @@ Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController
 Route::resource('/home/users', 'UsersController',['names'=>['users']])->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/home/lendings', 'lendings')->name('lendings')->middleware('auth');
+// Route::view('/home/maintenance_regiser', 'maintenance_regiser')->name('maintenance_regiser')->middleware('auth');
+
+Route::get('/home/maintenance_register', function () {
+    // $inventories = App\Inventory::where('state_id',5)->orWhere('state_id','3')->get();
+    return view('maintenance_register');
+})->name('maintenance_register')->middleware('auth','roles:User,Admin');
 
 
 Route::get('home/maintenance', function () {
-    return view('maintenance');
+    $inventories = App\Inventory::where('state_id',5)->orWhere('state_id','3')->get();
+    return view('maintenance',compact('inventories'));
 })->name('maintenance')->middleware('auth','roles:User,Admin');
 
 // Route::view('/home/inventory', 'inventory')->name('inventory')->middleware('auth');

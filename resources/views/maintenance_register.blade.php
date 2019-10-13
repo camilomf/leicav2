@@ -1,11 +1,11 @@
 @extends('layouts.mantencion')
 @section('title')
-Mantencion
+Maintenance Register
 @endsection
 @section('indice')
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Mantencion</h1>
+        <h1 class="h2">Registro de mantencion</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           {{-- <div class="btn-group mr-2">
                 <a class="btn btn-sm btn-success" href="{{ route('inventory.create') }}">Agregar inventario</a>
@@ -33,13 +33,13 @@ Mantencion
               <th>Marca</th>
               <th>Modelo</th>
               <th>N° Serie</th>
-              <th>Lugar</th>
-              <th>Estado</th>
-              <th width = "220px">Accion</th>
+              <th>Fecha</th>
+              <th>Tipo de Mantencion</th>
+              {{-- <th width = "220px">Accion</th> --}}
             </tr>
           </thead>
           <tbody>
-          @foreach ($inventories as $inventory)
+          {{-- @foreach ($inventories as $inventory)
             <tr>
               <td>{{ $inventory->category->name }}</td>
               <td>{{ $inventory->sku }}</td>
@@ -58,7 +58,7 @@ Mantencion
                     </form>
                   </td>
             </tr>
-          @endforeach
+          @endforeach --}}
         </tbody>
         </table>
       </div>

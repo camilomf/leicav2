@@ -12,14 +12,8 @@
                 <a class="btn btn-sm btn-success" href="{{ route('inventory.create') }}">Agregar inventario</a>
             {{-- <button type="button" class="btn btn-sm btn-outline-secondary">Export</button> --}}
           </div>
-          {{-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-          </button> --}}
         </div>
       </div>
-
-      {{-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> --}}
       <br>
       <div>
             @if ($message = Session::get('success'))
@@ -27,42 +21,6 @@
               <p>{{$message}}</p>
             </div>
           @endif
-          {{-- <h3>busqueda</h3>
-          <table class="table table-borderless">
-              <tr>
-                 <th>SKU</th>
-                 <th>Marca</th>
-                 <th>Modelo</th>
-                 <th>N° Serie</th>
-                 <th>Lugar</th>
-                 <th>Estado</th>
-              </tr>
-              <tr>
-              <td>
-                  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-              </td>
-              <td>
-                  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-              </td>
-              <td>
-                  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-              </td>
-              <td>
-                  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-              </td>
-              <td>
-                  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-              </td>
-              <td>
-                      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-              </td>
-              </tr>
-              <tr>
-                  <td><button type="button" class="btn btn-primary btn-block">Buscar</button></td>
-                  <td><button type="button" class="btn btn-primary btn-block">Buscar</button></td>
-                  <td><button type="button" class="btn btn-primary btn-block">Buscar</button></td>
-              </tr>
-          </table> --}}
       </div>
       <br>
 
@@ -114,7 +72,6 @@
             "language":idioma
         });
     } );
-
     var idioma={
                 "sProcessing":     "Procesando...",
                 "sLengthMenu":     "Mostrar _MENU_ registros",

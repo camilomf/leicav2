@@ -37,9 +37,9 @@ class Inventory extends Model
         return $this->belongsToMany(Software::class,'inventory_software','inventory_id','software_id');
     }
 
-    // public function prestamo_inventario(){
-    //     return $this->belongsToMany(StudyPlan::class,'software_plan_study','plan_study_id','software_id');
-    // }
+    public function maintenanceType(){
+        return $this->belongsToMany(MaintenanceType::class,'maintenance_register','maintenance_type_id','inventory_id');
+    }
 
     // public function technicalEspecifications(){
     //     return $this->belongsToMany(StudyPlan::class,'software_plan_study','plan_study_id','software_id');

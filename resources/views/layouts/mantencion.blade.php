@@ -7,9 +7,9 @@
             <div class="sidebar-sticky">
               <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">
+                  <a class="nav-link active" href="{{ route('maintenance_register') }}">
                     <span data-feather="home"></span>
-                    Dashboard <span class="sr-only">(current)</span>
+                    Registro Mantención <span class="sr-only">(current)</span>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -44,9 +44,9 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="{{ route('maintenance_type.index') }}">
                     <span data-feather="bar-chart-2"></span>
-                    Reports
+                    Tipo de Mantencion
                   </a>
                 </li>
               </ul>

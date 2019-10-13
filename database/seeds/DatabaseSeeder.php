@@ -77,6 +77,12 @@ class DatabaseSeeder extends Seeder
             'description'=>null
         ]);
 
+        DB::table('states')->insert([
+            'id'=>null,
+            'name'=>'En mantencion',
+            'description'=>null
+        ]);
+
         DB::table('assets')->insert([
             'id'=>null,
             'name'=>'Fungible',
