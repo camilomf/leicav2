@@ -17,7 +17,7 @@ class MaintenanceRegisterController extends Controller
     }
 
 
-    public function edit($id)
+    public function register($id)
     {
         $inventory = Inventory::find($id);
         $maintenance_types = MaintenanceType::all();
@@ -29,8 +29,9 @@ class MaintenanceRegisterController extends Controller
 
     }
 
-    public function update(Request $request, $id)
+    public function store(Request $request)
     {
+            $id = $request->get('inventory_id');
             $date = new DateTime();
             $date->format('d-m-Y');
             $inventory = Inventory::find($id);

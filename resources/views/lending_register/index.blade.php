@@ -1,11 +1,11 @@
 @extends('layouts.mantencion')
 @section('title')
-Mantencion
+Maintenance Register
 @endsection
 @section('indice')
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Mantencion</h1>
+        <h1 class="h2">Registro de mantencion</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           {{-- <div class="btn-group mr-2">
                 <a class="btn btn-sm btn-success" href="{{ route('inventory.create') }}">Agregar inventario</a>
@@ -33,31 +33,34 @@ Mantencion
               <th>Marca</th>
               <th>Modelo</th>
               <th>N° Serie</th>
-              <th>Lugar</th>
-              <th>Estado</th>
-              <th width = "220px">Accion</th>
+              <th>Fecha</th>
+              <th>Tipo de Mantencion</th>
+              {{-- <th width = "220px">Accion</th> --}}
             </tr>
           </thead>
           <tbody>
           @foreach ($inventories as $inventory)
+            @foreach ($inventory->maintenanceType as $type)
             <tr>
-              <td>{{ $inventory->category->name }}</td>
-              <td>{{ $inventory->sku }}</td>
-              <td>{{ $inventory->modelo->trademark->name}}</td>
-              <td>{{ $inventory->modelo->name}}</td>
-              <td>{{ $inventory->serialnumber }}</td>
-              <td>{{ $inventory->place->name }}</td>
-              <td>{{ $inventory->state->name }}</td>
-              <td>
+                    <td>{{ $inventory->category->name}}</td>
+                    <td>{{ $inventory->sku }}</td>
+                    <td>{{ $inventory->modelo->trademark->name }}</td>
+                    <td>{{ $inventory->modelo->name}}</td>
+                    <td>{{ $inventory->serialnumber}}</td>
+                    <td>{{ $type->pivot->date}}</td>
+                    <td>{{ $type->name }}</td>
+                </tr>
+            @endforeach
+              {{-- <td>
                     <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
-                      <a class="btn btn-sm btn-info" href="{{route('maintenance_register.register', ['id' => $inventory->id])}}">Registrar</a>
+                      <a class="btn btn-sm btn-info" href="{{route('inventory.show',$inventory->id)}}">Detalle</a>
                       <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </form>
-                  </td>
-            </tr>
+                  </td> --}}
+
           @endforeach
         </tbody>
         </table>

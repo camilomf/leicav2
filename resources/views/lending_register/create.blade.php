@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Registrar Mantencion</h3>
+        <h3>Registrat Mantencion</h3>
       </div>
     </div>
 
@@ -19,13 +19,11 @@
       </div>
     @endif
 
-    <form action="{{route('maintenance_register.store')}}" method="post">
+    <form action="{{route('maintenance_register.update',$inventory->id)}}" method="post">
       @csrf
-      {{-- @method('put') --}}
+      @method('PUT')
       <div class="row">
-        <div>
-          <input type="text" name="inventory_id" value="{{ $inventory->id }}" hidden="hidden">
-        </div>
+
       <div class="col-md-12">
         <strong>Tipo de mantencion: </strong>
         <select class="form-control" name="maintenance_type_id">

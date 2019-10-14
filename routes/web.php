@@ -38,13 +38,18 @@ Route::resource('/home/maintenance/plan/priority', 'PriorityController',['names'
 
 Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController', [
     'names' => [
-        'edit' => 'planbysoftware.edit',
-        'update' => 'planbysoftware.update',
-    ]
+        'create' => 'planbysoftware.create',
+        'store' => 'planbysoftware.store',
+    ]   
 ]);
 
-Route::resource('/home/maintenance/maintenance_register', 'MaintenanceRegisterController',['names'=>['maintenance_register']])->middleware('auth','roles:User,Admin');
 
+Route::get('//home/maintenance/maintenance_register', 'MaintenanceRegisterController@index')->name('maintenance_register.index')->middleware('auth','roles:User,Admin');
+// Route::get('attendance/{id}', ['as' => 'user.attendance', 'uses' => 'UserController@attendance']);
+Route::get('/home/maintenance/maintenance_register/register/{id}', 
+    ['as' => 'maintenance_register.register', 'uses' => 'MaintenanceRegisterController@register'])->middleware('auth','roles:User,Admin');
+// Route::resource('//home/maintenance/maintenance_register', 'MaintenanceRegisterController')->name('maintenance_register.store')->middleware('auth','roles:User,Admin');;
+Route::post('maintenance_register.store','MaintenanceRegisterController@store')->name('maintenance_register.store')->middleware('auth','roles:User,Admin');
 
 
 Route::resource('/home/users', 'UsersController',['names'=>['users']])->middleware('auth');

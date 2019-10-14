@@ -15,7 +15,7 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">
                     <span data-feather="file"></span>
-                    Registrar Prestamo
+                    Registro de Prestamos
                   </a>
                 </li>
                 <li class="nav-item">

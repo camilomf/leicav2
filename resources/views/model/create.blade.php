@@ -27,6 +27,8 @@
           <input type="text" name="name" class="form-control" placeholder="Nombre" required='required'>
         </div>
 
+        
+
         <div class="col-md-12">
                 <strong>Marca: </strong>
                 <select class="form-control" name="trademark_id">
