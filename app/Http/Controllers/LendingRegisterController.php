@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Inventory;
-use DB;
-use App\MaintenanceType;
-use DateTime;
 
-class MaintenanceRegisterController extends Controller
+class LendingRegisterController extends Controller
 {
     public function index(){
         $inventories = Inventory::all()->where('state_id',5);
@@ -16,17 +13,16 @@ class MaintenanceRegisterController extends Controller
         return view('maintenance_register.index',compact('inventories'));
     }
 
-
     public function register($id)
     {
         $inventory = Inventory::find($id);
-        $maintenance_types = MaintenanceType::all();
 
-        $inventory->state_id = 5;
+        $inventory->state_id = 2;
         $inventory->save();
 
-        return view('maintenance_register.create',compact('inventory','maintenance_types'));
+        return view('lending_register.index',compact('inventory'));
 
+        
     }
 
     public function store(Request $request)
@@ -43,14 +39,4 @@ class MaintenanceRegisterController extends Controller
           return redirect()->route('maintenance_register.index')
                           ->with('success', 'Registro actualizado exitosamente');
     }
-
-    public function remove($id){
-        $inventory = Inventory::find($id);
-        $inventory->state_id = 1;
-        $inventory->save();
-        return redirect()->route('maintenance_register.index')
-                        ->with('success', 'Registro actualizado exitosamente');
-    }
-
-
 }

@@ -31,6 +31,7 @@ Route::resource('/home/trademark', 'TrademarkController',['names'=>['trademark']
 Route::resource('/home/model', 'ModeloController',['names'=>['model']])->middleware('auth');
 Route::resource('/home/inventory', 'InventoryController',['names'=>['inventory']])->middleware('auth');
 Route::resource('/home/maintenance_type', 'MaintenanceTypeController',['names'=>['maintenance_type']])->middleware('auth');
+Route::resource('/home/lendings/liable', 'LiableController',['names'=>['liable']])->middleware('auth');
 
 Route::resource('/home/maintenance/maintenance_plan', 'MaintenancePlanController',['names'=>['maintenance_plan']])->middleware('auth','roles');
 Route::resource('/home/maintenance/plan/frequency', 'FrequencyController',['names'=>['frequency']])->middleware('auth','roles');
@@ -43,25 +44,37 @@ Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController
     ]   
 ]);
 
+Route::get('/home/lendings/lending_register', 'LendingRegisterController@index')->name('lending_register.index')->middleware('auth');
+Route::get('/home/maintenance/lending_register/register/{id}', 
+    ['as' => 'lending_register.register', 'uses' => 'LendingRegisterController@register'])->middleware('auth');
 
-Route::get('//home/maintenance/maintenance_register', 'MaintenanceRegisterController@index')->name('maintenance_register.index')->middleware('auth','roles:User,Admin');
+
+
+Route::get('/home/maintenance/maintenance_register', 'MaintenanceRegisterController@index')->name('maintenance_register.index')->middleware('auth','roles:User,Admin');
 // Route::get('attendance/{id}', ['as' => 'user.attendance', 'uses' => 'UserController@attendance']);
 Route::get('/home/maintenance/maintenance_register/register/{id}', 
     ['as' => 'maintenance_register.register', 'uses' => 'MaintenanceRegisterController@register'])->middleware('auth','roles:User,Admin');
+Route::post('/home/maintenance/maintenance_register/remove/{id}', 
+    ['as' => 'maintenance_register.remove', 'uses' => 'MaintenanceRegisterController@remove'])->middleware('auth','roles:User,Admin');
 // Route::resource('//home/maintenance/maintenance_register', 'MaintenanceRegisterController')->name('maintenance_register.store')->middleware('auth','roles:User,Admin');;
 Route::post('maintenance_register.store','MaintenanceRegisterController@store')->name('maintenance_register.store')->middleware('auth','roles:User,Admin');
 
 
 Route::resource('/home/users', 'UsersController',['names'=>['users']])->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::view('/home/lendings', 'lendings')->name('lendings')->middleware('auth');
+// Route::view('/home/lendings', 'lendings')->name('lendings')->middleware('auth');
 // Route::view('/home/maintenance_regiser', 'maintenance_regiser')->name('maintenance_regiser')->middleware('auth');
 
 Route::get('/home/maintenance_register', function () {
     // $inventories = App\Inventory::where('state_id',5)->orWhere('state_id','3')->get();
-
 })->name('maintenance_register')->middleware('auth','roles:User,Admin');
 
+
+
+Route::get('/home/lendings', function(){
+    $inventories = App\Inventory::all();
+    return view('lendings',compact('inventories'));
+})->name('lendings')->middleware('auth');
 
 Route::get('home/maintenance', function () {
     $inventories = App\Inventory::all();

@@ -38,7 +38,7 @@ Prestamos
             </tr>
           </thead>
           <tbody>
-          {{-- @foreach ($inventories as $inventory)
+          @foreach ($inventories as $inventory)
             <tr>
               <td>{{ $inventory->category->name }}</td>
               <td>{{ $inventory->sku }}</td>
@@ -49,7 +49,7 @@ Prestamos
               <td>{{ $inventory->state->name }}</td>
               <td>
                     <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
-                      <a class="btn btn-sm btn-info" href="{{route('maintenance_register.edit',$inventory->id)}}">Registrar</a>
+                      <a class="btn btn-sm btn-info" href="{{route('liable.create',$inventory->id)}}">Registrar</a>
                       <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
                       @csrf
                       @method('DELETE')
@@ -57,7 +57,7 @@ Prestamos
                     </form>
                   </td>
             </tr>
-          @endforeach --}}
+          @endforeach
         </tbody>
         </table>
       </div>

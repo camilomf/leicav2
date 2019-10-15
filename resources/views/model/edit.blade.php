@@ -40,7 +40,6 @@
                         <option value=''>No asignar marca</option>
                     </select>
              </div>
-
         @else
             <div class="col-md-12">
                     <strong>Marca: </strong>

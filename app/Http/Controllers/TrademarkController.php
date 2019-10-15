@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Trademark;
+use App\Modelo;
+use DB;
 use Illuminate\Http\Request;
 
 class TrademarkController extends Controller
@@ -14,7 +16,8 @@ class TrademarkController extends Controller
      */
     public function index()
     {
-        $trademarks=Trademark::all();
+        // $trademarks = DB::table('trademarks')::where
+        $trademarks=Trademark::where('id','!=',1)->get();
         return view('trademark.index',compact('trademarks'));
     }
 
@@ -96,7 +99,16 @@ class TrademarkController extends Controller
      */
     public function destroy($id)
     {
+
         $trademark = Trademark::find($id);
+        $lists = DB::table('modelos')->where('trademark_id',$id)->get();
+        foreach($lists as $list){
+            $list=Modelo::find($list->id);
+            // dd($list);
+            $list->trademark_id = 1;
+            $list->save();
+        }
+
         $trademark->delete();
         return redirect()->route('trademark.index')
                         ->with('success', 'Marca eliminada exitosamente');

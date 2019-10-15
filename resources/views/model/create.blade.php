@@ -27,12 +27,10 @@
           <input type="text" name="name" class="form-control" placeholder="Nombre" required='required'>
         </div>
 
-        
-
         <div class="col-md-12">
                 <strong>Marca: </strong>
                 <select class="form-control" name="trademark_id">
-                    <option value=''>No asignar marca</option>
+                    {{-- <option value='{{ $trademark }}'></option> --}}
                     @foreach ($trademarks as $trademark)
                         <option value="{{$trademark->id}}">{{$trademark->name}}</option>
                     @endforeach

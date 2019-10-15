@@ -95,6 +95,57 @@ class DatabaseSeeder extends Seeder
             'description'=>null
         ]);
 
+        DB::table('trademarks')->insert([
+            'id'=>null,
+            'name'=>'marca no agregada',
+        ]);
+
+        DB::table('modelos')->insert([
+            'id'=>null,
+            'name'=>'modelo no agregado',
+            'trademark_id'=>1
+        ]);
+
+        DB::table('places')->insert([
+            'id'=>null,
+            'name'=>'lugar no agregado',
+            'description'=>'lugar 1'
+        ]);
+
+        DB::table('categories')->insert([
+            'id'=>null,
+            'name'=>'categoria no agregada',
+            'assets_id'=>null
+        ]);
+
+        DB::table('maintenance_plans')->insert([
+            'id'=>null,
+            'name'=>'plan de mantencion no agregado',
+            'description'=>null
+        ]);
+
+        DB::table('liabilities')->insert([
+            'id'=>null,
+            'name'=>'Alumno'
+        ]);
+
+        DB::table('liabilities')->insert([
+            'id'=>null,
+            'name'=>'Docente'
+        ]);
+
+        DB::table('liabilities')->insert([
+            'id'=>null,
+            'name'=>'Empleado INACAP'
+
+        ]);
+
+        DB::table('liabilities')->insert([
+            'id'=>null,
+            'name'=>'Otro'
+
+        ]);
+
         // $this->call(UsersTableSeeder::class);
     }
 }

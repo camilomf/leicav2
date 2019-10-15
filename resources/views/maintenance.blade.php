@@ -49,12 +49,14 @@ Mantencion
               <td>{{ $inventory->place->name }}</td>
               <td>{{ $inventory->state->name }}</td>
               <td>
-                    <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
+                    <form action="{{ route('maintenance_register.remove', $inventory->id) }}" method="post">
                       <a class="btn btn-sm btn-info" href="{{route('maintenance_register.register', ['id' => $inventory->id])}}">Registrar</a>
-                      <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
+                      {{-- <a class="btn btn-sm btn-warning" href="#">Quitar</a> --}}
                       @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                      {{-- @method('DELETE') --}}
+                      @if ($inventory->state_id == 5)
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Quitar</button>
+                      @endif
                     </form>
                   </td>
             </tr>
