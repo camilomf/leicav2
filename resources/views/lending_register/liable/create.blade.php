@@ -1,15 +1,17 @@
 @extends('layouts.prestamo')
-@section('content')
+@section('indice')
   <div class="container">
-      <div>
-          <form action="post" action="#">
-              <input type="text" placeholder="buscar">
-              <input type="submit" value="buscar">
-          </form>
-        </div>
+      <h2>Buscar</h2>
+      <div class="row">
+        <div class="col-6">
+            <form action="post" action="{{ route(liable.show) }}">
+                <input type="text" placeholder="ingresar rut">
+                <input type="submit" value="buscar">
+            </form>
+        <br>
     <div class="row">
       <div class="col-lg-12">
-        <h3>Agregar Responsable</h3>
+        <h5>Agregar Responsable</h5>
       </div>
     </div>
 

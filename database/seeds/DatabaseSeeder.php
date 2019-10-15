@@ -146,6 +146,17 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        DB::table('maintenance_plans')->insert([
+            'id'=>null,
+            'name'=>'no asignar plan de mantencion'
+        ]);
+
+        DB::table('maintenance_types')->insert([
+            'id'=>null,
+            'name'=>'no asignar tipo de mantencion'
+        ]);
+
+
         // $this->call(UsersTableSeeder::class);
     }
 }

@@ -14,9 +14,19 @@ class LiableController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $resultado = null;
         $liables = Liable::all();
+        return view('lending_register.liable.index',compact('liables','resultado'));
         
+    }
+
+
+    public function liableSearch($id){
+        $inventory= DB::table('inventories')->where('id',$id)->get();
+        $resultado = null;
+        $liables = Liable::all();
+        return view('lending_register.liable.index',compact('liables','resultado','inventory'));
     }
 
     /**

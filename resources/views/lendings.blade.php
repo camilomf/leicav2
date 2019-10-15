@@ -49,7 +49,7 @@ Prestamos
               <td>{{ $inventory->state->name }}</td>
               <td>
                     <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
-                      <a class="btn btn-sm btn-info" href="{{route('liable.create',$inventory->id)}}">Registrar</a>
+                      <a class="btn btn-sm btn-info" href="{{route('lending_register.liableSearch',$inventory->id)}}">Registrar</a>
                       <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
                       @csrf
                       @method('DELETE')

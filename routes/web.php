@@ -44,9 +44,13 @@ Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController
     ]   
 ]);
 
+Route::get('/home/maintenance/lending_register/liable_search/{id}', 
+    ['as' => 'lending_register.register', 'uses' => 'LiableController@register'])->middleware('auth');
 Route::get('/home/lendings/lending_register', 'LendingRegisterController@index')->name('lending_register.index')->middleware('auth');
 Route::get('/home/maintenance/lending_register/register/{id}', 
-    ['as' => 'lending_register.register', 'uses' => 'LendingRegisterController@register'])->middleware('auth');
+    ['as' => 'lending_register.liableSearch', 'uses' => 'LiableController@liableSearch'])->middleware('auth');
+
+
 
 
 
