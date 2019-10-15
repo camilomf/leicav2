@@ -19,21 +19,23 @@
       </div>
     @endif
 
-    <form action="{{route('maintenance_register.update',$inventory->id)}}" method="post">
+    <form action="{{route('lending_register.store',$inventory->id)}}" method="post">
       @csrf
       @method('PUT')
       <div class="row">
-
-      <div class="col-md-12">
-        <strong>Tipo de mantencion: </strong>
-        <select class="form-control" name="maintenance_type_id">
-            @foreach ($maintenance_types as $maintenance_type)
-                <option value="{{$maintenance_type->id}}">{{$maintenance_type->name}}</option>
-            @endforeach
-        </select>
-        </div>
-
         <div class="col-md-12">
+          <strong>Responsable: </strong>
+          <select class="form-control" name="assets_id">
+              @foreach ($liables as $liable)
+                  <option value="{{$liable->id}}">{{$liable->name}}</option>
+              @endforeach
+          </select>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+        <div class="col-md-12">
+            <a href="{{route('liable.create')}}" class="btn btn-sm btn-success">Agregar nuevo responsable</a>
           <a href="{{route('maintenance_register.index')}}" class="btn btn-sm btn-success">Atras</a>
           <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
         </div>

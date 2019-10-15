@@ -4,11 +4,6 @@
       <h2>Buscar</h2>
       <div class="row">
         <div class="col-6">
-            <form action="post" action="{{ route(liable.show) }}">
-                <input type="text" placeholder="ingresar rut">
-                <input type="submit" value="buscar">
-            </form>
-        <br>
     <div class="row">
       <div class="col-lg-12">
         <h5>Agregar Responsable</h5>
@@ -33,8 +28,6 @@
           <strong>Rut :</strong>
           <input type="text" name="rut" class="form-control" placeholder="" required="required">
         </div>
-
-
 
         <div class="col-md-12">
           <strong>Nombre :</strong>

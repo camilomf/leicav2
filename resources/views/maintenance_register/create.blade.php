@@ -19,13 +19,13 @@
       </div>
     @endif
 
-    <form action="{{route('maintenance_register.store')}}" method="post">
+    <form action="{{route('maintenance_register.store',$inventory->id)}}" method="post">
       @csrf
-      {{-- @method('put') --}}
+      @method('put')
       <div class="row">
-        <div>
+        {{-- <div>
           <input type="text" name="inventory_id" value="{{ $inventory->id }}" hidden="hidden">
-        </div>
+        </div> --}}
       <div class="col-md-12">
         <strong>Tipo de mantencion: </strong>
         <select class="form-control" name="maintenance_type_id">

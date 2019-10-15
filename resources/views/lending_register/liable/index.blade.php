@@ -3,26 +3,6 @@
 @section('indice')
 <div class="container">
 
-    <div class="container">
-        <h2>Buscar</h2>
-        <div class="row">
-          <div class="col-6">
-              <form action="post" action="#">
-                  <input type="text" placeholder="ingresar rut">
-                  <input type="submit" value="buscar">
-              </form>
-              <br>
-          <form action="#">
-              <a href="{{route('lendings')}}" class="btn btn-sm btn-success">Volvar al indice</a>        
-              @if ($resultado!=null)
-                <button type="submit" class="btn btn-sm btn-primary">Registrar</button>    
-              @else
-                  
-              @endif
-              
-              
-              
-          </form>
         {{-- <div class="row">
           <div class="col-md-10">
             <h3>Lista de Carreras</h3>

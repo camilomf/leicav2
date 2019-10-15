@@ -29,9 +29,9 @@ class MaintenanceRegisterController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-            $id = $request->get('inventory_id');
+            // $id = $request->get('inventory_id');
             $date = new DateTime();
             $date->format('d-m-Y');
             $inventory = Inventory::find($id);
@@ -48,8 +48,10 @@ class MaintenanceRegisterController extends Controller
         $inventory = Inventory::find($id);
         $inventory->state_id = 1;
         $inventory->save();
-        return redirect()->route('maintenance_register.index')
-                        ->with('success', 'Registro actualizado exitosamente');
+        $inventories= Inventory::all();
+        return view('maintenance',compact('inventories'));
+        // return redirect()->route('maintenance_register')
+                        // ->with('success', 'Registro actualizado exitosamente');
     }
 
 

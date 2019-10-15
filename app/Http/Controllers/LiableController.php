@@ -15,18 +15,9 @@ class LiableController extends Controller
      */
     public function index()
     {   
-        $resultado = null;
         $liables = Liable::all();
         return view('lending_register.liable.index',compact('liables','resultado'));
         
-    }
-
-
-    public function liableSearch($id){
-        $inventory= DB::table('inventories')->where('id',$id)->get();
-        $resultado = null;
-        $liables = Liable::all();
-        return view('lending_register.liable.index',compact('liables','resultado','inventory'));
     }
 
     /**
@@ -56,7 +47,7 @@ class LiableController extends Controller
           ]);
           Liable::create($request->all());
 
-          return redirect()->route('lendings')
+          return redirect()->route('lending_register.create')
                           ->with('success', 'Responsable agregado correctamente');
     }
 

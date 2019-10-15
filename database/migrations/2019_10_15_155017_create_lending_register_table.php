@@ -15,6 +15,11 @@ class CreateLendingRegisterTable extends Migration
     {
         Schema::create('lending_register', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->date('lending_date');
+            $table->date('actual_return_date');
+            $table->date('supossed_return_date');
+            $table->integer('liable_id')->unsigned();
+            $table->integer('inventory_id')->unsigned();
             $table->timestamps();
         });
     }

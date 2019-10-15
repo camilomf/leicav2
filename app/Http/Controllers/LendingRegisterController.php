@@ -4,31 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Inventory;
+use App\Liable;
 
 class LendingRegisterController extends Controller
 {
     public function index(){
         $inventories = Inventory::all()->where('state_id',5);
         // $registers = DB::table('maintenance_register')->get();
-        return view('maintenance_register.index',compact('inventories'));
+        return view('lending_register.index',compact('inventories'));
     }
 
-    public function register($id)
+    public function create($id)
+    {   
+        
+        $liables = Liable::all();
+        $inventory = Inventory::find($id);
+        return view('lending_register.create',compact('inventory','liables'));
+
+        
+    }
+
+    public function store(Request $request,$id)
     {
         
-
         $inventory = Inventory::find($id);
+        dd($inventory);
 
         $inventory->state_id = 2;
         $inventory->save();
 
-        return view('lending_register.index',compact('inventory'));
-
-        
-    }
-
-    public function store(Request $request)
-    {
             $id = $request->get('inventory_id');
             $date = new DateTime();
             $date->format('d-m-Y');

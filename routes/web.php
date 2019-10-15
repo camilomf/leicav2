@@ -44,11 +44,10 @@ Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController
     ]   
 ]);
 
-Route::get('/home/maintenance/lending_register/liable_search/{id}', 
-    ['as' => 'lending_register.register', 'uses' => 'LiableController@register'])->middleware('auth');
+Route::get('/home/maintenance/lending_register/create/{id}', 
+    ['as' => 'lending_register.create', 'uses' => 'LendingRegisterController@create'])->middleware('auth');
 Route::get('/home/lendings/lending_register', 'LendingRegisterController@index')->name('lending_register.index')->middleware('auth');
-Route::get('/home/maintenance/lending_register/register/{id}', 
-    ['as' => 'lending_register.liableSearch', 'uses' => 'LiableController@liableSearch'])->middleware('auth');
+Route::put('lending_register.store{id}','LendingRegisterController@store')->name('lending_register.store')->middleware('auth');
 
 
 
@@ -61,7 +60,7 @@ Route::get('/home/maintenance/maintenance_register/register/{id}',
 Route::post('/home/maintenance/maintenance_register/remove/{id}', 
     ['as' => 'maintenance_register.remove', 'uses' => 'MaintenanceRegisterController@remove'])->middleware('auth','roles:User,Admin');
 // Route::resource('//home/maintenance/maintenance_register', 'MaintenanceRegisterController')->name('maintenance_register.store')->middleware('auth','roles:User,Admin');;
-Route::post('maintenance_register.store','MaintenanceRegisterController@store')->name('maintenance_register.store')->middleware('auth','roles:User,Admin');
+Route::put('maintenance_register.store{id}','MaintenanceRegisterController@store')->name('maintenance_register.store')->middleware('auth','roles:User,Admin');
 
 
 Route::resource('/home/users', 'UsersController',['names'=>['users']])->middleware('auth');
