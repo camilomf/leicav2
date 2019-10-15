@@ -44,9 +44,9 @@ class LiableController extends Controller
             'apePat' => 'required',
             'apeMat' => 'required',
           ]);
-
           Liable::create($request->all());
-          return redirect()->route('lending_register.create')
+
+          return redirect()->route('lendings')
                           ->with('success', 'Responsable agregado correctamente');
     }
 

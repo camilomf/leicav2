@@ -15,6 +15,8 @@ class LendingRegisterController extends Controller
 
     public function register($id)
     {
+        
+
         $inventory = Inventory::find($id);
 
         $inventory->state_id = 2;

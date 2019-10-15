@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.prestamo')
 @section('content')
   <div class="container">
       <div>
@@ -32,6 +32,8 @@
           <input type="text" name="rut" class="form-control" placeholder="" required="required">
         </div>
 
+
+
         <div class="col-md-12">
           <strong>Nombre :</strong>
           <input type="text" name="name" class="form-control" placeholder="" placeholder="Nombre" required="required">
@@ -50,8 +52,8 @@
         <div class="col-md-12">
           <strong>Cargo: </strong>
           <select class="form-control" name="assets_id">
-              @foreach ($liabilities as $liabilitie)
-                  <option value="{{$liabilitie->id}}">{{$liabilitie->name}}</option>
+              @foreach ($liabilities as $liability)
+                  <option value="{{$liability->id}}">{{$liability->name}}</option>
               @endforeach
           </select>
           </div>
