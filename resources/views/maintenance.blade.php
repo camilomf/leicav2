@@ -50,7 +50,9 @@ Mantencion
               <td>{{ $inventory->state->name }}</td>
               <td>
                     <form action="{{ route('maintenance_register.remove', $inventory->id) }}" method="post">
-                      <a class="btn btn-sm btn-info" href="{{route('maintenance_register.register', ['id' => $inventory->id])}}">Registrar</a>
+                      @if ($inventory->state_id != 2 && $inventory->state_id != 4)
+                        <a class="btn btn-sm btn-info" href="{{route('maintenance_register.register', ['id' => $inventory->id])}}">Registrar</a>
+                      @endif
                       {{-- <a class="btn btn-sm btn-warning" href="#">Quitar</a> --}}
                       @csrf
                       {{-- @method('DELETE') --}}
