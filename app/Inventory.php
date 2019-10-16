@@ -45,9 +45,9 @@ class Inventory extends Model
     //     return $this->belongsToMany(StudyPlan::class,'software_plan_study','plan_study_id','software_id');
     // }
 
-    // public function prestamo_inventario(){
-    //     return $this->belongsToMany(StudyPlan::class,'software_plan_study','plan_study_id','software_id');
-    // }
+    public function inventorybyliable(){
+        return $this->belongsToMany(Liable::class,'lending_register','liable_id','inventory_id');
+    }
 
     // public function registro_mantencion(){
     //     return $this->belongsToMany(StudyPlan::class,'software_plan_study','plan_study_id','software_id');

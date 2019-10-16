@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Inventory;
 use App\Liable;
+use DateTime;
 
 class LendingRegisterController extends Controller
 {
@@ -28,21 +29,15 @@ class LendingRegisterController extends Controller
     {
         
         $inventory = Inventory::find($id);
-        dd($inventory);
-
+        // $lending_date = new DateTime();
+        // $lending_date->format('d-m-Y');
         $inventory->state_id = 2;
         $inventory->save();
+        $date_supossed_return= $request->get('return_date');
+        $liable_id = $request->get('liable_id');
+        $inventory->inventorybyliable()->attach($liable_id,['supossed_return_date'=>$date_supossed_return]);
 
-            $id = $request->get('inventory_id');
-            $date = new DateTime();
-            $date->format('d-m-Y');
-            $inventory = Inventory::find($id);
-            $maintenance_type_id = $request->get('maintenance_type_id');
-            $inventory->state_id = 5;
-            $inventory->save();
-            $inventory->maintenanceType()->attach($maintenance_type_id,['date'=>$date]);
-
-          return redirect()->route('maintenance_register.index')
+          return redirect()->route('lending_register.index')
                           ->with('success', 'Registro actualizado exitosamente');
     }
 }

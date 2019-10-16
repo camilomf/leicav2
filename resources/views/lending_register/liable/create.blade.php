@@ -21,7 +21,7 @@
       </div>
     @endif
 
-    <form action="{{route('liable.store')}}" method="post">
+    <form action="{{route('liable.store'),$inventory->id}}" method="post">
       @csrf
       <div class="row">
         <div class="col-md-12">

@@ -32,6 +32,10 @@
           </select>
           </div>
         </div>
+        <div class="col-md-12">
+            <strong>Fecha de devolución :</strong>
+            <input type="date" name="suppossed_return_date" class="form-control" required="required">
+          </div>
         <br>
         <div class="row">
         <div class="col-md-12">
