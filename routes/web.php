@@ -46,10 +46,11 @@ Route::resource('/home/maintenance/maintenance_plan', 'MaintenancePlanController
 Route::resource('/home/maintenance/plan/frequency', 'FrequencyController',['names'=>['frequency']])->middleware('auth','roles');
 Route::resource('/home/maintenance/plan/priority', 'PriorityController',['names'=>['priority']])->middleware('auth','roles');
 
+
 Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController', [
     'names' => [
-        'create' => 'planbysoftware.create',
-        'store' => 'planbysoftware.store',
+        'edit' => 'planbysoftware.edit',
+        'update' => 'planbysoftware.update',
     ]   
 ]);
 
