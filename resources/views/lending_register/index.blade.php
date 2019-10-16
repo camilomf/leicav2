@@ -1,4 +1,4 @@
-@extends('layouts.mantencion')
+@extends('layouts.prestamo')
 @section('title')
 Maintenance Register
 @endsection
@@ -30,37 +30,43 @@ Maintenance Register
             <tr>
               <th width = "130px">Tipo</th>
               <th>SKU</th>
-              <th>Marca</th>
               <th>Modelo</th>
               <th>N° Serie</th>
-              <th>Fecha</th>
-              <th>Tipo de Mantencion</th>
-              {{-- <th width = "220px">Accion</th> --}}
+              <th>Fecha de prestamo</th>
+              <th>Fecha de devolucion</th>
+              <th>Fecha de devolucion real</th>
+              <th>responsable</th>
+              <th width = "100px">Accion</th>
             </tr>
           </thead>
           <tbody>
           @foreach ($inventories as $inventory)
-            @foreach ($inventory->maintenanceType as $type)
+            @foreach ($inventory->inventoryByLiable as $byLiable)
             <tr>
                     <td>{{ $inventory->category->name}}</td>
                     <td>{{ $inventory->sku }}</td>
-                    <td>{{ $inventory->modelo->trademark->name }}</td>
                     <td>{{ $inventory->modelo->name}}</td>
                     <td>{{ $inventory->serialnumber}}</td>
-                    <td>{{ $type->pivot->date}}</td>
-                    <td>{{ $type->name }}</td>
-                </tr>
+                    <td>{{ $byLiable->pivot->created_at}}</td>
+                    <td>{{ $byLiable->pivot->supossed_return_date}}</td>
+                    @if ($byLiable->pivot->created_at == $byLiable->pivot->updated_at)
+                      <td></td>
+                    @else
+                      <td>{{ $byLiable->pivot->updated_at}}</td>
+                    @endif
+                    <td>{{ $byLiable->name }} {{ $byLiable->apePat }} {{ $byLiable->apeMat }}</td>
+                
             @endforeach
-              {{-- <td>
+              <td>
                     <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
-                      <a class="btn btn-sm btn-info" href="{{route('inventory.show',$inventory->id)}}">Detalle</a>
-                      <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
+                      <a class="btn btn-sm btn-outline-success" href="{{ route('inventory.show',$inventory->id) }}">Detalle</a>
+                      {{-- <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                      <button type="submit" class="btn btn-sm btn-outline-danger">Devolver</button> --}}
                     </form>
-                  </td> --}}
-
+                  </td>
+                </tr>
           @endforeach
         </tbody>
         </table>

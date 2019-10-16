@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Liable;
+use App\Inventory;
 use Illuminate\Http\Request;
 use DB;
 
@@ -25,10 +26,11 @@ class LiableController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create($id)
+    {   
+        $inventory=Inventory::find($id);
         $liabilities = DB::table('liabilities')->get();
-        return view('lending_register.liable.create',compact('liabilities'));
+        return view('lending_register.liable.create',compact('liabilities','inventory'));
     }
 
     /**
@@ -37,7 +39,7 @@ class LiableController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         $request->validate([
             'rut' => 'required',

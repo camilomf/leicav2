@@ -50,7 +50,7 @@ Prestamos
               <td>
                     <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
                       <a class="btn btn-sm btn-info" href="{{route('lending_register.create',$inventory->id)}}">Registrar</a>
-                      <a class="btn btn-sm btn-warning" href="#">Editar</a>
+                      <a class="btn btn-sm btn-warning" href="#">Devolver</a>
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>

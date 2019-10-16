@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Registrat Mantencion</h3>
+        <h3>Registrar Prestamo</h3>
       </div>
     </div>
 
@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col-md-12">
           <strong>Responsable: </strong>
-          <select class="form-control" name="assets_id">
+          <select class="form-control" name="liable_id">
               @foreach ($liables as $liable)
                   <option value="{{$liable->id}}">{{$liable->name}}</option>
               @endforeach
@@ -39,7 +39,7 @@
         <br>
         <div class="row">
         <div class="col-md-12">
-            <a href="{{route('liable.create')}}" class="btn btn-sm btn-success">Agregar nuevo responsable</a>
+            <a href="{{route('liable.create', ['id' => $inventory->id])}}" class="btn btn-sm btn-success">Agregar nuevo responsable</a>
           <a href="{{route('maintenance_register.index')}}" class="btn btn-sm btn-success">Atras</a>
           <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
         </div>

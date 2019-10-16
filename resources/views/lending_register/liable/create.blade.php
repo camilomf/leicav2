@@ -20,9 +20,9 @@
         </ul>
       </div>
     @endif
-
-    <form action="{{route('liable.store'),$inventory->id}}" method="post">
+    <form action="{{route('liable.store',$inventory->id)}}" method="post">
       @csrf
+      {{-- @method('PUT') --}}
       <div class="row">
         <div class="col-md-12">
           <strong>Rut :</strong>

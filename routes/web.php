@@ -31,7 +31,16 @@ Route::resource('/home/trademark', 'TrademarkController',['names'=>['trademark']
 Route::resource('/home/model', 'ModeloController',['names'=>['model']])->middleware('auth');
 Route::resource('/home/inventory', 'InventoryController',['names'=>['inventory']])->middleware('auth');
 Route::resource('/home/maintenance_type', 'MaintenanceTypeController',['names'=>['maintenance_type']])->middleware('auth');
-Route::resource('/home/lendings/liable', 'LiableController',['names'=>['liable']])->middleware('auth');
+// Route::resource('/home/lendings/liable', 'LiableController',['names'=>['liable']])->middleware('auth');
+Route::get('/home/lendings/liable/create/{id}', 
+    ['as' => 'liable.create', 'uses' => 'LiableController@create'])->middleware('auth');
+Route::post('liable.store{id}','LiableController@store')->name('liable.store')->middleware('auth');
+//Liable
+
+
+
+
+
 
 Route::resource('/home/maintenance/maintenance_plan', 'MaintenancePlanController',['names'=>['maintenance_plan']])->middleware('auth','roles');
 Route::resource('/home/maintenance/plan/frequency', 'FrequencyController',['names'=>['frequency']])->middleware('auth','roles');
@@ -44,7 +53,7 @@ Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController
     ]   
 ]);
 
-Route::get('/home/maintenance/lending_register/create/{id}', 
+Route::get('/home/lendings/lending_register/create/{id}', 
     ['as' => 'lending_register.create', 'uses' => 'LendingRegisterController@create'])->middleware('auth');
 Route::get('/home/lendings/lending_register', 'LendingRegisterController@index')->name('lending_register.index')->middleware('auth');
 Route::put('lending_register.store{id}','LendingRegisterController@store')->name('lending_register.store')->middleware('auth');

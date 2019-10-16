@@ -35,7 +35,7 @@ Maintenance Register
               <th>N° Serie</th>
               <th>Fecha</th>
               <th>Tipo de Mantencion</th>
-              {{-- <th width = "220px">Accion</th> --}}
+              <th width = "100px">Accion</th>
             </tr>
           </thead>
           <tbody>
@@ -49,18 +49,18 @@ Maintenance Register
                     <td>{{ $inventory->serialnumber}}</td>
                     <td>{{ $type->pivot->date}}</td>
                     <td>{{ $type->name }}</td>
-                </tr>
+                
             @endforeach
-              {{-- <td>
+              <td>
                     <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
-                      <a class="btn btn-sm btn-info" href="{{route('inventory.show',$inventory->id)}}">Detalle</a>
-                      <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
+                      <a class="btn btn-sm btn-info" href="{{route('career.show',$inventory->id)}}">Detalle</a>
+                      {{-- <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                      <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button> --}}
                     </form>
-                  </td> --}}
-
+                  </td>
+                </tr>
           @endforeach
         </tbody>
         </table>

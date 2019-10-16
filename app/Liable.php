@@ -12,7 +12,7 @@ class Liable extends Model
         return $this->belongsTo(Liability::class);
     }
 
-    public function liablebyinventory(){
+    public function liableByInventory(){
         return $this->belongsToMany(Inventory::class,'lending_register','inventory_id','liable_id');
     }
     // public function studyPlan(){

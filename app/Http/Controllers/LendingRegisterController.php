@@ -10,7 +10,7 @@ use DateTime;
 class LendingRegisterController extends Controller
 {
     public function index(){
-        $inventories = Inventory::all()->where('state_id',5);
+        $inventories = Inventory::all()->where('state_id',2);
         // $registers = DB::table('maintenance_register')->get();
         return view('lending_register.index',compact('inventories'));
     }
@@ -33,9 +33,9 @@ class LendingRegisterController extends Controller
         // $lending_date->format('d-m-Y');
         $inventory->state_id = 2;
         $inventory->save();
-        $date_supossed_return= $request->get('return_date');
+        $date_supossed_return= $request->get('suppossed_return_date');
         $liable_id = $request->get('liable_id');
-        $inventory->inventorybyliable()->attach($liable_id,['supossed_return_date'=>$date_supossed_return]);
+        $inventory->inventoryByLiable()->attach($liable_id,['supossed_return_date'=>$date_supossed_return]);
 
           return redirect()->route('lending_register.index')
                           ->with('success', 'Registro actualizado exitosamente');
