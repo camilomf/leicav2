@@ -40,4 +40,14 @@ class LendingRegisterController extends Controller
           return redirect()->route('lending_register.index')
                           ->with('success', 'Registro actualizado exitosamente');
     }
+
+
+    public function remove($id)
+    {
+        $inventory = Inventory::find($id);
+        $inventory->state_id = 1;
+        $inventory->save();
+          return redirect()->route('lendings')
+                          ->with('success', 'Registro actualizado exitosamente');
+    }
 }

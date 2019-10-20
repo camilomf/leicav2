@@ -48,12 +48,12 @@ Prestamos
               <td>{{ $inventory->place->name }}</td>
               <td>{{ $inventory->state->name }}</td>
               <td>
-                    <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
+                    <form action="{{ route('lending_register.remove',$inventory->id) }}" method="post">
                       <a class="btn btn-sm btn-info" href="{{route('lending_register.create',$inventory->id)}}">Registrar</a>
-                      <a class="btn btn-sm btn-warning" href="#">Devolver</a>
+                      {{-- <a class="btn btn-sm btn-warning" href="{{route('lending_register.remove',$inventory->id)}}">Devolver</a> --}}
                       @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                      @method('PUT')
+                      <button type="submit" class="btn btn-sm btn-outline-danger">Regresar</button>
                     </form>
                   </td>
             </tr>

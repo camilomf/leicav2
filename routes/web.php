@@ -58,6 +58,7 @@ Route::get('/home/lendings/lending_register/create/{id}',
     ['as' => 'lending_register.create', 'uses' => 'LendingRegisterController@create'])->middleware('auth');
 Route::get('/home/lendings/lending_register', 'LendingRegisterController@index')->name('lending_register.index')->middleware('auth');
 Route::put('lending_register.store{id}','LendingRegisterController@store')->name('lending_register.store')->middleware('auth');
+Route::put('lending_register.remove{id}','LendingRegisterController@remove')->name('lending_register.remove')->middleware('auth');
 
 
 
