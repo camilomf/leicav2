@@ -49,18 +49,9 @@ Maintenance Register
                     <td>{{ $inventory->serialnumber}}</td>
                     <td>{{ $type->pivot->date}}</td>
                     <td>{{ $type->name }}</td>
-                
-            @endforeach
-              <td>
-                    <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
-                      <a class="btn btn-sm btn-info" href="{{route('career.show',$inventory->id)}}">Detalle</a>
-                      {{-- <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button> --}}
-                    </form>
-                  </td>
-                </tr>
+                    <td><a class="btn btn-sm btn-info" href="{{route('career.show',$inventory->id)}}">Detalle</a><td>
+            </tr>
+            @endforeach  
           @endforeach
         </tbody>
         </table>

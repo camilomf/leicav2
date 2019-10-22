@@ -11,7 +11,7 @@ use DateTime;
 class MaintenanceRegisterController extends Controller
 {
     public function index(){
-        $inventories = Inventory::all()->where('state_id',5);
+        $inventories = Inventory::all();
         // $registers = DB::table('maintenance_register')->get();
         return view('maintenance_register.index',compact('inventories'));
     }
