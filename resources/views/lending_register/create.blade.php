@@ -31,19 +31,18 @@
               @endforeach
           </select>
           </div>
-        </div>
         <div class="col-md-12">
             <strong>Fecha de devolución :</strong>
             <input type="date" name="suppossed_return_date" class="form-control" required="required">
           </div>
+        </div>
         <br>
         <div class="row">
         <div class="col-md-12">
             <a href="{{route('liable.create', ['id' => $inventory->id])}}" class="btn btn-sm btn-success">Agregar nuevo responsable</a>
-          <a href="{{route('maintenance_register.index')}}" class="btn btn-sm btn-success">Atras</a>
+          <a href="{{route('lendings')}}" class="btn btn-sm btn-success">Atras</a>
           <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
         </div>
-      </div>
     </form>
   </div>
 @endsection

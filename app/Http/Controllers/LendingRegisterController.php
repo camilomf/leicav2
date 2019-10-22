@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Inventory;
 use App\Liable;
+use DB;
 use DateTime;
 
 class LendingRegisterController extends Controller
 {
     public function index(){
-        $inventories = Inventory::all()->where('state_id',2);
-        // $registers = DB::table('maintenance_register')->get();
+        $inventories = Inventory::all();
         return view('lending_register.index',compact('inventories'));
     }
 
@@ -45,6 +45,15 @@ class LendingRegisterController extends Controller
     public function remove($id)
     {
         $inventory = Inventory::find($id);
+        // $create=null;
+        foreach ($inventory->inventoryByLiable as $byLiable){
+            if($byLiable->pivot->updated == '0') break;
+        }
+        $id=$byLiable->pivot->id;
+        $date = new DateTime;
+        $date->format('Y.m.d H:i:s');
+        DB::table('lending_register')->where('id',$id)->update(['updated' => 1,'updated_at'=>$date]);
+
         $inventory->state_id = 1;
         $inventory->save();
           return redirect()->route('lendings')

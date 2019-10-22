@@ -28,13 +28,14 @@ Maintenance Register
         <table class="table table-striped table-sm" id="inventories">
           <thead>
             <tr>
+              <th>ID</th>
               <th width = "130px">Tipo</th>
               <th>SKU</th>
               <th>Modelo</th>
               <th>N° Serie</th>
               <th>Fecha de prestamo</th>
-              <th>Fecha de devolucion</th>
-              <th>Fecha de devolucion real</th>
+              <th>Cuando debe devolver</th>
+              <th>Cuando fue devuelto</th>
               <th>responsable</th>
               <th width = "100px">Accion</th>
             </tr>
@@ -43,6 +44,7 @@ Maintenance Register
           @foreach ($inventories as $inventory)
             @foreach ($inventory->inventoryByLiable as $byLiable)
             <tr>
+                    <td>{{ $byLiable->pivot->id }}</td>
                     <td>{{ $inventory->category->name}}</td>
                     <td>{{ $inventory->sku }}</td>
                     <td>{{ $inventory->modelo->name}}</td>
@@ -50,23 +52,22 @@ Maintenance Register
                     <td>{{ $byLiable->pivot->created_at}}</td>
                     <td>{{ $byLiable->pivot->supossed_return_date}}</td>
                     @if ($byLiable->pivot->created_at == $byLiable->pivot->updated_at)
-                      <td></td>
+                      <td>No Devuelto</td>
                     @else
                       <td>{{ $byLiable->pivot->updated_at}}</td>
                     @endif
                     <td>{{ $byLiable->name }} {{ $byLiable->apePat }} {{ $byLiable->apeMat }}</td>
-                
+                    <td>
+                      <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
+                        <a class="btn btn-sm btn-outline-success" href="{{ route('inventory.show',$inventory->id) }}">Detalle</a>
+                        {{-- <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Devolver</button> --}}
+                      </form>
+                    </td>
+                  </tr>
             @endforeach
-              <td>
-                    <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
-                      <a class="btn btn-sm btn-outline-success" href="{{ route('inventory.show',$inventory->id) }}">Detalle</a>
-                      {{-- <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-outline-danger">Devolver</button> --}}
-                    </form>
-                  </td>
-                </tr>
           @endforeach
         </tbody>
         </table>

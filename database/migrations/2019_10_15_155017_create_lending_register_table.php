@@ -18,6 +18,7 @@ class CreateLendingRegisterTable extends Migration
             $table->date('supossed_return_date');
             $table->integer('liable_id')->unsigned();
             $table->integer('inventory_id')->unsigned();
+            $table->boolean('updated')->default(false);
             $table->timestamps();
         });
     }

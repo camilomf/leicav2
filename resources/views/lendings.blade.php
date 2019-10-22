@@ -34,7 +34,7 @@ Prestamos
               <th>N° Serie</th>
               <th>Lugar</th>
               <th>Estado</th>
-              <th width = "220px">Accion</th>
+              <th width = "80px">Accion</th>
             </tr>
           </thead>
           <tbody>
@@ -49,11 +49,13 @@ Prestamos
               <td>{{ $inventory->state->name }}</td>
               <td>
                     <form action="{{ route('lending_register.remove',$inventory->id) }}" method="post">
-                      <a class="btn btn-sm btn-info" href="{{route('lending_register.create',$inventory->id)}}">Registrar</a>
-                      {{-- <a class="btn btn-sm btn-warning" href="{{route('lending_register.remove',$inventory->id)}}">Devolver</a> --}}
                       @csrf
-                      @method('PUT')
-                      <button type="submit" class="btn btn-sm btn-outline-danger">Regresar</button>
+                      @if ($inventory->state_id == 1)
+                        <a class="btn btn-sm btn-info" href="{{route('lending_register.create',$inventory->id)}}">Registrar</a>
+                      @elseif($inventory->state_id==2)
+                        @method('PUT')
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Regresar</button>
+                      @endif
                     </form>
                   </td>
             </tr>

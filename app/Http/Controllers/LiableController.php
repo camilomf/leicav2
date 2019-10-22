@@ -49,7 +49,7 @@ class LiableController extends Controller
           ]);
           Liable::create($request->all());
 
-          return redirect()->route('lending_register.index')
+          return redirect()->route('lending_register.create', ['id' => $id])
                           ->with('success', 'Responsable agregado correctamente');
     }
 

@@ -1,7 +1,6 @@
 @extends('layouts.prestamo')
 @section('indice')
   <div class="container">
-      <h2>Buscar</h2>
       <div class="row">
         <div class="col-6">
     <div class="row">
@@ -52,7 +51,9 @@
               @endforeach
           </select>
           </div>
-
+        </div>
+          <br>
+      <div class="row">
         <div class="col-md-12">
           <a href="{{route('lendings')}}" class="btn btn-sm btn-success">Volvar al indice</a>
           <button type="submit" class="btn btn-sm btn-primary">Guardar</button>

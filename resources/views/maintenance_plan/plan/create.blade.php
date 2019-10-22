@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Agregar Plan de estudio</h3>
+        <h3>Agregar Plan de mantencion</h3>
       </div>
     </div>
 
@@ -34,7 +34,6 @@
         <div class="col-md-12">
                 <strong>Frecuencia: </strong>
                 <select class="form-control" name="frequency_id">
-                    <option value=''>No asignar frecuencia</option>
                     @foreach ($frequencies as $frequency)
                         <option value="{{$frequency->id}}">{{$frequency->name}}</option>
                     @endforeach
@@ -44,7 +43,6 @@
         <div class="col-md-12">
                 <strong>Prioridad: </strong>
                 <select class="form-control" name="priority_id">
-                    <option value=''>No asignar prioridad</option>
                     @foreach ($priorities as $priority)
                         <option value="{{$priority->id}}">{{$priority->name}}</option>
                     @endforeach

@@ -46,7 +46,7 @@ class Inventory extends Model
     // }
 
     public function inventoryByLiable(){
-        return $this->belongsToMany(Liable::class,'lending_register','liable_id','inventory_id')->withPivot('supossed_return_date')->withTimestamps();
+        return $this->belongsToMany(Liable::class,'lending_register','liable_id','inventory_id')->withPivot('id','supossed_return_date','updated')->withTimestamps();
     }
 
     // public function registro_mantencion(){
