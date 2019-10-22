@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Frequency;
+use App\MaintenancePlan;
 use Illuminate\Http\Request;
+use DB; 
 
 class FrequencyController extends Controller
 {
@@ -22,8 +24,9 @@ class FrequencyController extends Controller
 
     public function index()
     {
-        $frequencies=Frequency::all();
-        return view('maintenance_plan.frequency.index',compact('frequencies'));
+        $frequencies=Frequency::where('id','!=',1)->get();
+        $id=1;
+        return view('maintenance_plan.frequency.index',compact('frequencies','id'));
     }
 
     /**
@@ -106,6 +109,13 @@ class FrequencyController extends Controller
     public function destroy($id)
     {
         $frequency = Frequency::find($id);
+        $lists = DB::table('maintenance_plans')->where('frequency_id',$id)->get();
+        foreach($lists as $list){
+            $list=MaintenancePlan::find($list->id);
+            $list->frequency_id = 1;
+            $list->save();
+        }
+
         $frequency->delete();
         return redirect()->route('frequency.index')
                         ->with('success', 'Frecuencia eliminada exitosamente');

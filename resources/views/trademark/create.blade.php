@@ -26,12 +26,15 @@
           <strong>Nombre :</strong>
           <input type="text" name="name" class="form-control" placeholder="Nombre">
         </div>
-
+      </div>
+      <br>
+      <div class="row">
         <div class="col-md-12">
           <a href="{{route('trademark.index')}}" class="btn btn-sm btn-success">Volvar al indice</a>
           <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
         </div>
       </div>
+
     </form>
 
   </div>

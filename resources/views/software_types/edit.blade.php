@@ -31,12 +31,14 @@
           <strong>Descripcion :</strong>
           <textarea class="form-control" name="description" rows="8" cols="80">{{$software_type->description}}</textarea>
         </div>
-
-        <div class="col-md-12">
-          <a href="{{route('software_type.index')}}" class="btn btn-sm btn-success">Atras</a>
-          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
-        </div>
       </div>
+      <br>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="{{route('software_type.index')}}" class="btn btn-sm btn-success">Atras</a>
+                <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+              </div>
+        </div>
     </form>
   </div>
 @endsection

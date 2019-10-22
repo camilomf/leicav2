@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Place;
+use App\Inventory;
+use DB;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -14,8 +16,9 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        $places=Place::all();
-        return view('places.index',compact('places'));
+        $places=Place::where('id','!=',1)->get();
+        $id=1;
+        return view('places.index',compact('places','id'));
     }
 
     /**
@@ -54,7 +57,8 @@ class PlaceController extends Controller
     public function show($id)
     {
         $place = Place::find($id);
-        return view('places.detail', compact('place'));
+        $inventories = Inventory::where('place_id',$id)->get();
+        return view('places.detail', compact('place','inventories'));
     }
 
     /**
@@ -99,6 +103,13 @@ class PlaceController extends Controller
     public function destroy($id)
     {
         $place = Place::find($id);
+        $lists = DB::table('inventories')->where('place_id',$id)->get();
+        foreach($lists as $list){
+            $list=Inventory::find($list->id);
+            $list->place_id = 1;
+            $list->save();
+        }
+
         $place->delete();
         return redirect()->route('places.index')
                         ->with('success', 'Lugar eliminado exitosamente');

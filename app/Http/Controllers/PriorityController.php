@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Priority;
+use App\MaintenancePlan;
 use Illuminate\Http\Request;
+use DB;
 
 class PriorityController extends Controller
 {
@@ -23,8 +25,9 @@ class PriorityController extends Controller
 
     public function index()
     {
-        $priorities=Priority::all();
-        return view('maintenance_plan.priority.index',compact('priorities'));
+        $priorities=Priority::where('id','!=',1)->get();
+        $id=1;
+        return view('maintenance_plan.priority.index',compact('priorities','id'));
     }
 
     /**
@@ -107,6 +110,13 @@ class PriorityController extends Controller
     public function destroy($id)
     {
         $priority = Priority::find($id);
+        $lists = DB::table('maintenance_plans')->where('priority_id',$id)->get();
+        foreach($lists as $list){
+            $list=MaintenancePlan::find($list->id);
+            $list->priority_id = 1;
+            $list->save();
+        }
+
         $priority->delete();
         return redirect()->route('priority.index')
                         ->with('success', 'Prioridad eliminada exitosamente');

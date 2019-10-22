@@ -4,7 +4,7 @@
 <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h3>Frecuencias</h3>
+            <h3>Frecuencia</h3>
           </div>
           <div class="col-sm-2">
             <a class="btn btn-sm btn-success" href="{{ route('frequency.create') }}">Agregar nueva frecuencia</a>
@@ -27,7 +27,7 @@
 
           @foreach ($frequencies as $frequency)
             <tr>
-              <td><b>{{$frequency->id }}.</b></td>
+              <td><b>{{$id++ }}.</b></td>
               <td>{{$frequency->name}}</td>
               <td>
                 <form action="{{ route('frequency.destroy', $frequency->id) }}" method="post">

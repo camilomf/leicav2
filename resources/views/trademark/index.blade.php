@@ -27,7 +27,7 @@
 
           @foreach ($trademarks as $trademark)
             <tr>
-              <td><b>{{$trademark->id }}.</b></td>
+              <td><b>{{ $id++ }}.</b></td>
               <td>{{$trademark->name}}</td>
               <td>
                 <form action="{{ route('trademark.destroy', $trademark->id) }}" method="post">

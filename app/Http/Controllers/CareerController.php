@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\StudyPlan;
 use App\Career;
 use Illuminate\Http\Request;
 
@@ -23,8 +24,9 @@ class CareerController extends Controller
 
     public function index()
     {
-        $careers=DB::table('careers')->get();
-        return view('study_plan_manage.career.index',compact('careers'));
+        $careers=Career::where('id','!=',1)->get();
+        $id=1;
+        return view('study_plan_manage.career.index',compact('careers','id'));
     }
 
 
@@ -48,7 +50,6 @@ class CareerController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required'
           ]);
 
           career::create($request->all());
@@ -109,7 +110,14 @@ class CareerController extends Controller
      */
     public function destroy($id)
     {
-        $career = career::find($id);
+        $career = Career::find($id);
+        $lists = DB::table('study_plans')->where('career_id',$id)->get();
+        foreach($lists as $list){
+            $list=StudyPlan::find($list->id);
+            $list->career_id = 1;
+            $list->save();
+        }
+
         $career->delete();
         return redirect()->route('career.index')
                         ->with('success', 'Carrera eliminada exitosamente');

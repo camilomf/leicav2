@@ -35,8 +35,6 @@
             <strong>Fecha de termino :</strong>
             <input type="date" name="date_end" class="form-control" value="{{$study_plan->date_end}}">
         </div>
-
-        @if ($study_plan->career!=null)
             <div class="col-md-12">
                     <strong>Carrera: </strong>
                     <select class="form-control" name="id_career">
@@ -45,26 +43,8 @@
                         @foreach ($careers as $career)
                             <option value="{{$career->id}}">{{$career->name}}</option>
                         @endforeach
-                        <option value=''>No asignar carrera</option>
                     </select>
              </div>
-
-        @else
-            <div class="col-md-12">
-                    <strong>Carrera: </strong>
-                    <select class="form-control" name="career_id">
-                        <option value=''>No asignar carrera</option>
-                        @foreach ($careers as $career)
-                            <option value="{{$career->id}}">{{$career->name}}</option>
-                        @endforeach
-                    </select>
-            </div>
-
-        @endif
-
-
-
-
         <div class="col-md-12">
           <a href="{{route('plan.index')}}" class="btn btn-sm btn-success">Atras</a>
           <button type="submit" class="btn btn-sm btn-primary">Guardar</button>

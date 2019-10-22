@@ -27,7 +27,7 @@
 
           @foreach ($models as $model)
             <tr>
-              <td><b>{{ $model->id }}.</b></td>
+              <td><b>{{ $id++ }}.</b></td>
               <td>{{ $model->name}}</td>
               <td>
                 <form action="{{ route('model.destroy', $model->id) }}" method="post">

@@ -32,14 +32,9 @@
 
 
       <div class="col-md-12">
-                <div class="form-group">
-                    @if ($software->softwareType!=null)
-                        <strong>Tipo de Software : </strong>{{ $software->softwareType->name }}
-                    @else
-                        <strong>Tipo de Software : </strong>No hay tipo de software asignado
-                    @endif
-
-                </div>
+          <div class="form-group">
+            <strong>Tipo de Software : </strong>{{ $software->softwareType->name }}
+          </div>
          </div>
       <div class="col-md-12">
         <a href="{{route('software.index')}}" class="btn btn-sm btn-success">Atras</a>

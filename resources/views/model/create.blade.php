@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Agregar Plan de estudio</h3>
+        <h3>Agregar modelo</h3>
       </div>
     </div>
 
@@ -30,7 +30,6 @@
         <div class="col-md-12">
                 <strong>Marca: </strong>
                 <select class="form-control" name="trademark_id">
-                    {{-- <option value='{{ $trademark }}'></option> --}}
                     @foreach ($trademarks as $trademark)
                         <option value="{{$trademark->id}}">{{$trademark->name}}</option>
                     @endforeach

@@ -27,7 +27,7 @@
 
           @foreach ($places as $place)
             <tr>
-              <td><b>{{$place->id }}.</b></td>
+              <td><b>{{$id++ }}.</b></td>
               <td>{{$place->name}}</td>
               <td>
                 <form action="{{ route('places.destroy', $place->id) }}" method="post">

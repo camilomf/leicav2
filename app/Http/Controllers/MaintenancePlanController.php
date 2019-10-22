@@ -24,8 +24,9 @@ class MaintenancePlanController extends Controller
 
     public function index()
     {
-        $maintenance_plans=MaintenancePlan::all();
-        return view('maintenance_plan.plan.index',compact('maintenance_plans'));
+        $maintenance_plans=MaintenancePlan::where('id','!=',1)->get();
+        $id=1;
+        return view('maintenance_plan.plan.index',compact('maintenance_plans','id'));
     }
 
     /**
@@ -121,6 +122,13 @@ class MaintenancePlanController extends Controller
     public function destroy($id)
     {
         $maintenance_plan = MaintenancePlan::find($id);
+        $lists = DB::table('inventories')->where('maintenance_plan_id',$id)->get();
+        foreach($lists as $list){
+            $list=Inventory::find($list->id);
+            $list->maintenance_plan_id = 1;
+            $list->save();
+        }
+
         $maintenance_plan->delete();
         return redirect()->route('maintenance_plan.index')
                         ->with('success', 'Plan de mantencion eliminado exitosamente');

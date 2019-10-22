@@ -14,8 +14,9 @@ class MaintenanceTypeController extends Controller
      */
     public function index()
     {
-        $maintenance_types = MaintenanceType::all();
-        return view('maintenance_type.index',compact('maintenance_types'));
+        $maintenance_types=MaintenanceType::where('id','!=',1)->get();
+        $id=1;
+        return view('maintenance_type.index',compact('maintenance_types','id'));
     }
 
     /**

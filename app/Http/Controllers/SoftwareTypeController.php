@@ -14,8 +14,9 @@ class SoftwareTypeController extends Controller
      */
     public function index()
     {
-        $software_types=SoftwareType::all();
-        return view('software_types.index',compact('software_types'));
+        $software_types=SoftwareType::where('id','!=',1)->get();
+        $id=1;
+        return view('software_types.index',compact('software_types','id'));
     }
 
     /**
@@ -38,7 +39,6 @@ class SoftwareTypeController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required'
           ]);
 
           SoftwareType::create($request->all());
@@ -100,6 +100,13 @@ class SoftwareTypeController extends Controller
     public function destroy($id)
     {
         $software_type = SoftwareType::find($id);
+        $lists = DB::table('softwares')->where('software_type_id',$id)->get();
+        foreach($lists as $list){
+            $list=Software::find($list->id);
+            $list->software_type_id = 1;
+            $list->save();
+        }
+
         $software_type->delete();
         return redirect()->route('software_type.index')
                         ->with('success', 'Tipo de software eliminado exitosamente');

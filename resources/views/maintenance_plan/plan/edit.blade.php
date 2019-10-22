@@ -31,33 +31,17 @@
           <strong>Descripcion :</strong>
           <textarea class="form-control" placeholder="Descripcion" name="description" rows="8" cols="80" value="{{$maintenance_plan->description}}"></textarea>
       </div>
+        <div class="col-md-12">
+                <strong>Frecuencia: </strong>
+                <select class="form-control" name="frequency_id">
+                    <option selected
+                            value="{{$maintenance_plan->frequency->id}}">{{$maintenance_plan->frequency->name}}</option>
+                    @foreach ($frequencies as $frequency)
+                        <option value="{{$frequency->id}}">{{$frequency->name}}</option>
+                    @endforeach
+                </select>
+         </div>
 
-        @if ($maintenance_plan->frequency != null)
-            <div class="col-md-12">
-                    <strong>Frecuencia: </strong>
-                    <select class="form-control" name="frequency_id">
-                        <option selected
-                                value="{{$maintenance_plan->frequency->id}}">{{$maintenance_plan->frequency->name}}</option>
-                        @foreach ($frequencies as $frequency)
-                            <option value="{{$frequency->id}}">{{$frequency->name}}</option>
-                        @endforeach
-                        <option value=''>No asignar frecuencia</option>
-                    </select>
-             </div>
-        @else
-            <div class="col-md-12">
-                    <strong>Frecuencia: </strong>
-                    <select class="form-control" name="frequency_id">
-                        <option value=''>No asignar frecuencia</option>
-                        @foreach ($frequencies as $frequency)
-                            <option value="{{$frequency->id}}">{{$frequency->name}}</option>
-                        @endforeach
-                    </select>
-            </div>
-
-        @endif
-
-        @if ($maintenance_plan->priority != null)
         <div class="col-md-12">
                 <strong>prioridad: </strong>
                 <select class="form-control" name="priority_id">
@@ -69,24 +53,16 @@
                     <option value=''>No asignar prioridad</option>
                 </select>
          </div>
-        @else
-        <div class="col-md-12">
-                <strong>prioridad: </strong>
-                <select class="form-control" name="priority_id">
-                    <option value=''>No asignar prioridad</option>
-                    @foreach ($priorities as $priority)
-                        <option value="{{$priority->id}}">{{$priority->name}}</option>
-                    @endforeach
-                </select>
         </div>
-
-    @endif
-
-        <div class="col-md-12">
-          <a href="{{route('maintenance_plan.index')}}" class="btn btn-sm btn-success">Atras</a>
-          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="{{route('maintenance_plan.index')}}" class="btn btn-sm btn-success">Atras</a>
+                <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+              </div>
         </div>
-      </div>
+        
+
     </form>
   </div>
 @endsection

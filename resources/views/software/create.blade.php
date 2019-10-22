@@ -42,7 +42,6 @@
         <div class="col-md-12">
                 <strong>Tipo de software: </strong>
                 <select class="form-control" name="software_type_id">
-                    <option value=''>No asignar tipo de software</option>
                     @foreach ($software_types as $software_type)
                         <option value="{{$software_type->id}}">{{$software_type->name}}</option>
                     @endforeach

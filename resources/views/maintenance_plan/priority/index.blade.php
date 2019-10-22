@@ -27,7 +27,7 @@
 
           @foreach ($priorities as $priority)
             <tr>
-              <td><b>{{$priority->id }}.</b></td>
+              <td><b>{{$id++ }}.</b></td>
               <td>{{$priority->name}}</td>
               <td>
                 <form action="{{ route('priority.destroy', $priority->id) }}" method="post">

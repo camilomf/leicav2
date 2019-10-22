@@ -20,17 +20,12 @@
       </div>
       <div class="col-md-12">
             <div class="form-group">
-              <strong>Fecha de Termino : </strong> {{$study_plan->date_start}}
+              <strong>Fecha de Termino : </strong> {{ $study_plan->date_start }}
             </div>
           </div>
         <div class="col-md-12">
                 <div class="form-group">
-                    @if ($study_plan->career!=null)
-                        <strong>Carrera : </strong>{{ $study_plan->career->name }}
-                    @else
-                        <strong>Carrera : </strong>No hay carrera asignada
-                    @endif
-
+                  <strong>Carrera : </strong>{{ $study_plan->career->name }}
                 </div>
          </div>
       <div class="col-md-12">

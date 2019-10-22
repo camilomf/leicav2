@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Category;
+use App\Inventory;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -15,8 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories=Category::all();
-        return view('category.index',compact('categories'));
+        $categories=Category::where('id','!=',1)->get();
+        $id=1;
+        return view('category.index',compact('categories','id'));
     }
 
     /**
@@ -107,6 +109,13 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
+        $lists = DB::table('inventories')->where('category_id',$id)->get();
+        foreach($lists as $list){
+            $list=Inventory::find($list->id);
+            $list->category_id = 1;
+            $list->save();
+        }
+
         $category->delete();
         return redirect()->route('category.index')
                         ->with('success', 'categoria eliminada exitosamente');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Modelo;
 use DB;
+use App\Inventory;
 use Illuminate\Http\Request;
 
 class ModeloController extends Controller
@@ -15,8 +16,9 @@ class ModeloController extends Controller
      */
     public function index()
     {
-        $models=Modelo::all();
-        return view('model.index',compact('models'));
+        $id=1;
+        $models=Modelo::where('id','!=',1)->get();
+        return view('model.index',compact('models','id'));
     }
 
     /**
@@ -108,6 +110,13 @@ class ModeloController extends Controller
     public function destroy($id)
     {
         $model = Modelo::find($id);
+        $lists = DB::table('inventories')->where('modelo_id',$id)->get();
+        foreach($lists as $list){
+            $list=Inventory::find($list->id);
+            $list->modelo_id = 1;
+            $list->save();
+        }
+        
         $model->delete();
         return redirect()->route('model.index')
                         ->with('success', 'Modelo eliminado exitosamente');

@@ -19,18 +19,6 @@
           <strong>Descripcion : </strong> {{$priority->description}}
         </div>
       </div>
-      {{-- <div class="col-md-12">
-            <div class="form-group">
-              <strong>Softwares Asignados : </strong>
-              <table class="table table-hover table-sm">
-                    @foreach ($priority->software as $softwares)
-                    <tr>
-                          <td>{{$softwares->name}}</td>
-                    @endforeach
-              </table>
-
-            </div>
-          </div> --}}
       <div class="col-md-12">
         <a href="{{route('priority.index')}}" class="btn btn-sm btn-success">Atras</a>
       </div>

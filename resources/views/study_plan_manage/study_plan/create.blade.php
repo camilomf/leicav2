@@ -37,7 +37,6 @@
         <div class="col-md-12">
                 <strong>Carrera: </strong>
                 <select class="form-control" name="career_id">
-                    <option value=''>No asignar carrera</option>
                     @foreach ($careers as $career)
                         <option value="{{$career->id}}">{{$career->name}}</option>
                     @endforeach

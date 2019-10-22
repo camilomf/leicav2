@@ -28,7 +28,7 @@
           @foreach ($softwares as $software)
             <tr>
               <td><b>{{ $software->id }}.</b></td>
-              <td>{{ $software->name}} {{ $software->version }}</td>
+              <td>{{ $software->name}}, {{ $software->version }}</td>
               <td>
                 <form action="{{ route('software.destroy', $software->id) }}" method="post">
                   <a class="btn btn-sm btn-success" href="{{route('software.show',$software->id)}}">Detalle</a>

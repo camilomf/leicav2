@@ -21,7 +21,7 @@
           <tr>
             <th width = "50px"><b>ID.</b></th>
             <th>Nombre</th>
-            <th width = "340px">Accion</th>
+            <th width = "270px">Accion</th>
           </tr>
 
           @foreach ($study_plans as $study_plan)

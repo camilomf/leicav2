@@ -28,7 +28,7 @@
 
           @foreach ($software_types as $software_type)
             <tr>
-              <td><b>{{$software_type->id }}.</b></td>
+              <td><b>{{$id++ }}.</b></td>
               <td>{{$software_type->name}}</td>
               <td>{{$software_type->description}}</td>
               <td>

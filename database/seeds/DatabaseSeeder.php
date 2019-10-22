@@ -97,30 +97,40 @@ class DatabaseSeeder extends Seeder
 
         DB::table('trademarks')->insert([
             'id'=>null,
-            'name'=>'marca no agregada',
+            'name'=>'vacío',
         ]);
 
         DB::table('modelos')->insert([
             'id'=>null,
-            'name'=>'modelo no agregado',
+            'name'=>'vacío',
             'trademark_id'=>1
         ]);
 
         DB::table('places')->insert([
             'id'=>null,
-            'name'=>'lugar no agregado',
+            'name'=>'vacío',
             'description'=>'lugar 1'
         ]);
 
         DB::table('categories')->insert([
             'id'=>null,
-            'name'=>'categoria no agregada',
+            'name'=>'vacío',
             'assets_id'=>null
+        ]);
+        
+        DB::table('frequencies')->insert([
+            'id'=>null,
+            'name'=>'vacío',
+        ]);
+
+        DB::table('priorities')->insert([
+            'id'=>null,
+            'name'=>'vacío',
         ]);
 
         DB::table('maintenance_plans')->insert([
             'id'=>null,
-            'name'=>'plan de mantencion no agregado',
+            'name'=>'vacío',
             'description'=>null
         ]);
 
@@ -143,19 +153,22 @@ class DatabaseSeeder extends Seeder
         DB::table('liabilities')->insert([
             'id'=>null,
             'name'=>'Otro'
-
-        ]);
-
-        DB::table('maintenance_plans')->insert([
-            'id'=>null,
-            'name'=>'no asignar plan de mantencion'
         ]);
 
         DB::table('maintenance_types')->insert([
             'id'=>null,
-            'name'=>'no asignar tipo de mantencion'
+            'name'=>'vacío'
         ]);
 
+        DB::table('careers')->insert([
+            'id'=>null,
+            'name'=>'vacío'
+        ]);
+
+        DB::table('software_types')->insert([
+            'id'=>null,
+            'name'=>'vacío'
+        ]);
 
         // $this->call(UsersTableSeeder::class);
     }

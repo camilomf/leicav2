@@ -16,9 +16,9 @@ class TrademarkController extends Controller
      */
     public function index()
     {
-        // $trademarks = DB::table('trademarks')::where
         $trademarks=Trademark::where('id','!=',1)->get();
-        return view('trademark.index',compact('trademarks'));
+        $id=1;
+        return view('trademark.index',compact('trademarks','id'));
     }
 
     /**
@@ -104,7 +104,6 @@ class TrademarkController extends Controller
         $lists = DB::table('modelos')->where('trademark_id',$id)->get();
         foreach($lists as $list){
             $list=Modelo::find($list->id);
-            // dd($list);
             $list->trademark_id = 1;
             $list->save();
         }

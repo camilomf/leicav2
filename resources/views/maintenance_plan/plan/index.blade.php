@@ -27,7 +27,7 @@
 
           @foreach ($maintenance_plans as $maintenance_plan)
             <tr>
-              <td><b>{{ $maintenance_plan->id }}.</b></td>
+              <td><b>{{ $id++ }}.</b></td>
               <td>{{ $maintenance_plan->name}}</td>
               <td>
                 <form action="{{ route('maintenance_plan.destroy', $maintenance_plan->id) }}" method="post">

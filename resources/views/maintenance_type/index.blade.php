@@ -11,7 +11,7 @@
             <a class="btn btn-sm btn-success" href="{{ route('maintenance_type.create') }}">Agregar nuevo tipo de mantención</a>
           </div>
         </div>
-
+<br>
         @if ($message = Session::get('success'))
           <div class="alert alert-success">
             <p>{{$message}}</p>
@@ -21,16 +21,14 @@
         <table class="table table-hover table-sm">
           <tr>
             <th width = "50px"><b>ID.</b></th>
-            <th width = "300px">Nombre</th>
-            <th>Descripcion</th>
+            <th >Nombre</th>
             <th width = "200px">Accion</th>
           </tr>
 
           @foreach ($maintenance_types as $maintenance_type)
             <tr>
-              <td><b>{{$maintenance_type->id }}.</b></td>
+              <td><b>{{$id++ }}.</b></td>
               <td>{{$maintenance_type->name}}</td>
-              <td>{{$maintenance_type->description}}</td>
               <td>
                 <form action="{{ route('maintenance_type.destroy', $maintenance_type->id) }}" method="post">
                   <a class="btn btn-sm btn-success" href="{{route('maintenance_type.show',$maintenance_type->id)}}">Detalle</a>

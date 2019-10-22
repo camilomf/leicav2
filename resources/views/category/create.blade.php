@@ -29,18 +29,20 @@
         <div class="col-md-12">
             <strong>Tipo de Producto: </strong>
             <select class="form-control" name="assets_id">
-                <option value=''>No asignar tipo de producto</option>
                 @foreach ($assets as $asset)
                     <option value="{{$asset->id}}">{{$asset->name}}</option>
                 @endforeach
             </select>
-    </div>
-
+        </div>
+      </div>
+      <br>
+      <div class="row">
         <div class="col-md-12">
           <a href="{{route('category.index')}}" class="btn btn-sm btn-success">Volvar al indice</a>
           <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
         </div>
       </div>
+        
     </form>
 
   </div>

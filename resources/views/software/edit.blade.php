@@ -40,40 +40,25 @@
           <textarea class="form-control" placeholder="Descripcion" name="description" rows="8" cols="80" value="{{$software->description}}"></textarea>
       </div>
 
-        @if ($software->softwareType != null)
-            <div class="col-md-12">
-                    <strong>Tipo de software: </strong>
-                    <select class="form-control" name="software_type_id">
-                        <option selected
-                                value="{{$software->softwareType->id}}">{{$software->softwareType->name}}</option>
-                        @foreach ($software_types as $software_type)
-                            <option value="{{$software_type->id}}">{{$software_type->name}}</option>
-                        @endforeach
-                        <option value=''>No asignar tipo de software</option>
-                    </select>
-             </div>
-
-        @else
-            <div class="col-md-12">
-                    <strong>Tipo de software: </strong>
-                    <select class="form-control" name="software_type_id">
-                        <option value=''>No asignar tipo de software</option>
-                        @foreach ($software_types as $software_type)
-                            <option value="{{$software_type->id}}">{{$software_type->name}}</option>
-                        @endforeach
-                    </select>
-            </div>
-
-        @endif
-
-
-
-
         <div class="col-md-12">
-          <a href="{{route('software.index')}}" class="btn btn-sm btn-success">Atras</a>
-          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+                <strong>Tipo de software: </strong>
+                <select class="form-control" name="software_type_id">
+                    <option selected
+                            value="{{$software->softwareType->id}}">{{$software->softwareType->name}}</option>
+                    @foreach ($software_types as $software_type)
+                        <option value="{{$software_type->id}}">{{$software_type->name}}</option>
+                    @endforeach
+                </select>
+         </div>
         </div>
-      </div>
+        <br>
+         <div class="row">
+            <div class="col-md-12">
+                <a href="{{route('software.index')}}" class="btn btn-sm btn-success">Atras</a>
+                <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+              </div>
+         </div>
+         <br>
     </form>
   </div>
 @endsection

@@ -20,16 +20,14 @@
         <table class="table table-hover table-sm">
           <tr>
             <th width = "50px"><b>ID.</b></th>
-            <th width = "300px">Nombre</th>
-            <th>Descripcion</th>
+            <th>Nombre</th>
             <th width = "200px">Accion</th>
           </tr>
 
           @foreach ($careers as $career)
             <tr>
-              <td><b>{{$career->id }}.</b></td>
+              <td><b>{{$id++ }}.</b></td>
               <td>{{$career->name}}</td>
-              <td>{{$career->description}}</td>
               <td>
                 <form action="{{ route('career.destroy', $career->id) }}" method="post">
                   <a class="btn btn-sm btn-success" href="{{route('career.show',$career->id)}}">Detalle</a>
