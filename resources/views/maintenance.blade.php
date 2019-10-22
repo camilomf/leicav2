@@ -23,7 +23,7 @@ Mantencion
       </div>
       <br>
 
-      <h2>Section title</h2>
+      <h2>Asignar mantencion al inventario</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm" id="inventories">
           <thead>
@@ -35,7 +35,7 @@ Mantencion
               <th>N° Serie</th>
               <th>Lugar</th>
               <th>Estado</th>
-              <th width = "220px">Accion</th>
+              <th width = "80px">Accion</th>
             </tr>
           </thead>
           <tbody>
@@ -50,14 +50,11 @@ Mantencion
               <td>{{ $inventory->state->name }}</td>
               <td>
                     <form action="{{ route('maintenance_register.remove', $inventory->id) }}" method="post">
-                      @if ($inventory->state_id != 2 && $inventory->state_id != 4)
-                        <a class="btn btn-sm btn-info" href="{{route('maintenance_register.register', ['id' => $inventory->id])}}">Registrar</a>
-                      @endif
-                      {{-- <a class="btn btn-sm btn-warning" href="#">Quitar</a> --}}
                       @csrf
-                      {{-- @method('DELETE') --}}
                       @if ($inventory->state_id == 5)
                         <button type="submit" class="btn btn-sm btn-outline-danger">Quitar</button>
+                      @elseif($inventory->state_id != 2 && $inventory->state_id != 4)
+                          <a class="btn btn-sm btn-info" href="{{route('maintenance_register.register', ['id' => $inventory->id])}}">Registrar</a>
                       @endif
                     </form>
                   </td>
