@@ -74,7 +74,8 @@ class StudyPlanController extends Controller
     public function show($id)
     {
         $study_plan = StudyPlan::find($id);
-        return view('study_plan_manage.study_plan.detail', compact('study_plan'));
+        $id=1;
+        return view('study_plan_manage.study_plan.detail', compact('study_plan','id'));
     }
 
     /**

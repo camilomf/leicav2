@@ -31,6 +31,7 @@ Route::resource('/home/trademark', 'TrademarkController',['names'=>['trademark']
 Route::resource('/home/model', 'ModeloController',['names'=>['model']])->middleware('auth');
 Route::resource('/home/inventory', 'InventoryController',['names'=>['inventory']])->middleware('auth');
 Route::resource('/home/maintenance_type', 'MaintenanceTypeController',['names'=>['maintenance_type']])->middleware('auth');
+Route::resource('/home/items', 'ItemController',['names'=>['items']])->middleware('auth');
 // Route::resource('/home/lendings/liable', 'LiableController',['names'=>['liable']])->middleware('auth');
 Route::get('/home/lendings/liable/create/{id}', 
     ['as' => 'liable.create', 'uses' => 'LiableController@create'])->middleware('auth');
@@ -53,6 +54,13 @@ Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController
         'update' => 'planbysoftware.update',
     ]   
 ]);
+Route::resource('/home/place/software', 'SoftwareByPlaceController', [
+    'names' => [
+        'edit' => 'softwarebyplace.edit',
+        'update' => 'softwarebyplace.update',
+    ]   
+]);
+
 
 Route::get('/home/lendings/lending_register/create/{id}', 
     ['as' => 'lending_register.create', 'uses' => 'LendingRegisterController@create'])->middleware('auth');

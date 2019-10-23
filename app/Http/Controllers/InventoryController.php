@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Inventory;
 use DB;
 use Illuminate\Http\Request;
+use App\Item;
 
 class InventoryController extends Controller
 {
@@ -15,17 +16,6 @@ class InventoryController extends Controller
      */
     public function index(Request $request)
     {
-        // if ($request->ajax()) {
-        //     $data = Inventory::latest()->get();
-        //     return Datatables::of($data)
-        //             ->addIndexColumn()
-        //             ->addColumn('action', function($row){
-        //                    $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-        //                     return $btn;
-        //             })
-        //             ->rawColumns(['action'])
-        //             ->make(true);
-        // }
         $inventories=Inventory::all();
         return view('inventory',compact('inventories'));
     }
@@ -127,7 +117,17 @@ class InventoryController extends Controller
           $inventory->modelo_id = $request->get('model_id');
           $inventory->maintenance_plan_id = $request->get('maintenance_plan_id');
           $inventory->state_id = $request->get('state_id');
+          
+        //   if($inventory->state_id==5){
+        //     $items=Item::where('inventory_id',$inventory->id)->get();
+        //     foreach($items as $item){
+        //         $item->state_id=5;
+        //         $item->save();
+        //     }
+        //   }
+
           $inventory->save();
+
           return redirect()->route('inventory.index')
                           ->with('success', 'Inventario actualizado exitosamente');
     }

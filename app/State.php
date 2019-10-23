@@ -9,4 +9,8 @@ class State extends Model
     public function inventories(){
         return $this->hasMany(Inventory::class);
     }
+
+    public function item(){
+        return $this->hasMany(Item::class);
+    }
 }

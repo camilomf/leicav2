@@ -9,25 +9,13 @@
                 <li class="nav-item">
                   <a class="nav-link active" href="{{ route('inventory.index') }}">
                     <span data-feather="home"></span>
-                    Dashboard <span class="sr-only">(current)</span>
+                    Inventario <span class="sr-only">(current)</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <span data-feather="file"></span>
-                    Orders
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="{{ route('items.index') }}">
                     <span data-feather="shopping-cart"></span>
-                    Products
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('category.index') }}">
-                    <span data-feather="users"></span>
-                    Categorias
+                    Items
                   </a>
                 </li>
                 <li class="nav-item">
@@ -36,6 +24,12 @@
                     Lugares
                   </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('category.index') }}">
+                      <span data-feather="users"></span>
+                      Categorias
+                    </a>
+                  </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('software_type.index') }}">
                     <span data-feather="layers"></span>

@@ -11,4 +11,8 @@ class Place extends Model
     public function inventories(){
         return $this->hasMany(Inventory::class);
     }
+
+    public function software(){
+        return $this->belongsToMany(Software::class,'software_by_place','software_id','place_id');
+    }
 }

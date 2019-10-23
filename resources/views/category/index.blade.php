@@ -31,11 +31,11 @@
               <td>{{$category->name}}</td>
               <td>
                 <form action="{{ route('category.destroy', $category->id) }}" method="post">
-                  <a class="btn btn-sm btn-success" href="{{route('category.show',$category->id)}}">Detalle</a>
+                  <a class="btn btn-sm btn-info" href="{{route('category.show',$category->id)}}">Detalle</a>
                   <a class="btn btn-sm btn-warning" href="{{route('category.edit',$category->id)}}">Editar</a>
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
                 </form>
               </td>
             </tr>

@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Nombre : </strong> {{$place->name}}
+          <strong>Nombre : </strong> {{ $place->name }}
         </div>
       </div>
       <div class="col-md-12">
@@ -19,6 +19,18 @@
           <strong>Descripcion : </strong> {{$place->description}}
         </div>
       </div>
+      <div class="col-md-12">
+          <table class="table table-striped table-sm">
+            <thead>
+              <th>Software presente en el lugar {{ $place->name }}</th>
+            </thead>
+            <tbody>
+              @foreach ($place->software as $plan)
+              <tr><td>{{ $plan->name }}</td></tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       <div class="col-md-12">
         <div class="form-group">
             <h4>Inventario</h4>

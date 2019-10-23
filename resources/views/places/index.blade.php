@@ -22,7 +22,7 @@
           <tr>
             <th width = "50px"><b>ID.</b></th>
             <th>Nombre  </th>
-            <th width = "200px">Accion</th>
+            <th width = "270px">Accion</th>
           </tr>
 
           @foreach ($places as $place)
@@ -31,11 +31,12 @@
               <td>{{$place->name}}</td>
               <td>
                 <form action="{{ route('places.destroy', $place->id) }}" method="post">
-                  <a class="btn btn-sm btn-success" href="{{route('places.show',$place->id)}}">Detalle</a>
+                  <a class="btn btn-sm btn-info" href="{{route('places.show',$place->id)}}">Detalle</a>
                   <a class="btn btn-sm btn-warning" href="{{route('places.edit',$place->id)}}">Editar</a>
+                  <a class="btn btn-sm btn-success" href="{{route('softwarebyplace.edit',$place->id)}}">Software</a>
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
                 </form>
               </td>
             </tr>

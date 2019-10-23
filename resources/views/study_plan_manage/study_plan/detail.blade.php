@@ -28,6 +28,19 @@
                   <strong>Carrera : </strong>{{ $study_plan->career->name }}
                 </div>
          </div>
+         <div class="col-md-12">
+            <table class="table table-striped table-sm">
+              <thead>
+                <th>Software asigando al plan de estudio</th>
+              </thead>
+              <tbody>
+                @foreach ($study_plan->software as $plan)
+                <tr><td>{{ $plan->name }}</td></tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+
       <div class="col-md-12">
         <a href="{{route('plan.index')}}" class="btn btn-sm btn-success">Atras</a>
       </div>
