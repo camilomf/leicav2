@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 
-Auth::routes(['register'=>false]);
+Auth::routes(['register'=>false , 'reset' => false]);
 
 Route::resource('/home/study_plan/career', 'CareerController',['names'=>['career']])->middleware('auth');
 Route::resource('/home/study_plan/plan', 'StudyPlanController',['names'=>['plan']])->middleware('auth');
