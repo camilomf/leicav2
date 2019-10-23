@@ -12,6 +12,7 @@
                     Registro Mantención <span class="sr-only">(current)</span>
                   </a>
                 </li>
+                @if (auth()->user()->hasRoles(['User','Admin']))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('maintenance_plan.index') }}">
                       <span data-feather="shopping-cart"></span>
@@ -33,6 +34,7 @@
                     Tipo de Mantencion
                   </a>
                 </li>
+                @endif
               </ul>
             </div>
           </nav>

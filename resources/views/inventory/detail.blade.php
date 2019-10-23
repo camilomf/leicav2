@@ -11,22 +11,22 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Categoria : </strong> {{$inventory->category->name}}
+          <strong>Categoria : </strong> {{ $inventory->category->name }}
         </div>
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>SKU : </strong> {{$inventory->sku}}
+          <strong>SKU : </strong> {{ $inventory->sku }}
         </div>
       </div>
       <div class="col-md-12">
             <div class="form-group">
-              <strong>Numero de serie : </strong> {{$inventory->serialnumber}}
+              <strong>Numero de serie : </strong> {{ $inventory->serialnumber }}
             </div>
           </div>
         <div class="col-md-12">
               <div class="form-group">
-                <strong>Precio : </strong>{{$inventory->price}} USD
+                <strong>Precio : </strong>{{ $inventory->price }} USD
               </div>
             </div>
       <div class="col-md-12">
@@ -34,6 +34,29 @@
           <strong>Observacion : </strong> {{$inventory->observation}}
         </div>
       </div>
+      <div class="col-md-12">
+        <h3>Items asociados al {{ $inventory->category->name }}, N° serie: {{ $inventory->serialnumber }}, SKU: {{ $inventory->sku }}</h3>
+          <table class="table table-striped table-sm">
+            <thead>
+              <th>Categoria</th>
+              <th>N° de serie</th>
+              <th>Modelo</th>
+              <th>Marca</th>
+              <th>Estado</th>
+            </thead>
+            <tbody>
+              @foreach ($inventory->items as $item)
+              <tr>
+                <td>{{ $item->category->name }}</td>
+                <td>{{ $item->serialnumber }}</td>
+                <td>{{ $item->modelo->name }}</td>
+                <td>{{ $item->modelo->trademark->name }}</td>
+                <td>{{ $item->state->name }}</td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
 
 
       {{-- <div class="col-md-12">

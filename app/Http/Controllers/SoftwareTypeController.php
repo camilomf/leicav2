@@ -12,6 +12,15 @@ class SoftwareTypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function __construct()
+    {
+        $this->middleware(['auth',
+        'roles:Admin,User'
+        ]);
+
+    }
+    
     public function index()
     {
         $software_types=SoftwareType::where('id','!=',1)->get();

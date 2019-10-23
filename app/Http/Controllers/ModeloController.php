@@ -14,6 +14,14 @@ class ModeloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+        $this->middleware(['auth',
+        'roles:Admin,User'
+        ]);
+
+    }
+
     public function index()
     {
         $id=1;

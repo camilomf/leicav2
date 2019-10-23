@@ -37,7 +37,6 @@ Maintenance Register
               <th>Cuando debe devolver</th>
               <th>Cuando fue devuelto</th>
               <th>responsable</th>
-              <th width = "100px">Accion</th>
             </tr>
           </thead>
           <tbody>
@@ -57,15 +56,6 @@ Maintenance Register
                       <td>{{ $byLiable->pivot->updated_at}}</td>
                     @endif
                     <td>{{ $byLiable->name }} {{ $byLiable->apePat }} {{ $byLiable->apeMat }}</td>
-                    <td>
-                      <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
-                        <a class="btn btn-sm btn-outline-success" href="{{ route('inventory.show',$inventory->id) }}">Detalle</a>
-                        {{-- <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-outline-danger">Devolver</button> --}}
-                      </form>
-                    </td>
                   </tr>
             @endforeach
           @endforeach

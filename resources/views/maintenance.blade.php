@@ -35,7 +35,9 @@ Mantencion
               <th>N° Serie</th>
               <th>Lugar</th>
               <th>Estado</th>
+              @if (auth()->user()->hasRoles(['User','Admin']))
               <th width = "80px">Accion</th>
+              @endif
             </tr>
           </thead>
           <tbody>
@@ -48,16 +50,19 @@ Mantencion
               <td>{{ $inventory->serialnumber }}</td>
               <td>{{ $inventory->place->name }}</td>
               <td>{{ $inventory->state->name }}</td>
+              @if (auth()->user()->hasRoles(['User','Admin']))
               <td>
-                    <form action="{{ route('maintenance_register.remove', $inventory->id) }}" method="post">
-                      @csrf
-                      @if ($inventory->state_id == 5)
-                        <button type="submit" class="btn btn-sm btn-outline-danger">Quitar</button>
-                      @elseif($inventory->state_id != 2 && $inventory->state_id != 4)
-                          <a class="btn btn-sm btn-info" href="{{route('maintenance_register.register', ['id' => $inventory->id])}}">Registrar</a>
-                      @endif
-                    </form>
-                  </td>
+                  <form action="{{ route('maintenance_register.remove', $inventory->id) }}" method="post">
+                    @csrf
+                    @if ($inventory->state_id == 5)
+                      <button type="submit" class="btn btn-sm btn-outline-danger">Quitar</button>
+                    @elseif($inventory->state_id != 2 && $inventory->state_id != 4)
+                        <a class="btn btn-sm btn-info" href="{{route('maintenance_register.register', ['id' => $inventory->id])}}">Registrar</a>
+                    @endif
+                  </form>
+                </td>
+              @endif
+              
             </tr>
           @endforeach
         </tbody>

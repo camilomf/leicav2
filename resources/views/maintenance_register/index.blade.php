@@ -35,7 +35,6 @@ Maintenance Register
               <th>N° Serie</th>
               <th>Fecha</th>
               <th>Tipo de Mantencion</th>
-              <th width = "100px">Accion</th>
             </tr>
           </thead>
           <tbody>
@@ -49,7 +48,6 @@ Maintenance Register
                     <td>{{ $inventory->serialnumber}}</td>
                     <td>{{ $type->pivot->date}}</td>
                     <td>{{ $type->name }}</td>
-                    <td><a class="btn btn-sm btn-info" href="{{route('career.show',$inventory->id)}}">Detalle</a><td>
             </tr>
             @endforeach  
           @endforeach

@@ -6,9 +6,12 @@
           <div class="col-md-10">
             <h3>Lista de Lugares</h3>
           </div>
-          <div class="col-sm-2">
-            <a class="btn btn-sm btn-success" href="{{ route('places.create') }}">Agregar nuevo lugar</a>
-          </div>
+          @if (auth()->user()->hasRoles(['User','Admin']))
+            <div class="col-sm-2">
+              <a class="btn btn-sm btn-success" href="{{ route('places.create') }}">Agregar nuevo lugar</a>
+            </div>
+          @endif
+          
         </div>
         <br>
 
@@ -32,11 +35,14 @@
               <td>
                 <form action="{{ route('places.destroy', $place->id) }}" method="post">
                   <a class="btn btn-sm btn-info" href="{{route('places.show',$place->id)}}">Detalle</a>
-                  <a class="btn btn-sm btn-warning" href="{{route('places.edit',$place->id)}}">Editar</a>
-                  <a class="btn btn-sm btn-success" href="{{route('softwarebyplace.edit',$place->id)}}">Software</a>
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                  @if (auth()->user()->hasRoles(['User','Admin']))
+                    <a class="btn btn-sm btn-warning" href="{{route('places.edit',$place->id)}}">Editar</a>
+                    <a class="btn btn-sm btn-success" href="{{route('softwarebyplace.edit',$place->id)}}">Software</a>
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button> 
+                  @endif
+
                 </form>
               </td>
             </tr>

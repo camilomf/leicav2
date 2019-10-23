@@ -8,10 +8,11 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Inventario</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
+          @if (auth()->user()->hasRoles(['User','Admin']))
           <div class="btn-group mr-2">
-                <a class="btn btn-sm btn-success" href="{{ route('inventory.create') }}">Agregar inventario</a>
-            {{-- <button type="button" class="btn btn-sm btn-outline-secondary">Export</button> --}}
-          </div>
+              <a class="btn btn-sm btn-success" href="{{ route('inventory.create') }}">Agregar inventario</a>
+        </div>
+          @endif
         </div>
       </div>
       <br>
@@ -52,10 +53,12 @@
               <td>
                     <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
                       <a class="btn btn-sm btn-info" href="{{route('inventory.show',$inventory->id)}}">Detalle</a>
+                      @if (auth()->user()->hasRoles(['User','Admin']))
                       <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                      @endif
                     </form>
                   </td>
             </tr>

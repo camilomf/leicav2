@@ -14,6 +14,14 @@ class TrademarkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+        $this->middleware(['auth',
+        'roles:Admin,User'
+        ]);
+
+    }
+
     public function index()
     {
         $trademarks=Trademark::where('id','!=',1)->get();

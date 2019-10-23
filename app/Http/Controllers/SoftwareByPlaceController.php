@@ -9,6 +9,10 @@ use App\Software;
 
 class SoftwareByPlaceController extends Controller
 {
+    public function index(){
+        
+    }
+    
     public function edit($id)
     {
         $place = Place::find($id);

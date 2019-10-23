@@ -12,6 +12,15 @@ class MaintenanceTypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function __construct()
+    {
+        $this->middleware(['auth',
+        'roles:Admin,User'
+        ]);
+
+    }
+
     public function index()
     {
         $maintenance_types=MaintenanceType::where('id','!=',1)->get();

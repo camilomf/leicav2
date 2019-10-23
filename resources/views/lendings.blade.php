@@ -34,7 +34,9 @@ Prestamos
               <th>N° Serie</th>
               <th>Lugar</th>
               <th>Estado</th>
+              @if (auth()->user()->hasRoles(['User','Admin']))
               <th width = "80px">Accion</th>
+              @endif
             </tr>
           </thead>
           <tbody>
@@ -47,17 +49,19 @@ Prestamos
               <td>{{ $inventory->serialnumber }}</td>
               <td>{{ $inventory->place->name }}</td>
               <td>{{ $inventory->state->name }}</td>
+              @if (auth()->user()->hasRoles(['User','Admin']))
               <td>
-                    <form action="{{ route('lending_register.remove',$inventory->id) }}" method="post">
-                      @csrf
-                      @if ($inventory->state_id == 1)
-                        <a class="btn btn-sm btn-info" href="{{route('lending_register.create',$inventory->id)}}">Registrar</a>
-                      @elseif($inventory->state_id==2)
-                        @method('PUT')
-                        <button type="submit" class="btn btn-sm btn-outline-danger">Regresar</button>
-                      @endif
-                    </form>
-                  </td>
+                  <form action="{{ route('lending_register.remove',$inventory->id) }}" method="post">
+                    @csrf
+                    @if ($inventory->state_id == 1)
+                      <a class="btn btn-sm btn-info" href="{{route('lending_register.create',$inventory->id)}}">Registrar</a>
+                    @elseif($inventory->state_id==2)
+                      @method('PUT')
+                      <button type="submit" class="btn btn-sm btn-outline-danger">Regresar</button>
+                    @endif
+                  </form>
+                </td>
+              @endif
             </tr>
           @endforeach
         </tbody>

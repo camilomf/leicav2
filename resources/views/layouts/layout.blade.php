@@ -18,13 +18,10 @@
             <header>
                 {{-- <script src="{{ asset('/js/app.js') }}" defer></script> --}}
                 <nav class="navbar bg-white shadow-sm" >
-                        <a class="navbar-brand" href="{{ route('home') }}">{{ config('app.name') }}</a>
+                        <img src="{{ asset('/img/leica.png') }}" width="50px" height="50px">
                         <ul class="nav nav-pills">
                             <li class="nav-item "><a class="nav-link {{ setActive('home') }}  " href="{{ route('home') }}">Home</a></li>
-                            @if (auth()->user()->hasRoles(['User','Admin']))
-                                <li class="nav-item "><a class="nav-link {{ setActive('maintenance') }} " href="{{ route('maintenance') }}">Mantencion</a></li>
-                            @endif
-
+                            <li class="nav-item "><a class="nav-link {{ setActive('maintenance') }} " href="{{ route('maintenance') }}">Mantencion</a></li>
                             <li class="nav-item "><a class="nav-link {{ setActive('inventory.index') }} " href="{{ route('inventory.index') }}">Inventario</a></li>
                             <li class="nav-item "><a class="nav-link {{ setActive('lendings') }} " href="{{ route('lendings') }}">Prestamos</a></li>
                             @if (auth()->user()->hasRoles(['Chief','Admin']))

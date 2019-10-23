@@ -17,6 +17,6 @@ class Software extends Model
     }
 
     public function place(){
-        return $this->belongsToMany(StudyPlan::class,'software_by_place','place_id','software_id');
+        return $this->belongsToMany(Place::class,'software_by_place','place_id','software_id');
     }
 }

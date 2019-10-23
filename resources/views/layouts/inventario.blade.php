@@ -25,6 +25,14 @@
                   </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('softwarebystudy_plan') }}">
+                      <span data-feather="layers"></span>
+                      Resumen
+                      Plan de estudio
+                    </a>
+                  </li>
+                  @if(auth()->user()->hasRoles(['User','Admin']))
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('category.index') }}">
                       <span data-feather="users"></span>
                       Categorias
@@ -54,7 +62,7 @@
                     Modelo
                   </a>
                 </li>
-
+                @endif
               </ul>
             </div>
           </nav>

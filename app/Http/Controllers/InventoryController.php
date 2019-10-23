@@ -14,6 +14,13 @@ class InventoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+        // $this->middleware('roles:Admin,User');
+        $this->middleware('auth')->only('index', 'show');
+    }
+
+
     public function index(Request $request)
     {
         $inventories=Inventory::all();

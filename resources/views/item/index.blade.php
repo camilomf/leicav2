@@ -6,9 +6,11 @@
           <div class="col-md-10">
             <h3>Lista de Item</h3>
           </div>
+          @if (auth()->user()->hasRoles(['User','Admin']))
           <div class="col-sm-2">
-            <a class="btn btn-sm btn-success" href="{{ route('items.create') }}">Agregar item</a>
-          </div>
+              <a class="btn btn-sm btn-success" href="{{ route('items.create') }}">Agregar item</a>
+            </div>
+          @endif
         </div>
         <br>
 
@@ -36,10 +38,13 @@
                     <td>
                       <form action="{{ route('items.destroy', $item->id) }}" method="post">
                         <a class="btn btn-sm btn-info" href="{{route('items.show',$item->id)}}">Detalle</a>
-                        <a class="btn btn-sm btn-warning" href="{{route('items.edit',$item->id)}}">Editar</a>
-                        @csrf
-                        @method('DELETE')
+                        @if (auth()->user()->hasRoles(['User','Admin']))
+                          <a class="btn btn-sm btn-warning" href="{{route('items.edit',$item->id)}}">Editar</a>
+                          @csrf
+                          @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                        @endif
+
                       </form>
                     </td>
                   </tr>
