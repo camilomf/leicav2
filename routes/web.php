@@ -83,6 +83,9 @@ Route::put('maintenance_register.store{id}','MaintenanceRegisterController@store
 
 
 Route::resource('/home/users', 'UsersController',['names'=>['users']])->middleware('auth');
+Route::get('/home/users/edit_password/{id}', 
+    ['as' => 'users.editPassword', 'uses' => 'UsersController@editPassword'])->middleware('auth','roles:User,Admin');
+Route::put('users.update_password{id}','UsersController@updatePassword')->name('users.updatePassword')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::view('/home/lendings', 'lendings')->name('lendings')->middleware('auth');
 // Route::view('/home/maintenance_regiser', 'maintenance_regiser')->name('maintenance_regiser')->middleware('auth');
