@@ -32,7 +32,7 @@ Route::resource('/home/model', 'ModeloController',['names'=>['model']])->middlew
 Route::resource('/home/maintenance_type', 'MaintenanceTypeController',['names'=>['maintenance_type']])->middleware('auth','roles');
 
 
-Route::get('/home/lendings/liable/create/{id}', 
+Route::get('/home/lendings/liable/create/{id}',
     ['as' => 'liable.create', 'uses' => 'LiableController@create'])->middleware('auth');
 Route::post('liable.store{id}','LiableController@store')->name('liable.store')->middleware('auth');
 
@@ -41,17 +41,26 @@ Route::resource('/home/maintenance/maintenance_plan', 'MaintenancePlanController
 Route::resource('/home/maintenance/plan/frequency', 'FrequencyController',['names'=>['frequency']])->middleware('auth','roles');
 Route::resource('/home/maintenance/plan/priority', 'PriorityController',['names'=>['priority']])->middleware('auth','roles');
 
-
+//Actualizar software por plan de estudio
 Route::resource('/home/software/plan/study_plan', 'PlanStudyBySoftwareController', [
     'names' => [
         'edit' => 'planbysoftware.edit',
         'update' => 'planbysoftware.update',
-    ]   
-]);
+    ]
+])->middleware('auth','roles:Admin,User');
+
+Route::resource('/home/software/place', 'SoftwareByPlaceController',[
+    'names' => [
+        'edit' => 'softwarebyplace.edit',
+        'update' => 'softwarebyplace.update',
+    ]
+])->middleware('auth','roles:Admin,User');
+
+//Route::get('/home/software/place/{id}/edit','SoftwareByPlaceController@edit')->name('softwarebyplace.edit')->middleware('auth','roles:Admin,User');
+//Route::put('/software/place','SoftwareByPlaceController@update')->name('softwarebyplace.update')->middleware('auth','auth','roles:Admin,User');
 
 
-
-Route::get('/home/lendings/lending_register/create/{id}', 
+Route::get('/home/lendings/lending_register/create/{id}',
     ['as' => 'lending_register.create', 'uses' => 'LendingRegisterController@create'])->middleware('auth','roles:User,Admin');
 Route::get('/home/lendings/lending_register', 'LendingRegisterController@index')->name('lending_register.index')->middleware('auth');
 Route::put('lending_register.store{id}','LendingRegisterController@store')->name('lending_register.store')->middleware('auth','roles:User,Admin');
@@ -59,15 +68,15 @@ Route::put('lending_register.remove{id}','LendingRegisterController@remove')->na
 
 
 Route::get('/home/maintenance/maintenance_register', 'MaintenanceRegisterController@index')->name('maintenance_register.index')->middleware('auth');
-Route::get('/home/maintenance/maintenance_register/register/{id}', 
+Route::get('/home/maintenance/maintenance_register/register/{id}',
     ['as' => 'maintenance_register.register', 'uses' => 'MaintenanceRegisterController@register'])->middleware('auth','roles:User,Admin');
-Route::post('/home/maintenance/maintenance_register/remove/{id}', 
+Route::post('/home/maintenance/maintenance_register/remove/{id}',
     ['as' => 'maintenance_register.remove', 'uses' => 'MaintenanceRegisterController@remove'])->middleware('auth','roles:User,Admin');
 Route::put('maintenance_register.store{id}','MaintenanceRegisterController@store')->name('maintenance_register.store')->middleware('auth','roles:User,Admin');
 
 
 Route::resource('/home/users', 'UsersController',['names'=>['users']])->middleware('auth');
-Route::get('/home/users/edit_password/{id}', 
+Route::get('/home/users/edit_password/{id}',
     ['as' => 'users.editPassword', 'uses' => 'UsersController@editPassword'])->middleware('auth','roles:User,Admin');
 Route::put('users.update_password{id}','UsersController@updatePassword')->name('users.updatePassword')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
@@ -77,10 +86,15 @@ Route::get('/home/maintenance_register', function () {
 })->name('maintenance_register')->middleware('auth');
 
 Route::get('/home/software_by_study_plan',function(){
-    $careers = App\Career::where('id','!=',1)->get();
+    // $careers = App\Career::where('id','!=',1)->get();
+    $careers = App\Career::get();
     $places = App\Place::where('id','!=',1)->get();
     return view('inventory.study_plan',compact('careers','places'));
 })->name('softwarebystudy_plan')->middleware('auth');
+
+
+
+
 
 
 
@@ -120,5 +134,4 @@ Route::delete('/home/places/{id}','PlaceController@destroy')->name('places.destr
 Route::post('/home/places','PlaceController@store')->name('places.store')->middleware('auth','auth','roles:Admin,User');
 Route::put('/home/places/{id}','PlaceController@update')->name('places.update')->middleware('auth','auth','roles:Admin,User');
 
-Route::get('/home/software/place/{id}/edit','SoftwareByPlaceController@edit')->name('softwarebyplace.edit')->middleware('auth','roles:Admin,User');
-Route::put('/software/place','SoftwareByPlaceController@update')->name('softwarebyplace.update')->middleware('auth','auth','roles:Admin,User');
+

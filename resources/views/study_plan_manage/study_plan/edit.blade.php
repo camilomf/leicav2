@@ -37,7 +37,7 @@
         </div>
             <div class="col-md-12">
                     <strong>Carrera: </strong>
-                    <select class="form-control" name="id_career">
+                    <select class="form-control" name="career_id">
                         <option selected
                                 value="{{$study_plan->career->id}}">{{$study_plan->career->name}}</option>
                         @foreach ($careers as $career)

@@ -21,7 +21,13 @@
                 <div class="col-6">
                     <h3>Software por plan de estudio</h3>
                         @foreach ($careers as $career)
-                        <h4>Nombre carrera: {{ $career->name }}</h4>
+                        <h4>Nombre carrera:
+                            @if ($career->id == 1)
+                                Sin asignar
+                            @else
+                                {{ $career->name }}
+                            @endif
+                            </h4>
                         <table class="table table-hover table-sm">
                             <tr>
                               <th>Plan de estudio</th>
@@ -60,8 +66,8 @@
                             </table>
                   </div>
         </div>
-        
-        
+
+
       </div>
 
 @endsection
