@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Editar Lugar</h3>
+        <h3>Editar lugar</h3>
       </div>
     </div>
 
@@ -28,15 +28,15 @@
           <input type="text" name="name" class="form-control" value="{{$place->name}}" required="required">
         </div>
         <div class="col-md-12">
-          <strong>Descripcion :</strong>
+          <strong>Descripción :</strong>
           <textarea class="form-control" name="description" rows="8" cols="80" required="required">{{$place->description}}</textarea>
         </div>
       </div>
       <br>
         <div class="row">
           <div class="col-md-12">
-            <a href="{{route('places.index')}}" class="btn btn-sm btn-success">Atras</a>
-            <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+            <a href="{{route('places.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+            <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
           </div>
         </div>
     </form>

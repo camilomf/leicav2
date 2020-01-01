@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Editar software en el lugar</h3>
+        <h3>Editar software en el lugar {{ $place->name }}</h3>
       </div>
     </div>
 
@@ -34,7 +34,7 @@
           <div class="form-check">
             <input class="form-check-input" type="checkbox" name="software[]" value="{{ $software->id}}" {{ $place->software->pluck('id')->contains($software->id) ? 'checked' : '' }}>
             <label class="form-check-label">
-              {{ $software->name }} Version: {{ $software->version }}
+              {{ $software->name }} Versión: {{ $software->version }}
             </label>
           </div>
           @endforeach
@@ -43,8 +43,8 @@
       <br>
       <div class="row">
         <div class="col-md-12">
-          <a href="{{route('places.index')}}" class="btn btn-sm btn-success">Atras</a>
-          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+          <a href="{{route('places.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+          <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
         </div>
       </div>
     </form>

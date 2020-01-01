@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Inventory;
+use App\Modelo;
 use DB;
 use Illuminate\Http\Request;
 use App\Item;
@@ -35,7 +36,7 @@ class InventoryController extends Controller
     public function create()
     {
         $places = DB::table('places')->get();
-        $models = DB::table('modelos')->get();
+        $models = Modelo::all();
         $categories = DB::table('categories')->get();
         $maintenance_plans = DB::table('maintenance_plans')->get();
         return view('inventory.create',compact('places','models','categories','maintenance_plans'));
@@ -124,7 +125,7 @@ class InventoryController extends Controller
           $inventory->modelo_id = $request->get('model_id');
           $inventory->maintenance_plan_id = $request->get('maintenance_plan_id');
           $inventory->state_id = $request->get('state_id');
-          
+
         //   if($inventory->state_id==5){
         //     $items=Item::where('inventory_id',$inventory->id)->get();
         //     foreach($items as $item){

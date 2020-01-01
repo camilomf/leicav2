@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Editar Inventario</h3>
+        <h3>Editar inventario</h3>
       </div>
     </div>
 
@@ -24,7 +24,7 @@
       @method('PUT')
       <div class="row">
         <div class="col-md-12">
-          <strong>Numero de serie :</strong>
+          <strong>Número de serie :</strong>
           <input type="text" name="serialnumber" class="form-control" value="{{$inventory->serialnumber}}">
         </div>
 
@@ -34,13 +34,13 @@
               </div>
 
         <div class="col-md-12">
-            <strong>Precio (USD) :</strong>
+            <strong>Precio (CLP) :</strong>
             <input type="number" name="price" class="form-control" value="{{$inventory->price}}">
             </div>
 
       <div class="col-md-12">
-          <strong>Observation :</strong>
-          <textarea class="form-control" placeholder="Descripcion" name="observation" rows="8" cols="80" value="{{$inventory->observation}}"></textarea>
+          <strong>Observación :</strong>
+          <textarea class="form-control" name="observation" rows="8" cols="80" value="{{$inventory->observation}}"></textarea>
       </div>
         {{-- place --}}
         @if ($inventory->place != null)
@@ -69,7 +69,7 @@
             {{-- category --}}
         @if ($inventory->category != null)
             <div class="col-md-12">
-                    <strong>Categoria: </strong>
+                    <strong>Categoría: </strong>
                     <select class="form-control" name="category_id">
                         <option selected
                                 value="{{$inventory->category->id}}">{{$inventory->category->name}}</option>
@@ -80,9 +80,9 @@
              </div>
         @else
             <div class="col-md-12">
-                    <strong>Categoria: </strong>
+                    <strong>Categoría: </strong>
                     <select class="form-control" name="category_id">
-                        <option value=''>Categoria no asiganda</option>
+                        <option value=''>Categoría no asiganda</option>
                         @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
@@ -117,7 +117,7 @@
         {{-- maintenance_plan --}}
         @if ($inventory->maintenance_plan != null)
             <div class="col-md-12">
-                    <strong>Plan de mantencion: </strong>
+                    <strong>Plan de mantención: </strong>
                     <select class="form-control" name="maintenance_plan_id">
                         <option selected
                                 value="{{$inventory->maintenance_plan->id}}">{{$inventory->maintenance_plan->name}}</option>
@@ -128,7 +128,7 @@
              </div>
         @else
             <div class="col-md-12">
-                    <strong>Plan de mantencion: </strong>
+                    <strong>Plan de mantención: </strong>
                     <select class="form-control" name="maintenance_plan_id">
                         <option value=''>Modelo no asigando</option>
                         @foreach ($maintenance_plans as $maintenance_plan)
@@ -161,12 +161,13 @@
                     </select>
             </div> --}}
         @endif
-
-
+        <div>
+            <br>
+        </div>
 
         <div class="col-md-12">
-          <a href="{{route('inventory.index')}}" class="btn btn-sm btn-success">Atras</a>
-          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+          <a href="{{route('inventory.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+          <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
         </div>
       </div>
     </form>

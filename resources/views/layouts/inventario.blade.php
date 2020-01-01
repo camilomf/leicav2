@@ -15,7 +15,7 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('items.index') }}">
                     <span data-feather="shopping-cart"></span>
-                    Items
+                    Artículos
                   </a>
                 </li>
                 <li class="nav-item">
@@ -28,20 +28,20 @@
                     <a class="nav-link" href="{{ route('softwarebystudy_plan') }}">
                       <span data-feather="layers"></span>
                       Resumen
-                      Plan de estudio
+                      plan de estudio
                     </a>
                   </li>
                   @if(auth()->user()->hasRoles(['User','Admin']))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('category.index') }}">
                       <span data-feather="users"></span>
-                      Categorias
+                      Categorías
                     </a>
                   </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('software_type.index') }}">
                     <span data-feather="layers"></span>
-                    Tipo de Software
+                    Tipo de software
                   </a>
                 </li>
                 <li class="nav-item">

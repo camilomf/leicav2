@@ -28,15 +28,15 @@
           <input type="text" name="name" class="form-control" value="{{$maintenance_type->name}}">
         </div>
         <div class="col-md-12">
-          <strong>Descripcion :</strong>
+          <strong>Descripción :</strong>
           <textarea class="form-control" name="description" rows="8" cols="80">{{$maintenance_type->description}}</textarea>
         </div>
       </div>
       <br>
         <div class="row">
             <div class="col-md-12">
-                <a href="{{route('maintenance_type.index')}}" class="btn btn-sm btn-success">Atras</a>
-                <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+                <a href="{{route('maintenance_type.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+                <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
               </div>
         </div>
     </form>

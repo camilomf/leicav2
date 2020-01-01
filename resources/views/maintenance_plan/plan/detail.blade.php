@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Detalle Plan de Mantencion</h3>
+        <h3>Detalle Plan de Mantención</h3>
         <hr>
       </div>
     </div>
@@ -16,7 +16,7 @@
       </div>
       <div class="col-md-12">
             <div class="form-group">
-              <strong>Descripcion : </strong> {{$maintenance_plan->description}}
+              <strong>Descripción : </strong> {{$maintenance_plan->description}}
             </div>
       </div>
 
@@ -43,7 +43,7 @@
 
 
       <div class="col-md-12">
-        <a href="{{route('maintenance_plan.index')}}" class="btn btn-sm btn-success">Atras</a>
+        <a href="{{route('maintenance_plan.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
       </div>
     </div>
   </div>

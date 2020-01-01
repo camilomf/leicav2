@@ -4,11 +4,11 @@
 <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h3>Lista de Item</h3>
+            <h3>Lista de artículos</h3>
           </div>
           @if (auth()->user()->hasRoles(['User','Admin']))
           <div class="col-sm-2">
-              <a class="btn btn-sm btn-success" href="{{ route('items.create') }}">Agregar item</a>
+              <a class="btn btn-outline-primary" href="{{ route('items.create') }}">Agregar artículo</a>
             </div>
           @endif
         </div>
@@ -24,14 +24,14 @@
               <thead>
                   <tr>
                       <th width = "50px"><b>ID.</b></th>
-                      <th>Categoria</th>
-                      <th>Numero de serie</th>
-                      <th width = "220px">Accion</th>
+                      <th>Categoría</th>
+                      <th>N° serie</th>
+                      <th width = "220px">Acción</th>
                     </tr>
               </thead>
               <tbody>
                   @foreach ($items as $item)
-                  <tr>  
+                  <tr>
                     <td><b>{{$id++ }}.</b></td>
                     <td>{{$item->category->name}}</td>
                     <td>{{$item->serialnumber}}</td>
@@ -50,7 +50,7 @@
                   </tr>
                 @endforeach
               </tbody>
-                
+
               </table>
         </div>
       </div>

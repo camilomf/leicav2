@@ -8,7 +8,7 @@
             <h3>Lista de tipos de mantención</h3>
           </div>
           <div class="col-sm-2">
-            <a class="btn btn-sm btn-success" href="{{ route('maintenance_type.create') }}">Agregar nuevo tipo de mantención</a>
+            <a class="btn btn-outline-primary" href="{{ route('maintenance_type.create') }}">Agregar tipo de mantención</a>
           </div>
         </div>
 <br>
@@ -22,7 +22,7 @@
           <tr>
             <th width = "50px"><b>ID.</b></th>
             <th >Nombre</th>
-            <th width = "200px">Accion</th>
+            <th width = "200px">Acción</th>
           </tr>
 
           @foreach ($maintenance_types as $maintenance_type)
@@ -31,11 +31,11 @@
               <td>{{$maintenance_type->name}}</td>
               <td>
                 <form action="{{ route('maintenance_type.destroy', $maintenance_type->id) }}" method="post">
-                  <a class="btn btn-sm btn-success" href="{{route('maintenance_type.show',$maintenance_type->id)}}">Detalle</a>
+                  <a class="btn btn-sm btn-info" href="{{route('maintenance_type.show',$maintenance_type->id)}}">Detalle</a>
                   <a class="btn btn-sm btn-warning" href="{{route('maintenance_type.edit',$maintenance_type->id)}}">Editar</a>
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
                 </form>
               </td>
             </tr>

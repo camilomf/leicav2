@@ -16,7 +16,7 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Descripcion : </strong> {{$software_type->description}}
+          <strong>Descripción : </strong> {{$software_type->description}}
         </div>
       </div>
       <div class="col-md-12">
@@ -32,7 +32,7 @@
             </div>
           </div>
       <div class="col-md-12">
-        <a href="{{route('software_type.index')}}" class="btn btn-sm btn-success">Atras</a>
+        <a href="{{route('software_type.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
       </div>
     </div>
   </div>

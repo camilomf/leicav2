@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Agregar Categoria</h3>
+        <h3>Agregar categoría</h3>
       </div>
     </div>
 
@@ -27,7 +27,7 @@
         </div>
 
         <div class="col-md-12">
-            <strong>Tipo de Producto: </strong>
+            <strong>Tipo de producto: </strong>
             <select class="form-control" name="assets_id">
                 @foreach ($assets as $asset)
                     <option value="{{$asset->id}}">{{$asset->name}}</option>
@@ -38,11 +38,11 @@
       <br>
       <div class="row">
         <div class="col-md-12">
-          <a href="{{route('category.index')}}" class="btn btn-sm btn-success">Volvar al indice</a>
-          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+          <a href="{{route('category.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+          <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
         </div>
       </div>
-        
+
     </form>
 
   </div>

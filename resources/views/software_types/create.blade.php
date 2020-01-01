@@ -7,7 +7,7 @@
         <h3>Agregar tipo de software</h3>
       </div>
     </div>
-    
+
     @if ($errors->any())
       <div class="alert alert-danger">
         <strong>Whoops! </strong> Hay problemas con tus entradas.<br>
@@ -27,15 +27,15 @@
           <input type="text" name="name" class="form-control" placeholder="Nombre">
         </div>
         <div class="col-md-12">
-          <strong>Descripcion :</strong>
+          <strong>Descripción :</strong>
           <textarea class="form-control" placeholder="Descripcion" name="description" rows="8" cols="80"></textarea>
         </div>
       </div>
       <br>
         <div>
             <div class="col-md-12">
-                <a href="{{route('software_type.index')}}" class="btn btn-sm btn-success">Volvar al indice</a>
-                <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+                <a href="{{route('software_type.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+                <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
               </div>
         </div>
     </form>

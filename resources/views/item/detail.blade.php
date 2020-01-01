@@ -4,14 +4,14 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Detalle item</h3>
+        <h3>Detalle artículo</h3>
         <hr>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
           <div class="form-group">
-            <strong>Categoria : </strong> {{$item->category->name}}
+            <strong>Categoría : </strong> {{$item->category->name}}
           </div>
         </div>
       <div class="col-md-12">
@@ -28,7 +28,7 @@
 
       <div class="col-md-12">
           <div class="form-group">
-            <strong>Precio (USD) : </strong> {{$item->price}}
+            <strong>Precio (CLP) : </strong> {{$item->price}}
           </div>
         </div>
 
@@ -56,7 +56,7 @@
         </div>
 
       <div class="col-md-12">
-        <a href="{{route('items.index')}}" class="btn btn-sm btn-success">Atras</a>
+        <a href="{{route('items.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
       </div>
     </div>
   </div>

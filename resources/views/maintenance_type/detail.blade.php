@@ -16,11 +16,11 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Descripcion : </strong> {{$maintenance_type->description}}
+          <strong>Descripción : </strong> {{$maintenance_type->description}}
         </div>
       </div>
       <div class="col-md-12">
-        <a href="{{route('maintenance_type.index')}}" class="btn btn-sm btn-success">Atras</a>
+        <a href="{{route('maintenance_type.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
       </div>
     </div>
   </div>

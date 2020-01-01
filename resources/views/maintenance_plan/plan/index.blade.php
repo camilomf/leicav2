@@ -7,7 +7,7 @@
             <h3>Plan de Mantención</h3>
           </div>
           <div class="col-sm-2">
-            <a class="btn btn-sm btn-success" href="{{ route('maintenance_plan.create') }}">Agregar plan de mantencion</a>
+            <a class="btn btn-outline-primary" href="{{ route('maintenance_plan.create') }}">Agregar plan de mantención</a>
           </div>
         </div>
         <br>
@@ -22,7 +22,7 @@
           <tr>
             <th width = "50px"><b>ID.</b></th>
             <th>Nombre</th>
-            <th width = "220px">Accion</th>
+            <th width = "220px">Acción</th>
           </tr>
 
           @foreach ($maintenance_plans as $maintenance_plan)
@@ -31,11 +31,11 @@
               <td>{{ $maintenance_plan->name}}</td>
               <td>
                 <form action="{{ route('maintenance_plan.destroy', $maintenance_plan->id) }}" method="post">
-                  <a class="btn btn-sm btn-success" href="{{route('maintenance_plan.show',$maintenance_plan->id)}}">Detalle</a>
+                  <a class="btn btn-sm btn-info" href="{{route('maintenance_plan.show',$maintenance_plan->id)}}">Detalle</a>
                   <a class="btn btn-sm btn-warning" href="{{route('maintenance_plan.edit',$maintenance_plan->id)}}">Editar</a>
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
                 </form>
               </td>
             </tr>

@@ -16,11 +16,11 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Descripcion : </strong> {{$priority->description}}
+          <strong>Descripción : </strong> {{$priority->description}}
         </div>
       </div>
       <div class="col-md-12">
-        <a href="{{route('priority.index')}}" class="btn btn-sm btn-success">Atras</a>
+        <a href="{{route('priority.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
       </div>
     </div>
   </div>

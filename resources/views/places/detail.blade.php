@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Detalle Lugar</h3>
+        <h3>Detalle lugar</h3>
         <hr>
       </div>
     </div>
@@ -16,7 +16,7 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Descripcion : </strong> {{$place->description}}
+          <strong>Descripción : </strong> {{$place->description}}
         </div>
       </div>
       <div class="col-md-12">
@@ -44,7 +44,7 @@
                   <th>Modelo</th>
                   <th>N° Serie</th>
                   <th>Estado</th>
-                  <th width = "220px">Accion</th>
+                  <th width = "100px">Acción</th>
                 </tr>
               </thead>
               <tbody>
@@ -61,8 +61,8 @@
                       <a class="btn btn-sm btn-info" href="{{route('inventory.show',$inventory->id)}}">Detalle</a>
                       <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
                       @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                      {{-- @method('DELETE')
+                      <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button> --}}
                     </form>
                   </td>
                 </tr>
@@ -74,7 +74,7 @@
       </div>
 
       <div>
-        
+
       </div>
       {{-- <div class="col-md-12">
             <div class="form-group">
@@ -89,12 +89,12 @@
             </div>
           </div> --}}
       <div class="col-md-12">
-        <a href="{{route('places.index')}}" class="btn btn-sm btn-success">Atras</a>
+        <a href="{{route('places.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
       </div>
     </div>
   </div>
 
-  
+
 
 
   <script src="{{ asset('/js/jquery.min.js') }}"></script>

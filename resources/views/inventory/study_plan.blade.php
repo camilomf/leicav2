@@ -4,7 +4,7 @@
 <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h3>Plan de estudio</h3>
+            <h3>Resumen plan de estudio</h3>
           </div>
           {{-- <div class="col-sm-2">
             <a class="btn btn-sm btn-success" href="{{ route('model.create') }}">Agregar modelo</a>

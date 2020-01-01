@@ -4,14 +4,14 @@
 <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h3>Lista de Lugares</h3>
+            <h3>Lista de lugares</h3>
           </div>
           @if (auth()->user()->hasRoles(['User','Admin']))
             <div class="col-sm-2">
-              <a class="btn btn-sm btn-success" href="{{ route('places.create') }}">Agregar nuevo lugar</a>
+              <a class="btn btn-outline-primary" href="{{ route('places.create') }}">Agregar lugar</a>
             </div>
           @endif
-          
+
         </div>
         <br>
 
@@ -25,7 +25,7 @@
           <tr>
             <th width = "50px"><b>ID.</b></th>
             <th>Nombre  </th>
-            <th width = "270px">Accion</th>
+            <th width = "270px">Acción</th>
           </tr>
 
           @foreach ($places as $place)
@@ -40,7 +40,7 @@
                     <a class="btn btn-sm btn-success" href="{{route('softwarebyplace.edit',$place->id)}}">Software</a>
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button> 
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
                   @endif
 
                 </form>

@@ -10,7 +10,7 @@
         <div class="btn-toolbar mb-2 mb-md-0">
           @if (auth()->user()->hasRoles(['User','Admin']))
           <div class="btn-group mr-2">
-              <a class="btn btn-sm btn-success" href="{{ route('inventory.create') }}">Agregar inventario</a>
+              <a class="btn btn-outline-primary" href="{{ route('inventory.create') }}">Agregar inventario</a>
         </div>
           @endif
         </div>
@@ -25,7 +25,6 @@
       </div>
       <br>
 
-      <h2>Section title</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm" id="inventories">
           <thead>
@@ -37,7 +36,7 @@
               <th>N° Serie</th>
               <th>Lugar</th>
               <th>Estado</th>
-              <th width = "220px">Accion</th>
+              <th width = "220px">Acción</th>
             </tr>
           </thead>
           <tbody>

@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Editar plan de mantencion</h3>
+        <h3>Editar plan de mantención</h3>
       </div>
     </div>
 
@@ -28,7 +28,7 @@
           <input type="text" name="name" class="form-control" value="{{$maintenance_plan->name}}">
         </div>
       <div class="col-md-12">
-          <strong>Descripcion :</strong>
+          <strong>Descripción :</strong>
           <textarea class="form-control" placeholder="Descripcion" name="description" rows="8" cols="80" value="{{$maintenance_plan->description}}"></textarea>
       </div>
         <div class="col-md-12">
@@ -43,7 +43,7 @@
          </div>
 
         <div class="col-md-12">
-                <strong>prioridad: </strong>
+                <strong>Prioridad: </strong>
                 <select class="form-control" name="priority_id">
                     <option selected
                             value="{{$maintenance_plan->priority->id}}">{{$maintenance_plan->priority->name}}</option>
@@ -57,11 +57,11 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <a href="{{route('maintenance_plan.index')}}" class="btn btn-sm btn-success">Atras</a>
-                <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+                <a href="{{route('maintenance_plan.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+                <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
               </div>
         </div>
-        
+
 
     </form>
   </div>

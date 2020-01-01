@@ -5,7 +5,7 @@ Maintenance Register
 @section('indice')
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Registro de mantencion</h1>
+        <h1 class="h2">Registro de mantención</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           {{-- <div class="btn-group mr-2">
                 <a class="btn btn-sm btn-success" href="{{ route('inventory.create') }}">Agregar inventario</a>
@@ -23,7 +23,7 @@ Maintenance Register
       </div>
       <br>
 
-      <h2>Section title</h2>
+
       <div class="table-responsive">
         <table class="table table-striped table-sm" id="inventories">
           <thead>
@@ -34,7 +34,7 @@ Maintenance Register
               <th>Modelo</th>
               <th>N° Serie</th>
               <th>Fecha</th>
-              <th>Tipo de Mantencion</th>
+              <th>Tipo de Mantención</th>
             </tr>
           </thead>
           <tbody>
@@ -49,7 +49,7 @@ Maintenance Register
                     <td>{{ $type->pivot->date}}</td>
                     <td>{{ $type->name }}</td>
             </tr>
-            @endforeach  
+            @endforeach
           @endforeach
         </tbody>
         </table>

@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Categoria : </strong> {{ $inventory->category->name }}
+          <strong>Categoría : </strong> {{ $inventory->category->name }}
         </div>
       </div>
       <div class="col-md-12">
@@ -21,24 +21,24 @@
       </div>
       <div class="col-md-12">
             <div class="form-group">
-              <strong>Numero de serie : </strong> {{ $inventory->serialnumber }}
+              <strong>Número de serie : </strong> {{ $inventory->serialnumber }}
             </div>
           </div>
         <div class="col-md-12">
               <div class="form-group">
-                <strong>Precio : </strong>{{ $inventory->price }} USD
+                <strong>Precio (CLP) : </strong>{{ $inventory->price }}
               </div>
             </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Observacion : </strong> {{$inventory->observation}}
+          <strong>Observación : </strong> {{$inventory->observation}}
         </div>
       </div>
       <div class="col-md-12">
-        <h3>Items asociados al {{ $inventory->category->name }}, N° serie: {{ $inventory->serialnumber }}, SKU: {{ $inventory->sku }}</h3>
+        <h3>Artículos asociados al {{ $inventory->category->name }}, N° serie: {{ $inventory->serialnumber }}, SKU: {{ $inventory->sku }}</h3>
           <table class="table table-striped table-sm">
             <thead>
-              <th>Categoria</th>
+              <th>Categoría</th>
               <th>N° de serie</th>
               <th>Modelo</th>
               <th>Marca</th>
@@ -71,7 +71,7 @@
          </div> --}}
 
       <div class="col-md-12">
-        <a href="{{route('inventory.index')}}" class="btn btn-sm btn-success">Atras</a>
+        <a href="{{route('inventory.index')}}" class="btn btn-sm btn-outline-success">Lista inventario</a>
       </div>
     </div>
   </div>

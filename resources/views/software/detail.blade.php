@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Detalle Software</h3>
+        <h3>Detalle software</h3>
         <hr>
       </div>
     </div>
@@ -16,7 +16,7 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Version : </strong> {{$software->version}}
+          <strong>Versión : </strong> {{$software->version}}
         </div>
       </div>
       <div class="col-md-12">
@@ -26,18 +26,18 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
-          <strong>Observacion : </strong> {{$software->observation}}
+          <strong>Observación : </strong> {{$software->observation}}
         </div>
       </div>
 
 
       <div class="col-md-12">
           <div class="form-group">
-            <strong>Tipo de Software : </strong>{{ $software->softwareType->name }}
+            <strong>Tipo de software : </strong>{{ $software->softwareType->name }}
           </div>
          </div>
       <div class="col-md-12">
-        <a href="{{route('software.index')}}" class="btn btn-sm btn-success">Atras</a>
+        <a href="{{route('software.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
       </div>
     </div>
   </div>

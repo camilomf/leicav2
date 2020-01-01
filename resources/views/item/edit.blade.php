@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Editar item</h3>
+        <h3>Editar artículo</h3>
       </div>
     </div>
 
@@ -24,7 +24,7 @@
       @method('PUT')
       <div class="row">
         <div class="col-md-12">
-          <strong>Numero de serie:</strong>
+          <strong>Número de serie:</strong>
           <input type="text" name="serialnumber" class="form-control" required="required" value="{{$item->serialnumber}}">
         </div>
         <div class="col-md-12">
@@ -37,7 +37,7 @@
           </div>
 
         <div class="col-md-12">
-                <strong>Tipo de categoria: </strong>
+                <strong>Tipo de categoría: </strong>
                 <select class="form-control" name="category_id">
                     <option selected
                             value="{{$item->category->id}}">{{ $item->category->name}}</option>
@@ -63,13 +63,13 @@
                    <option selected value="{{ null }}">No asignar</option>
                @else
                <option selected value="{{$item->inventory->id}}">
-                  Categoria: {{$item->inventory->category->name}} ,
+                  Categoría: {{$item->inventory->category->name}} ,
                   N° serie: {{$item->inventory->serialnumber}} ,
                   SKU: {{$item->inventory->sku}}
               </option>
                @endif
                  @foreach ($inventories as $inventory)
-                    <option value="{{$inventory->id}}">Categoria: {{$inventory->category->name}} ,
+                    <option value="{{$inventory->id}}">Categoría: {{$inventory->category->name}} ,
                     N° serie: {{ $inventory->serialnumber }} ,
                     SKU: {{ $inventory->sku }}
                     </option>
@@ -90,8 +90,8 @@
         <br>
          <div class="row">
           <div class="col-md-12">
-            <a href="{{route('items.index')}}" class="btn btn-sm btn-success">Atras</a>
-            <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+            <a href="{{route('items.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+            <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
           </div>
          </div>
 

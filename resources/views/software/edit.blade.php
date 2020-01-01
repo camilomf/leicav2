@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Editar Software</h3>
+        <h3>Editar software</h3>
       </div>
     </div>
 
@@ -28,16 +28,16 @@
           <input type="text" name="name" class="form-control" value="{{$software->name}}">
         </div>
         <div class="col-md-12">
-          <strong>Version :</strong>
+          <strong>Versión :</strong>
           <input type="text" name="version" class="form-control" placeholder="" required='required' value="{{$software->name}}">
         </div>
       <div class="col-md-12">
-          <strong>Observation :</strong>
-          <textarea class="form-control" placeholder="Descripcion" name="observation" rows="8" cols="80" value="{{$software->observation}}"></textarea>
+          <strong>Observación :</strong>
+          <textarea class="form-control"  name="observation" rows="8" cols="80" value="{{$software->observation}}"></textarea>
       </div>
       <div class="col-md-12">
-          <strong>Descripcion :</strong>
-          <textarea class="form-control" placeholder="Descripcion" name="description" rows="8" cols="80" value="{{$software->description}}"></textarea>
+          <strong>Descripción :</strong>
+          <textarea class="form-control"  name="description" rows="8" cols="80" value="{{$software->description}}"></textarea>
       </div>
 
         <div class="col-md-12">
@@ -54,8 +54,8 @@
         <br>
          <div class="row">
             <div class="col-md-12">
-                <a href="{{route('software.index')}}" class="btn btn-sm btn-success">Atras</a>
-                <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+                <a href="{{route('software.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+                <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
               </div>
          </div>
          <br>

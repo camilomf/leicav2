@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Editar Categoria</h3>
+        <h3>Editar categoría</h3>
       </div>
     </div>
 
@@ -28,7 +28,7 @@
           <input type="text" name="name" class="form-control" value="{{$category->name}}">
         </div>
         <div class="col-md-12">
-                <strong>Tipo de categoria: </strong>
+                <strong>Tipo de producto: </strong>
                 <select class="form-control" name="assets_id">
                     <option selected
                             value="{{$category->assets->id}}">{{$category->assets->name}}</option>
@@ -41,8 +41,8 @@
         <br>
          <div class="row">
           <div class="col-md-12">
-            <a href="{{route('category.index')}}" class="btn btn-sm btn-success">Atras</a>
-            <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+            <a href="{{route('category.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+            <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
           </div>
          </div>
 

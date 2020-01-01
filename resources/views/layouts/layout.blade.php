@@ -21,7 +21,7 @@
                         <img src="{{ asset('/img/leica.png') }}" width="50px" height="50px">
                         <ul class="nav nav-pills">
                             <li class="nav-item "><a class="nav-link {{ setActive('home') }}  " href="{{ route('home') }}">Home</a></li>
-                            <li class="nav-item "><a class="nav-link {{ setActive('maintenance') }} " href="{{ route('maintenance') }}">Mantencion</a></li>
+                            <li class="nav-item "><a class="nav-link {{ setActive('maintenance') }} " href="{{ route('maintenance') }}">Mantención</a></li>
                             <li class="nav-item "><a class="nav-link {{ setActive('inventory.index') }} " href="{{ route('inventory.index') }}">Inventario</a></li>
                             <li class="nav-item "><a class="nav-link {{ setActive('lendings') }} " href="{{ route('lendings') }}">Prestamos</a></li>
                             @if (auth()->user()->hasRoles(['Chief','Admin']))

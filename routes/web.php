@@ -93,11 +93,6 @@ Route::get('/home/software_by_study_plan',function(){
 })->name('softwarebystudy_plan')->middleware('auth');
 
 
-
-
-
-
-
 Route::get('/home/lendings', function(){
     $inventories = App\Inventory::all();
     return view('lendings',compact('inventories'));

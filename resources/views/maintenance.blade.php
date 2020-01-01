@@ -5,7 +5,7 @@ Mantencion
 @section('indice')
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Mantencion</h1>
+        <h1 class="h2">Mantención</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           {{-- <div class="btn-group mr-2">
                 <a class="btn btn-sm btn-success" href="{{ route('inventory.create') }}">Agregar inventario</a>
@@ -23,7 +23,7 @@ Mantencion
       </div>
       <br>
 
-      <h2>Asignar mantencion al inventario</h2>
+      <h2>Asignar mantención al inventario</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm" id="inventories">
           <thead>
@@ -36,7 +36,7 @@ Mantencion
               <th>Lugar</th>
               <th>Estado</th>
               @if (auth()->user()->hasRoles(['User','Admin']))
-              <th width = "80px">Accion</th>
+              <th width = "80px">Acción</th>
               @endif
             </tr>
           </thead>
@@ -62,7 +62,7 @@ Mantencion
                   </form>
                 </td>
               @endif
-              
+
             </tr>
           @endforeach
         </tbody>

@@ -45,7 +45,7 @@
             <strong>Modelo: </strong>
             <select class="form-control" name="modelo_id">
                 @foreach ($modelos as $modelo)
-                    <option value="{{$modelo->id}}">{{$modelo->name}}</option>
+                    <option value="{{$modelo->id}}">{{ $modelo->trademark->name }} {{$modelo->name}}</option>
                 @endforeach
             </select>
         </div>
@@ -53,7 +53,7 @@
             <strong>Inventario: </strong>
             <select class="form-control" name="inventory_id">
                 @foreach ($inventories as $inventory)
-                    <option value="{{$inventory->id}}">categoria: {{ $inventory->category->name }} ,sku: {{ $inventory->sku }} ,N° serie: {{ $inventory->serialnumber }}</option>
+                    <option value="{{$inventory->id}}">{{ $inventory->category->name }} ,sku: {{ $inventory->sku }} ,N° serie: {{ $inventory->serialnumber }}</option>
                 @endforeach
                 <option value={{ null }}>No asignar</option>
             </select>
@@ -66,7 +66,7 @@
           <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
         </div>
       </div>
-        
+
     </form>
 
   </div>
