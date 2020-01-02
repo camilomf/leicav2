@@ -22,6 +22,7 @@
           <tr>
             <th width = "50px"><b>ID.</b></th>
             <th>Nombre</th>
+            <th>Marca</th>
             <th width = "220px">Acción</th>
           </tr>
 
@@ -29,6 +30,7 @@
             <tr>
               <td><b>{{ $id++ }}.</b></td>
               <td>{{ $model->name}}</td>
+              <td>{{ $model->trademark->name}}</td>
               <td>
                 <form action="{{ route('model.destroy', $model->id) }}" method="post">
                   <a class="btn btn-sm btn-info" href="{{route('model.show',$model->id)}}">Detalle</a>

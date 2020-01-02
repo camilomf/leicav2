@@ -59,7 +59,9 @@
                   <td>
                     <form action="{{ route('inventory.destroy', $inventory->id) }}" method="post">
                       <a class="btn btn-sm btn-info" href="{{route('inventory.show',$inventory->id)}}">Detalle</a>
+                      @if (auth()->user()->hasRoles(['User','Admin']))
                       <a class="btn btn-sm btn-warning" href="{{route('inventory.edit',$inventory->id)}}">Editar</a>
+                      @endif
                       @csrf
                       {{-- @method('DELETE')
                       <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button> --}}

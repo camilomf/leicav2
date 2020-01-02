@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Registrar Mantencion</h3>
+        <h3>Registrar Mantención</h3>
       </div>
     </div>
 
@@ -27,17 +27,20 @@
           <input type="text" name="inventory_id" value="{{ $inventory->id }}" hidden="hidden">
         </div> --}}
       <div class="col-md-12">
-        <strong>Tipo de mantencion: </strong>
+        <strong>Tipo de mantención: </strong>
         <select class="form-control" name="maintenance_type_id">
             @foreach ($maintenance_types as $maintenance_type)
                 <option value="{{$maintenance_type->id}}">{{$maintenance_type->name}}</option>
             @endforeach
         </select>
         </div>
+        <div>
+            <br>
+        </div>
 
         <div class="col-md-12">
-          <a href="{{route('maintenance_register.index')}}" class="btn btn-sm btn-success">Atras</a>
-          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+          <a href="{{route('maintenance_register.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+          <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
         </div>
       </div>
     </form>
