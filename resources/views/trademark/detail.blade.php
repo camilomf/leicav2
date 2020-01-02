@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Detalle Marca</h3>
+        <h3>Detalle marca</h3>
         <hr>
       </div>
     </div>
@@ -16,7 +16,7 @@
       </div>
       <div class="col-md-12">
             <div class="form-group">
-              <strong>Modelos Asociados : </strong>
+              <strong>Modelos asociados : </strong>
               <table class="table table-hover table-sm">
                     @foreach ($trademark->model as $models)
                     <tr>
@@ -27,7 +27,7 @@
             </div>
           </div>
       <div class="col-md-12">
-        <a href="{{route('trademark.index')}}" class="btn btn-sm btn-success">Atras</a>
+        <a href="{{route('trademark.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
       </div>
     </div>
   </div>

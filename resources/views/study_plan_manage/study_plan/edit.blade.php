@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Editar Plan de estudio</h3>
+        <h3>Editar plan de estudio</h3>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
 
         </div>
         <div class="col-md-12">
-            <strong>Fecha de termino :</strong>
+            <strong>Fecha de término :</strong>
             <input type="date" name="date_end" class="form-control" value="{{$study_plan->date_end}}">
         </div>
             <div class="col-md-12">
@@ -46,8 +46,8 @@
                     </select>
              </div>
         <div class="col-md-12">
-          <a href="{{route('plan.index')}}" class="btn btn-sm btn-success">Atras</a>
-          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+          <a href="{{route('plan.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+          <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
         </div>
       </div>
     </form>

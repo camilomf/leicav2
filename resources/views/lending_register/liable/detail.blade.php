@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-  <div class="container">
+  {{-- <div class="container">
     <div class="row">
       <div class="col-md-12">
         <h3>Detail Carrera</h3>
@@ -34,5 +34,5 @@
         <a href="{{route('career.index')}}" class="btn btn-sm btn-success">Atras</a>
       </div>
     </div>
-  </div>
+  </div> --}}
 @endsection

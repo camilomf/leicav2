@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Agregar Plan de estudio</h3>
+        <h3>Agregar plan de estudio</h3>
       </div>
     </div>
 
@@ -30,7 +30,7 @@
           <input type="date" name="date_start" class="form-control" required="required">
         </div>
         <div class="col-md-12">
-          <strong>Fecha de termino :</strong>
+          <strong>Fecha de término :</strong>
           <input type="date" name="date_end" class="form-control" required="required">
         </div>
 
@@ -46,8 +46,8 @@
       <br>
       <div class="row">
             <div class="col-md-12">
-                    <a href="{{route('career.index')}}" class="btn btn-sm btn-success">Volvar al indice</a>
-                    <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+                    <a href="{{route('career.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+                    <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
             </div>
       </div>
     </form>

@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Agregar Usuario</h3>
+        <h3>Agregar usuario</h3>
       </div>
     </div>
 
@@ -27,7 +27,7 @@
           <input type="text" name="name" class="form-control" placeholder="Nombre">
         </div>
         <div class="col-md-12">
-            <strong>Correo electronico :</strong>
+            <strong>Correo electrónico :</strong>
             <input type="mail" name="email" class="form-control" placeholder="email">
           </div>
               <div class="col-md-12">
@@ -57,8 +57,8 @@
       <br>
         <div class="row">
           <div class="col-md-12">
-            <a href="{{route('users.index')}}" class="btn btn-sm btn-success">Volvar al indice</a>
-            <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+            <a href="{{route('users.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+            <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
           </div>
         </div>
 

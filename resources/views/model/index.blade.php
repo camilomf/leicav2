@@ -7,7 +7,7 @@
             <h3>Lista de modelos</h3>
           </div>
           <div class="col-sm-2">
-            <a class="btn btn-sm btn-success" href="{{ route('model.create') }}">Agregar modelo</a>
+            <a class="btn btn-outline-primary" href="{{ route('model.create') }}">Agregar modelo</a>
           </div>
         </div>
         <br>
@@ -22,7 +22,7 @@
           <tr>
             <th width = "50px"><b>ID.</b></th>
             <th>Nombre</th>
-            <th width = "220px">Accion</th>
+            <th width = "220px">Acción</th>
           </tr>
 
           @foreach ($models as $model)
@@ -31,11 +31,11 @@
               <td>{{ $model->name}}</td>
               <td>
                 <form action="{{ route('model.destroy', $model->id) }}" method="post">
-                  <a class="btn btn-sm btn-success" href="{{route('model.show',$model->id)}}">Detalle</a>
+                  <a class="btn btn-sm btn-info" href="{{route('model.show',$model->id)}}">Detalle</a>
                   <a class="btn btn-sm btn-warning" href="{{route('model.edit',$model->id)}}">Editar</a>
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
                 </form>
               </td>
             </tr>

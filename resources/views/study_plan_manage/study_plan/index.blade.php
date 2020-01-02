@@ -4,10 +4,10 @@
 <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h3>Lista de Planes de estudio</h3>
+            <h3>Lista de planes de estudio</h3>
           </div>
           <div class="col-sm-2">
-            <a class="btn btn-primary" href="{{ route('plan.create') }}">Agregar plan de estudio</a>
+            <a class="btn btn-outline-primary" href="{{ route('plan.create') }}">Agregar plan de estudio</a>
           </div>
         </div>
         <br>
@@ -21,7 +21,7 @@
           <tr>
             <th width = "50px"><b>ID.</b></th>
             <th>Nombre</th>
-            <th width = "270px">Accion</th>
+            <th width = "270px">Acción</th>
           </tr>
 
           @foreach ($study_plans as $study_plan)

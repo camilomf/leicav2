@@ -23,7 +23,7 @@
       @csrf
       @method('PUT')
       <div class="row">
-          @csrf            
+          @csrf
         <div class="col-md-12">
           <strong>Contraseña :</strong>
           <input type="password" name="password" value="{{ null }}" required="required" class="form-control" minlength="10" autocomplete="new-password">
@@ -32,18 +32,18 @@
           <strong>Confirmar contraseña :</strong>
         <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
       </div>  --}}
-    </div>  
- 
+    </div>
+
   <br>
   <div class="row">
       <div class="col-md-12">
-          <a href="{{route('users.index')}}" class="btn btn-sm btn-success">Atras</a>
-          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+          <a href="{{route('users.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+          <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
           {{-- <button type="submit" class="btn btn-primary">
               {{ __('Register') }}
           </button> --}}
     </div>
   </div>
 </form>
-  
+
 @endsection

@@ -4,10 +4,11 @@
 <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h3>Lista de Usuarios</h3>
+            <h3>Lista de usuarios</h3>
+            <br>
           </div>
           <div class="col-sm-2">
-            <a class="btn btn-sm btn-success" href="{{ route('users.create') }}">Agregar nuevo usuario</a>
+            <a class="btn btn-outline-primary" href="{{ route('users.create') }}">Agregar usuario</a>
           </div>
         </div>
 
@@ -22,8 +23,8 @@
             <th width = "50px"><b>ID.</b></th>
             <th width = "300px">Nombre</th>
             <th width = "300px">Rol</th>
-            <th>email</th>
-            <th width = "265px">Accion</th>
+            <th>e-mail</th>
+            <th width = "265px">Acción</th>
           </tr>
 
           @foreach ($users as $user)
@@ -35,12 +36,12 @@
               <td>
                 <form action="{{ route('users.destroy', $user->id) }}" method="post">
                   <a class="btn btn-sm btn-warning" href="{{route('users.edit',$user->id)}}">Editar</a>
-                  <a class="btn btn-sm btn-outline-info" href="{{route('users.editPassword',$user->id)}}">Cambiar contraseña</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="{{route('users.editPassword',$user->id)}}">Cambiar contraseña</a>
                   @csrf
                   @method('DELETE')
                   @if ($user->id!=1 && auth()->user()->id != $user->id )
                     <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>
-                  @endif 
+                  @endif
                 </form>
               </td>
             </tr>

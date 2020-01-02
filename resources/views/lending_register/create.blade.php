@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Registrar Prestamo</h3>
+        <h3>Registrar préstamo</h3>
       </div>
     </div>
 
@@ -39,9 +39,9 @@
         <br>
         <div class="row">
         <div class="col-md-12">
-            <a href="{{route('liable.create', ['id' => $inventory->id])}}" class="btn btn-sm btn-success">Agregar nuevo responsable</a>
-          <a href="{{route('lendings')}}" class="btn btn-sm btn-success">Atras</a>
-          <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+            <a href="{{route('liable.create', ['id' => $inventory->id])}}" class="btn btn-sm btn-outline-secondary">Agregar nuevo responsable</a>
+          <a href="{{route('lendings')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+          <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
         </div>
     </form>
   </div>

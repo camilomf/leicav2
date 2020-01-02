@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Agregar Carrera</h3>
+        <h3>Agregar carrera</h3>
       </div>
     </div>
 
@@ -26,15 +26,15 @@
           <input type="text" name="name" class="form-control" placeholder="Nombre" required="required">
         </div>
         <div class="col-md-12">
-          <strong>Descripcion :</strong>
+          <strong>Descripción :</strong>
           <textarea class="form-control" placeholder="Descripcion" name="description" rows="8" cols="80"></textarea>
         </div>
       </div>
       <br>
         <div class="row">
             <div class="col-md-12">
-                <a href="{{route('career.index')}}" class="btn btn-sm btn-success">Volvar al indice</a>
-                <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+                <a href="{{route('career.index')}}" class="btn btn-sm btn-outline-success">Atrás</a>
+                <button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button>
               </div>
         </div>
 
