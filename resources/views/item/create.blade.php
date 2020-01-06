@@ -26,7 +26,7 @@
           <input type="text" name="serialnumber" class="form-control" required="required" placeholder="ingresar">
         </div>
         <div class="col-md-12">
-            <strong>Precio (USD) :</strong>
+            <strong>Precio (CLP) :</strong>
             <input type="number" name="price" class="form-control" placeholder="ingresar">
         </div>
         <div class="col-md-12">
