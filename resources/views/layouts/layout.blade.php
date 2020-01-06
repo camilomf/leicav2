@@ -18,6 +18,7 @@
             <header>
                 {{-- <script src="{{ asset('/js/app.js') }}" defer></script> --}}
                 <nav class="navbar bg-white shadow-sm" >
+                {{-- <nav class="navbar navbar-light" style="background-color: #ff0000;" > --}}
                         <img src="{{ asset('/img/leica.png') }}" width="50px" height="50px">
                         <ul class="nav nav-pills">
                             <li class="nav-item "><a class="nav-link {{ setActive('home') }}  " href="{{ route('home') }}">Home</a></li>
