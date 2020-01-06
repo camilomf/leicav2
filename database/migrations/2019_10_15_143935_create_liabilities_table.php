@@ -15,7 +15,7 @@ class CreateLiabilitiesTable extends Migration
     {
         Schema::create('liabilities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }

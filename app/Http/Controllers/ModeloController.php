@@ -49,7 +49,7 @@ class ModeloController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:modelos',
           ]);
 
           $model = new Modelo();
@@ -98,11 +98,11 @@ class ModeloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-          ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //   ]);
           $model = Modelo::find($id);
-          $model->name = $request->get('name');
+        //   $model->name = $request->get('name');
           $model->trademark_id = $request->get('trademark_id');
           $model->save();
           return redirect()->route('model.index')

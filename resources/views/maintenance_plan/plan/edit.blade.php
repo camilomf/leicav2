@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Editar plan de mantención</h3>
+        <h3>Editar plan de mantención {{ $maintenance_plan->name }}</h3>
       </div>
     </div>
 
@@ -12,7 +12,7 @@
       <div class="alert alert-danger">
         <strong>Whoops! </strong> Hay problemas con tus entradas.<br>
         <ul>
-          @foreach ($errors as $error)
+          @foreach ($errors->all() as $error)
             <li>{{$error}}</li>
           @endforeach
         </ul>
@@ -23,10 +23,10 @@
       @csrf
       @method('PUT')
       <div class="row">
-        <div class="col-md-12">
+        {{-- <div class="col-md-12">
           <strong>Nombre :</strong>
           <input type="text" name="name" class="form-control" value="{{$maintenance_plan->name}}">
-        </div>
+        </div> --}}
       <div class="col-md-12">
           <strong>Descripción :</strong>
           <textarea class="form-control" placeholder="Descripcion" name="description" rows="8" cols="80" value="{{$maintenance_plan->description}}"></textarea>

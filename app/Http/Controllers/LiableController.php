@@ -42,7 +42,7 @@ class LiableController extends Controller
     public function store(Request $request,$id)
     {
         $request->validate([
-            'rut' => 'required',
+            'rut' => 'required|unique:liables',
             'name' => 'required',
             'apePat' => 'required',
             'apeMat' => 'required',

@@ -29,7 +29,7 @@
         <table class="table table-striped table-sm" id="inventories">
           <thead>
             <tr>
-              <th width = "130px">Tipo</th>
+              <th width = "130px">Categoría</th>
               <th>SKU</th>
               <th>Marca</th>
               <th>Modelo</th>

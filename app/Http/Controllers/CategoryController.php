@@ -50,7 +50,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:categories',
           ]);
 
 
@@ -98,11 +98,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-          ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //   ]);
           $category = category::find($id);
-          $category->name = $request->get('name');
+        //   $category->name = $request->get('name');
           $category->assets_id = $request->get('assets_id');
           $category->save();
           return redirect()->route('category.index')

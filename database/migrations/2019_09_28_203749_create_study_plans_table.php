@@ -15,7 +15,7 @@ class CreateStudyPlansTable extends Migration
     {
         Schema::create('study_plans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->date('date_start');
             $table->date('date_end');
             $table->unsignedBigInteger('career_id')->nullable();

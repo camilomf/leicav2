@@ -50,7 +50,7 @@ class UsersController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:users',
             'password' => 'required',
             // 'Password' == 'password_confirmation'
           ]);
@@ -109,11 +109,11 @@ class UsersController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            // 'email' => 'required',
           ]);
           $user = User::find($id);
           $user->name = $request->get('name');
-          $user->email = $request->get('email');
+        //   $user->email = $request->get('email');
           $user->role_id = $request->get('role_id');
           $user->save();
           return redirect()->route('users.index')

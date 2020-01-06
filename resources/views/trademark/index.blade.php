@@ -22,7 +22,7 @@
           <tr>
             <th width = "50px"><b>ID.</b></th>
             <th>Nombre</th>
-            <th width = "220px">Acción</th>
+            <th width = "180px">Acción</th>
           </tr>
 
           @foreach ($trademarks as $trademark)
@@ -32,7 +32,7 @@
               <td>
                 <form action="{{ route('trademark.destroy', $trademark->id) }}" method="post">
                   <a class="btn btn-sm btn-info" href="{{route('trademark.show',$trademark->id)}}">Detalle</a>
-                  <a class="btn btn-sm btn-warning" href="{{route('trademark.edit',$trademark->id)}}">Editar</a>
+                  {{-- <a class="btn btn-sm btn-warning" href="{{route('trademark.edit',$trademark->id)}}">Editar</a> --}}
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>

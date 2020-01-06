@@ -50,7 +50,7 @@ class MaintenancePlanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:maintenance_plans',
           ]);
 
           $maintenance_plan = new MaintenancePlan();

@@ -22,13 +22,15 @@
           <tr>
             <th width = "50px"><b>ID.</b></th>
             <th>Nombre</th>
+            <th>Versión</th>
             <th width = "220px">Acción</th>
           </tr>
 
           @foreach ($softwares as $software)
             <tr>
               <td><b>{{ $software->id }}.</b></td>
-              <td>{{ $software->name}}, {{ $software->version }}</td>
+              <td>{{ $software->name}}</td>
+              <td>{{ $software->version }}</td>
               <td>
                 <form action="{{ route('software.destroy', $software->id) }}" method="post">
                   <a class="btn btn-sm btn-info" href="{{route('software.show',$software->id)}}">Detalle</a>

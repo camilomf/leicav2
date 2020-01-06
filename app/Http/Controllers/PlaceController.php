@@ -40,8 +40,7 @@ class PlaceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'description' => 'required'
+            'name' => 'required|unique:places',
           ]);
 
           Place::create($request->all());
@@ -82,12 +81,12 @@ class PlaceController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required'
-          ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'description' => 'required'
+        //   ]);
           $place = Place::find($id);
-          $place->name = $request->get('name');
+        //   $place->name = $request->get('name');
           $place->description = $request->get('description');
           $place->save();
           return redirect()->route('places.index')

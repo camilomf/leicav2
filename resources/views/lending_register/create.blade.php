@@ -12,7 +12,7 @@
       <div class="alert alert-danger">
         <strong>Whoops! </strong> Hay problemas con tus entradas.<br>
         <ul>
-          @foreach ($errors as $error)
+          @foreach ($errors->all() as $error)
             <li>{{$error}}</li>
           @endforeach
         </ul>
@@ -27,7 +27,7 @@
           <strong>Responsable: </strong>
           <select class="form-control" name="liable_id">
               @foreach ($liables as $liable)
-                  <option value="{{$liable->id}}">{{$liable->name}}</option>
+                  <option value="{{$liable->id}}">{{$liable->name}}, RUT: {{ $liable->rut }}</option>
               @endforeach
           </select>
           </div>

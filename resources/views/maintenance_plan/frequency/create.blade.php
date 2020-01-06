@@ -12,7 +12,7 @@
       <div class="alert alert-danger">
         <strong>Whoops! </strong> Hay problemas con tus entradas.<br>
         <ul>
-          @foreach ($errors as $error)
+          @foreach ($errors->all() as $error)
             <li>{{$error}}</li>
           @endforeach
         </ul>

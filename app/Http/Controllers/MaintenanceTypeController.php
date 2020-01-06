@@ -47,7 +47,7 @@ class MaintenanceTypeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:maintenance_types',
           ]);
 
           MaintenanceType::create($request->all());
@@ -88,11 +88,11 @@ class MaintenanceTypeController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $request->validate([
-            'name' => 'required',
-          ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //   ]);
           $maintenance_type = MaintenanceType::find($id);
-          $maintenance_type->name = $request->get('name');
+        //   $maintenance_type->name = $request->get('name');
           $maintenance_type->description = $request->get('description');
           $maintenance_type->save();
           return redirect()->route('maintenance_type.index')

@@ -12,7 +12,7 @@
     <div class="alert alert-danger">
       <strong>Whoops! </strong> Hay problemas con tus entradas.<br>
       <ul>
-        @foreach ($errors as $error)
+        @foreach ($errors->all() as $error)
           <li>{{$error}}</li>
         @endforeach
       </ul>
@@ -27,10 +27,10 @@
         <strong>Nombre :</strong>
         <input type="text" name="name" class="form-control" value="{{$user->name}}" required="required">
       </div>
-      <div class="col-md-12">
+      {{-- <div class="col-md-12">
         <strong>Correo electrónico :</strong>
         <input type="email" name="email" class="form-control" value="{{$user->email}}" required="required">
-      </div>
+      </div> --}}
       <div class="col-md-12">
         @if ($user->id!=1)
         <strong>Rol de usuario: </strong>

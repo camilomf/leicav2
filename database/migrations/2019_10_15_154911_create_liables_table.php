@@ -16,7 +16,7 @@ class CreateLiablesTable extends Migration
         Schema::create('liables', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('rut');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('apePat');
             $table->string('apeMat');
             $table->unsignedBigInteger('liability_id')->nullable();

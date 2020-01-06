@@ -49,7 +49,7 @@ class CareerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:careers',
           ]);
 
           career::create($request->all());

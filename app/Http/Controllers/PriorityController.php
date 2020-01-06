@@ -49,7 +49,7 @@ class PriorityController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:priorities',
           ]);
 
           Priority::create($request->all());
@@ -90,11 +90,11 @@ class PriorityController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $request->validate([
-            'name' => 'required',
-          ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //   ]);
           $priority = Priority::find($id);
-          $priority->name = $request->get('name');
+        //   $priority->name = $request->get('name');
           $priority->description = $request->get('description');
           $priority->save();
           return redirect()->route('priority.index')

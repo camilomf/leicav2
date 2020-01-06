@@ -1,7 +1,7 @@
 @extends('layouts.inventario')
 
 @section('indice')
-  <div class="container">
+  {{-- <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <h3>Editar marca</h3>
@@ -38,5 +38,5 @@
 
 
     </form>
-  </div>
+  </div> --}}
 @endsection

@@ -47,7 +47,7 @@ class StudyPlanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:study_plans',
             'date_start' => 'required',
             'date_end' => 'required',
           ]);
@@ -103,12 +103,12 @@ class StudyPlanController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required',
+            // 'name' => 'required',
             'date_start' => 'required',
             'date_end' => 'required'
           ]);
           $study_plan = StudyPlan::find($id);
-          $study_plan->name = $request->get('name');
+        //   $study_plan->name = $request->get('name');
           $study_plan->date_start = $request->get('date_start');
           $study_plan->date_end = $request->get('date_end');
           $study_plan->career_id = $request->get('career_id');

@@ -28,22 +28,21 @@ Maintenance Register
         <table class="table table-striped table-sm" id="inventories">
           <thead>
             <tr>
-              <th>ID</th>
-              <th width = "130px">Tipo</th>
+              <th width = "130px">Categoría</th>
               <th>SKU</th>
               <th>Modelo</th>
               <th>N° Serie</th>
               <th>Fecha de prestamo</th>
               <th>Cuando debe devolver</th>
               <th>Cuando fue devuelto</th>
-              <th>responsable</th>
+              <th>responsable rut</th>
             </tr>
           </thead>
           <tbody>
           @foreach ($inventories as $inventory)
             @foreach ($inventory->inventoryByLiable as $byLiable)
             <tr>
-                    <td>{{ $byLiable->pivot->id }}</td>
+                    {{-- <td>{{ $byLiable->pivot->id }}</td> --}}
                     <td>{{ $inventory->category->name}}</td>
                     <td>{{ $inventory->sku }}</td>
                     <td>{{ $inventory->modelo->name}}</td>
@@ -55,7 +54,7 @@ Maintenance Register
                     @else
                       <td>{{ $byLiable->pivot->updated_at}}</td>
                     @endif
-                    <td>{{ $byLiable->name }} {{ $byLiable->apePat }} {{ $byLiable->apeMat }}</td>
+                    <td>{{ $byLiable->rut }}</td>
                   </tr>
             @endforeach
           @endforeach

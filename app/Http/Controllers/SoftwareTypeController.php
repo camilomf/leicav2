@@ -47,7 +47,7 @@ class SoftwareTypeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:software_types',
           ]);
 
           SoftwareType::create($request->all());
@@ -88,12 +88,12 @@ class SoftwareTypeController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required'
-          ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'description' => 'required'
+        //   ]);
           $software_type = SoftwareType::find($id);
-          $software_type->name = $request->get('name');
+        //   $software_type->name = $request->get('name');
           $software_type->description = $request->get('description');
           $software_type->save();
           return redirect()->route('software_type.index')

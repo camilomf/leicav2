@@ -48,7 +48,7 @@ class TrademarkController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:trademarks',
           ]);
 
           Trademark::create($request->all());
@@ -89,11 +89,11 @@ class TrademarkController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $request->validate([
-            'name' => 'required',
-          ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //   ]);
           $trademark = Trademark::find($id);
-          $trademark->name = $request->get('name');
+        //   $trademark->name = $request->get('name');
           $trademark->save();
           return redirect()->route('trademark.index')
                           ->with('success', 'Marca actualizada exitosamente');

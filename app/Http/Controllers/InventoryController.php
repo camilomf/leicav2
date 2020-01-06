@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Inventory;
 use App\Modelo;
+use Validator;
 use DB;
 use Illuminate\Http\Request;
 use App\Item;
@@ -50,9 +51,10 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
-            'serialnumber' => 'required',
-            'sku' => 'required',
+            'serialnumber' => 'required|unique:inventories',
+            'sku' => 'required|unique:inventories',
           ]);
 
           $inventory = new Inventory();
@@ -110,14 +112,14 @@ class InventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'serialnumber' => 'required',
-            'sku' => 'required',
-          ]);
+        // $request->validate([
+        //     'serialnumber' => 'required|unique:inventories',
+        //     'sku' => 'required|unique:inventories',
+        //   ]);
 
           $inventory = Inventory::find($id);
-          $inventory->serialnumber = $request->get('serialnumber');
-          $inventory->sku = $request->get('sku');
+        //   $inventory->serialnumber = $request->get('serialnumber');
+        //   $inventory->sku = $request->get('sku');
           $inventory->price = $request->get('price');
           $inventory->observation = $request->get('observation');
           $inventory->place_id = $request->get('place_id');
