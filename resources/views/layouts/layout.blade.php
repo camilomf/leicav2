@@ -24,7 +24,7 @@
                             <li class="nav-item "><a class="nav-link {{ setActive('home') }}  " style="color: #ffffff;" href="{{ route('home') }}">Home</a></li>
                             <li class="nav-item "><a class="nav-link {{ setActive('maintenance') }} " style="color: #ffffff;" href="{{ route('maintenance') }}">Mantención</a></li>
                             <li class="nav-item "><a class="nav-link {{ setActive('inventory.index') }} " style="color: #ffffff;" href="{{ route('inventory.index') }}">Inventario</a></li>
-                            <li class="nav-item "><a class="nav-link {{ setActive('lendings') }} " style="color: #ffffff;" href="{{ route('lendings') }}">Prestamos</a></li>
+                            <li class="nav-item "><a class="nav-link {{ setActive('lendings') }}" style="color: #ffffff;" href="{{ route('lendings') }}">Prestamos</a></li>
                             @if (auth()->user()->hasRoles(['Chief','Admin']))
                              <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" style="color: #ffffff;" href="#" id="dropdown06" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plan de Estudio</a>

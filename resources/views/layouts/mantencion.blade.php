@@ -12,10 +12,9 @@
                         Mantención
                     </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="{{ route('maintenance_register.index') }}">
-                    <span data-feather="home"></span>
-                    Registro Mantención <span class="sr-only">(current)</span>
+                <li class="nav-item" >
+                  <a class="nav-link" href="{{ route('maintenance_register.index') }}">
+                    Registro Mantención
                   </a>
                 </li>
                 @if (auth()->user()->hasRoles(['User','Admin']))
