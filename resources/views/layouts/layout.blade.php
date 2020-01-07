@@ -21,13 +21,13 @@
                 <nav class="navbar navbar-light" style="background-color: #ff0000;" >
                         <img src="{{ asset('/img/leica.png') }}" width="50px" height="50px">
                         <ul class="nav nav-pills">
-                            <li class="nav-item "><a class="nav-link {{ setActive('home') }}  " style="color: #ffffff;" href="{{ route('home') }}">Home</a></li>
-                            <li class="nav-item "><a class="nav-link {{ setActive('maintenance') }} " style="color: #ffffff;" href="{{ route('maintenance') }}">Mantención</a></li>
-                            <li class="nav-item "><a class="nav-link {{ setActive('inventory.index') }} " style="color: #ffffff;" href="{{ route('inventory.index') }}">Inventario</a></li>
-                            <li class="nav-item "><a class="nav-link {{ setActive('lendings') }}" style="color: #ffffff;" href="{{ route('lendings') }}">Prestamos</a></li>
+                            <li class="nav-item "><a class="nav-link {{ setActive('home') }} text-uppercase" style="color: #ffffff;" href="{{ route('home') }}">Home</a></li>
+                            <li class="nav-item "><a class="nav-link {{ setActive('maintenance') }} text-uppercase " style="color: #ffffff;" href="{{ route('maintenance') }}">Mantención</a></li>
+                            <li class="nav-item "><a class="nav-link {{ setActive('inventory.index')}} text-uppercase " style="color: #ffffff;" href="{{ route('inventory.index') }}">Inventario</a></li>
+                            <li class="nav-item "><a class="nav-link {{ setActive('lendings') }} text-uppercase " style="color: #ffffff;" href="{{ route('lendings') }}">Prestamos</a></li>
                             @if (auth()->user()->hasRoles(['Chief','Admin']))
                              <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" style="color: #ffffff;" href="#" id="dropdown06" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plan de Estudio</a>
+                                    <a class="nav-link dropdown-toggle text-uppercase" style="color: #ffffff;" href="#" id="dropdown06" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plan de Estudio</a>
                                     <div class="dropdown-menu" aria-labelledby="dropdown06">
                                       <a class="dropdown-item" href="{{ route('plan.index') }}">Plan de estudio</a>
 
@@ -40,11 +40,11 @@
 
                             {{-- <li class="nav-item "><a class="nav-link {{ setActive('study_plan_manage') }} " href="{{ route('study_plan_manage') }}">Plan de estudios</a></li> --}}
                             @if (auth()->user()->hasRoles(['Admin']))
-                                <li class="nav-item "><a class="nav-link {{ setActive('users.index') }} " style="color: #ffffff;" href="{{ route('users.index') }}">Usuarios</a></li>
+                                <li class="nav-item "><a class="nav-link {{ setActive('users.index') }} text-uppercase" style="color: #ffffff;" href="{{ route('users.index') }}">Usuarios</a></li>
                             @endif
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" style="color: #ffffff;" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->email }}</a>
+                                <a class="nav-link dropdown-toggle text-uppercase" style="color: #ffffff;" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->email }}</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown07">
                                     <a class="dropdown-item" href="#" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">Salir</a>
