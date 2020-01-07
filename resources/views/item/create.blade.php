@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3>Agregar item</h3>
+        <h3>Agregar artículo</h3>
       </div>
     </div>
 

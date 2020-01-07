@@ -13,7 +13,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="{{ route('maintenance_register.index') }}">
+                  <a class="nav-link " href="{{ route('maintenance_register.index') }}">
                     <span data-feather="home"></span>
                     Registro Mantención <span class="sr-only">(current)</span>
                   </a>
