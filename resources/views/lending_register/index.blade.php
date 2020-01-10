@@ -23,7 +23,6 @@ Maintenance Register
       </div>
       <br>
 
-      <h2>Section title</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm" id="inventories">
           <thead>
